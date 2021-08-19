@@ -1,4 +1,4 @@
-package com.example.volunteer;
+package com.example.volunteer.Models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

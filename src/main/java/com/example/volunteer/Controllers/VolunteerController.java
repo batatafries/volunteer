@@ -1,4 +1,4 @@
-package com.example.volunteer;
+package com.example.volunteer.Controllers;
 
 import org.springframework.stereotype.Controller;
 
