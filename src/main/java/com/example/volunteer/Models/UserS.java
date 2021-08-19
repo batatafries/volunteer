@@ -21,6 +21,12 @@ public class UserS implements UserDetails {
 
     public UserS(){}
 
+    public UserS(String username, String password) {
+        this.username = username;
+        this.password = password;
+
+    }
+
     public UserS(String username, String password, String firstName, String lastName, String bio, String birthOfDate) {
         this.username = username;
         this.password = password;

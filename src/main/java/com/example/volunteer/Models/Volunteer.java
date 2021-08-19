@@ -16,7 +16,7 @@ public class Volunteer implements UserDetails {
 
     private String firstName;
     private String lastName;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String bio;
     private String username;
     private String password;
@@ -31,7 +31,7 @@ public class Volunteer implements UserDetails {
 
     public Volunteer() {
     }
-    public Volunteer(String firstName, String lastName, Date dateOfBirth, String bio, String username, String password) {
+    public Volunteer(String firstName, String lastName, String dateOfBirth, String bio, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -56,11 +56,11 @@ public class Volunteer implements UserDetails {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
