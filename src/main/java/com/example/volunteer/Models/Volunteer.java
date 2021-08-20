@@ -3,12 +3,10 @@ package com.example.volunteer.Models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
+import java.util.*;
 
 
 @Entity
@@ -21,6 +19,18 @@ public class Volunteer implements UserDetails {
     private String username;
     private String password;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "volunteer")
+    VSkill vSkills;
+
+
+    public VSkill getvSkills() {
+        return vSkills;
+    }
+
+    public void setvSkills(VSkill vSkills) {
+        this.vSkills = vSkills;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -30,7 +40,9 @@ public class Volunteer implements UserDetails {
     }
 
     public Volunteer() {
+
     }
+
     public Volunteer(String firstName, String lastName, String dateOfBirth, String bio, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -114,4 +126,5 @@ public class Volunteer implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

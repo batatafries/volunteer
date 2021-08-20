@@ -5,6 +5,7 @@ import com.example.volunteer.Models.Volunteer;
 import com.example.volunteer.Repositories.UserRepository;
 import com.example.volunteer.Repositories.VolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -25,14 +28,22 @@ public class UserController {
     @Autowired
     VolunteerRepository volunteerRepository;
 
+    @GetMapping("/")
+    @ResponseBody
+    public String getHome(Principal p){
+        return "";
+    }
+
     @GetMapping("/login")
     public String getSignInPage(){
         return "signin.html";
     }
+
     @GetMapping("/signup")
     public String signUpPage(){
         return "signup.html";
     }
+
     @PostMapping("/signup")
     public RedirectView signUp(@RequestParam(value = "username") String username,
                                @RequestParam(value = "password") String password,
@@ -51,5 +62,6 @@ public class UserController {
         }
         return new RedirectView("/login");
     }
+
 }
 

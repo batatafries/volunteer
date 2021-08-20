@@ -4,7 +4,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class UserS implements UserDetails {
@@ -24,14 +26,24 @@ public class UserS implements UserDetails {
     public UserS(String username, String password) {
         this.username = username;
         this.password = password;
+    }
 
+    @OneToMany(mappedBy = "user")
+    List<Post> post;
+
+    public List<Post> getPost() {
+        return post;
+    }
+
+    public void setPost(List<Post> post) {
+        this.post = post;
     }
 
     public UserS(String username, String password, String firstName, String lastName, String bio, String birthOfDate) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
-        LastName = lastName;
+        this.LastName = lastName;
         this.bio = bio;
         this.birthOfDate = birthOfDate;
     }
