@@ -1,7 +1,6 @@
 package com.example.volunteer.Models;
 
 import javax.persistence.*;
-import java.util.*;
 
 @Entity
 public class VSkill {
@@ -9,18 +8,19 @@ public class VSkill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    Volunteer volunteer;
+    @ManyToOne
+    DBVolunteer volunteer;
 
     private String description;
     private String skills;
     private String field;
     private String email;
-    public VSkill(){
+
+    public VSkill() {
 
     }
 
-    public VSkill(Volunteer volunteer, String description, String skills, String field, String email) {
+    public VSkill(DBVolunteer volunteer, String description, String skills, String field, String email) {
         this.volunteer = volunteer;
         this.description = description;
         this.skills = skills;
@@ -32,11 +32,11 @@ public class VSkill {
         return id;
     }
 
-    public Volunteer getVolunteer() {
+    public DBVolunteer getVolunteer() {
         return volunteer;
     }
 
-    public void setVolunteer(Volunteer volunteer) {
+    public void setVolunteer(DBVolunteer volunteer) {
         this.volunteer = volunteer;
     }
 

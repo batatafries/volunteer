@@ -11,26 +11,28 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String body;
-    private  String field;
+    private String field;
     private String date;
-    private  String time;
-    private  Integer phone;
+    private String time;
+    private Integer phone;
 
     @CreationTimestamp
     Date createdAt;
 
     @ManyToOne
-    UserS user;
+    DBUser user;
 
-    public Post(){}
-
-    public Post(String body , UserS user){
-        this.user=user;
-        this.body=body;
+    public Post() {
     }
 
-    public Post(String body, String field, String date, String time, Integer phone, UserS user) {
-        this.user=user;
+    public Post(String body, DBUser user) {
+        this.body = body;
+        this.user = user;
+    }
+
+
+    public Post(String body, String field, String date, String time, Integer phone, DBUser user) {
+        this.user = user;
         this.body = body;
         this.field = field;
         this.date = date;
@@ -38,8 +40,12 @@ public class Post {
         this.phone = phone;
     }
 
-    public UserS getUser() {
+    public DBUser getUser() {
         return user;
+    }
+
+    public void setUser(DBUser user) {
+        this.user = user;
     }
 
     public String getTime() {
@@ -68,10 +74,6 @@ public class Post {
 
     public void setPhone(Integer phone) {
         this.phone = phone;
-    }
-
-    public void setUser(UserS user) {
-        this.user = user;
     }
 
     public Integer getPhone() {

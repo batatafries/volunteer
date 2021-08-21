@@ -14,33 +14,32 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserDetailsServiceImplementation userDetailsServiceImplementation;
+    DBUserDetailsServiceImplementation dbUserDetailsServiceImplementation;
+
+    @Autowired
+    DBVolunteerDetailsServiceImplementation dbVolunteerDetailsServiceImplementation;
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public static BCryptPasswordEncoder passwordEncoder() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsServiceImplementation).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(dbVolunteerDetailsServiceImplementation).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(dbUserDetailsServiceImplementation).passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().disable().csrf().disable()
-                .authorizeRequests()
-                .antMatchers( "/login", "/signup","/","../resources/**" ,"/static/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated().and().formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/", true).failureUrl("/error")
-                .and().logout().logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID");
+        http.cors().disable().csrf().disable().authorizeRequests()
+                .antMatchers( "/login", "/signup","/").permitAll()
+                .antMatchers("/userPage","/askForHelp").hasAuthority("ROLE_USER")
+                .antMatchers("/volunteerPage","/volunteerSkill").hasAuthority("ROLE_VOLUNTEER")
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login").defaultSuccessUrl("/", true)
+                .failureUrl("/error").and().logout().logoutUrl("/perform_logout").deleteCookies("JSESSIONID");
     }
-
 
 }

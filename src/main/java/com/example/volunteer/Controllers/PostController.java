@@ -1,9 +1,9 @@
 package com.example.volunteer.Controllers;
 
+import com.example.volunteer.Models.DBUser;
 import com.example.volunteer.Models.Post;
-import com.example.volunteer.Models.UserS;
+import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.PostRepository;
-import com.example.volunteer.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class PostController {
     PostRepository postRepository;
 
     @Autowired
-    UserRepository userRepository;
+    DBUserRepository dbUserRepository;
 
     @GetMapping("/askForHelp")
     public String getAskForHelp(){
@@ -30,7 +30,7 @@ public class PostController {
     public RedirectView getAskForHelp(@RequestParam String body,@RequestParam String field ,
                                       @RequestParam Integer phone,@RequestParam String date ,
                                       @RequestParam String time, Principal p){
-        UserS user = userRepository.findByUsername(p.getName());
+        DBUser user = dbUserRepository.findByUsername(p.getName());
         Post post = new Post(body, field,date,time,phone,user);
         postRepository.save(post);
         return new RedirectView("/askForHelp");
