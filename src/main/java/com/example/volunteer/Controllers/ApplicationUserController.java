@@ -1,47 +1,37 @@
 package com.example.volunteer.Controllers;
 
-import com.example.volunteer.Models.UserS;
-import com.example.volunteer.Models.Volunteer;
-import com.example.volunteer.Repositories.UserRepository;
-import com.example.volunteer.Repositories.VolunteerRepository;
+import com.example.volunteer.Models.DBUser;
+import com.example.volunteer.Models.DBVolunteer;
+import com.example.volunteer.Repositories.DBUserRepository;
+import com.example.volunteer.Repositories.DBVolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.security.Principal;
-
 @Controller
-public class UserController {
+public class ApplicationUserController {
 
     @Autowired
-    UserRepository userRepository;
+    DBUserRepository DBUserRepository;
+
+    @Autowired
+    DBVolunteerRepository dbVolunteerRepository;
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    VolunteerRepository volunteerRepository;
-
-    @GetMapping("/")
-    @ResponseBody
-    public String getHome(Principal p){
-        return "";
+    @GetMapping("/signup")
+    public String getSignUpPage() {
+        return "signup.html";
     }
 
     @GetMapping("/login")
-    public String getSignInPage(){
+    public String getSignInPage() {
         return "signin.html";
-    }
-
-    @GetMapping("/signup")
-    public String signUpPage(){
-        return "signup.html";
     }
 
     @PostMapping("/signup")
@@ -53,15 +43,23 @@ public class UserController {
                                @RequestParam(value = "bio") String bio,
                                @RequestParam(value = "type") String typeOfUser
     ) {
-        if(typeOfUser.equals("User")){
-            UserS newUser = new UserS(username, bCryptPasswordEncoder.encode(password),firstName,lastName,bio,dateOfBirth);
-            userRepository.save(newUser);
-        }else if(typeOfUser.equals("Volunteer")){
-            Volunteer newUser = new Volunteer(firstName,lastName,dateOfBirth,bio,username,bCryptPasswordEncoder.encode(password));
-            volunteerRepository.save(newUser);
+        if (typeOfUser.equals("Volunteer")) {
+            DBVolunteer newVolunteer = new DBVolunteer(username, bCryptPasswordEncoder.encode(password), firstName, lastName, bio, dateOfBirth, "ROLE_VOLUNTEER");
+            dbVolunteerRepository.save(newVolunteer);
+        }
+        if (typeOfUser.equals("User")) {
+            DBUser newUser = new DBUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, bio, dateOfBirth, "ROLE_USER");
+            DBUserRepository.save(newUser);
         }
         return new RedirectView("/login");
     }
 
+    @GetMapping("/volunteerPage")
+    public String getVolunteerPage() {
+        return "volunteerPage.html";
+    }
+    @GetMapping("/userPage")
+    public String getUserPage() {
+        return "userPage.html";
+    }
 }
-
