@@ -5,6 +5,7 @@ import com.example.volunteer.Repositories.DBVolunteerRepository;
 import com.example.volunteer.Repositories.VSkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +23,9 @@ public class VSkillController {
     DBVolunteerRepository dbVolunteerRepository;
 
     @GetMapping("/volunteerSkill")
-    public String getVolunteerSkill() {
+    public String getVolunteerSkill(Model m) {
+        m.addAttribute("allSkillsCards",vSkillRepository.findAll());
+
         return "volunteerSkill.html";
     }
 
@@ -38,5 +41,25 @@ public class VSkillController {
         vSkillRepository.save(vSkill);
         return new RedirectView("/volunteerSkill");
     }
+
+    @PostMapping("/deleteSkillCard")
+    public RedirectView deleteRequest(@RequestParam Integer id) {
+        vSkillRepository.deleteById(id);
+        return new RedirectView("/volunteerSkill");
+    }
+
+    @PostMapping("/modifySkillCard")
+    public RedirectView modifyRequest(@RequestParam String description,
+                                      @RequestParam String email,
+                                      @RequestParam String field,
+                                      Principal p,@RequestParam Integer id) {
+        VSkill skillCard = vSkillRepository.findById(id).get();
+        skillCard.setDescription(description);
+        skillCard.setField(field);
+        skillCard.setEmail(email);
+        vSkillRepository.save(skillCard);
+        return new RedirectView("/volunteerSkill");
+    }
+
 }
 
