@@ -20,6 +20,9 @@ public class DBVolunteer {
     @OneToMany(mappedBy = "volunteer")
     List<VSkill> vSkills;
 
+    @OneToMany(mappedBy = "dbVolunteer")
+    List<Post> adoptedRequests;
+
     public DBVolunteer() {
     }
 
@@ -103,5 +106,13 @@ public class DBVolunteer {
 
     public void setvSkills(List<VSkill> vSkills) {
         this.vSkills = vSkills;
+    }
+
+    public List<Post> getAdoptedRequests() {
+        return adoptedRequests;
+    }
+
+    public void setAdoptedRequests(List<Post> adoptedRequests) {
+        this.adoptedRequests = adoptedRequests;
     }
 }

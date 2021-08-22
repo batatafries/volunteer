@@ -36,7 +36,7 @@ public class PostController {
                                       @RequestParam Integer phone, @RequestParam String date,
                                       @RequestParam String time, Principal p) {
         DBUser user = DBUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field, date, time, phone, user);
+        Post post = new Post(body, field, date, time, phone, user ,"PENDING");
         postRepository.save(post);
         return new RedirectView("/myprofile");
     }
@@ -48,7 +48,7 @@ public class PostController {
         return new RedirectView("/myprofile");
     }
 
-    @PostMapping("/modifyRequest")
+    @PutMapping("/modifyRequest")
     public RedirectView modifyRequest(@RequestParam String body, @RequestParam String field,
                                       @RequestParam Integer phone, @RequestParam String date,
                                       @RequestParam String time,Principal p,@RequestParam Integer id) {
@@ -59,6 +59,7 @@ public class PostController {
         post.setPhone(phone);
         post.setTime(time);
         postRepository.save(post);
+
         return new RedirectView("/myprofile");
     }
 
