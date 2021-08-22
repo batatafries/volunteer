@@ -5,24 +5,40 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/addPost">
-    <br/>
-    <label for="body">Body         :</label>
-    <textarea id="body" name="body" cols="40" placeholder="Type what you want to share here about describe..."> </textarea>
-    <br>
-    <label for="body">Field        :</label>
-    <textarea id="field" name="field" cols="40" placeholder="Type what you want to share here about your fields..."> </textarea>
-    <br>
-    <label for="body">Date         :</label>
-    <textarea id="date" name="date" cols="40" placeholder="Type what you want to share here..."> </textarea>
-    <br>
-    <label for="body">Time         :</label>
-    <textarea id="time" name="time" cols="40" placeholder="Type what you want to share here..."> </textarea>
-    <br>
-    <label for="body">Phone number :</label>
-    <textarea id="phone" name="phone" cols="40" placeholder="Type what you want to share here..."> </textarea>
-    <br>
-    <button type="submit">Post</button>
-</form>
+<!--<form method="POST" action="/addPost">-->
+<!--    <br/>-->
+<!--    <label for="body">Body :</label>-->
+<!--    <textarea id="body" name="body" cols="40"-->
+<!--              placeholder="Type what you want to share here about describe..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Field :</label>-->
+<!--    <textarea id="field" name="field" cols="40"-->
+<!--              placeholder="Type what you want to share here about your fields..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Date :</label>-->
+<!--    <textarea id="date" name="date" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Time :</label>-->
+<!--    <textarea id="time" name="time" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Phone number :</label>-->
+<!--    <textarea id="phone" name="phone" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--    <br>-->
+<!--    <button type="submit">Post</button>-->
+<!--</form>-->
+<br>
+<!--<div th:each="i:${name}">-->
+<!--    <p>Name : <span th:text="${i}"></span></p>-->
+<!--</div>-->
+<!--<div th:each="i,iter:${post}" >-->
+<!--    <p>First Name : <span th:text="${name[iter.index]}"></span></p>-->
+<!--    <p>Last Name : <span th:text="${i.getUser().getLastname()}"></span></p>-->
+<!--    <p>Body : <span th:text="${i.body}"></span></p>-->
+<!--    <p>Field : <span th:text="${i.field}"></span></p>-->
+<!--    <p>Date : <span th:text="${i.date}"></span></p>-->
+<!--    <p>Time : <span th:text="${i.time}"></span></p>-->
+<!--    <p>Phone : <span th:text="${i.phone}"></span></p>-->
+<!--    <p>ID : <span th:text="${i.id}"></span></p>-->
+<!--</div>-->
 </body>
 </html>

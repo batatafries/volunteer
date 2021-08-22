@@ -6,12 +6,13 @@ import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -21,18 +22,9 @@ public class PostController {
     @Autowired
     DBUserRepository dbUserRepository;
 
-    @GetMapping("/askForHelp")
-    public String getAskForHelp(){
-        return "askforhelp.html";
-    }
-
-    @PostMapping("/addPost")
-    public RedirectView getAskForHelp(@RequestParam String body,@RequestParam String field ,
-                                      @RequestParam Integer phone,@RequestParam String date ,
-                                      @RequestParam String time, Principal p){
-        DBUser user = dbUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field,date,time,phone,user);
-        postRepository.save(post);
-        return new RedirectView("/askForHelp");
+    @GetMapping("/requests")
+    public String getAllRequests(Model m){
+        m.addAttribute("allRequests",postRepository.findAll());
+        return "requests.html";
     }
 }

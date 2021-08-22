@@ -18,7 +18,7 @@ public class DBUser {
     private String authority;
 
     @OneToMany(mappedBy = "user")
-    List<Post> post;
+        List<Post> post;
 
     public DBUser() {
     }
