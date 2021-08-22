@@ -2,15 +2,18 @@ package com.example.volunteer.Controllers;
 
 import com.example.volunteer.Models.DBUser;
 import com.example.volunteer.Models.DBVolunteer;
+import com.example.volunteer.Models.Post;
 import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.DBVolunteerRepository;
+import com.example.volunteer.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.security.Principal;
 
 @Controller
 public class ApplicationUserController {
@@ -23,6 +26,9 @@ public class ApplicationUserController {
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    PostRepository postRepository;
 
     @GetMapping("/signup")
     public String getSignUpPage() {
@@ -58,8 +64,41 @@ public class ApplicationUserController {
     public String getVolunteerPage() {
         return "volunteerPage.html";
     }
+
     @GetMapping("/userPage")
     public String getUserPage() {
         return "userPage.html";
     }
+
+    @GetMapping("/myprofile")
+    public String getProfile(Principal p, Model m) {
+        DBUser currentUser = DBUserRepository.findByUsername(p.getName());
+        m.addAttribute("currentUser", currentUser);
+        m.addAttribute("requests", currentUser.getPost());
+        return "profile.html";
+    }
+
+    @PostMapping("/addRequest")
+    public RedirectView getAskForHelp(@RequestParam String body, @RequestParam String field,
+                                      @RequestParam Integer phone, @RequestParam String date,
+                                      @RequestParam String time, Principal p) {
+        DBUser user = DBUserRepository.findByUsername(p.getName());
+        Post post = new Post(body, field, date, time, phone, user);
+        postRepository.save(post);
+        return new RedirectView("/myprofile");
+    }
+
+    @PostMapping("/deleteRequest")
+    public RedirectView deleteRequest(@RequestParam Integer id) {
+        System.out.println(id);
+        postRepository.deleteById(id);
+        return new RedirectView("/myprofile");
+    }
+
+//    @PutMapping("/modifyRequest")
+//    public RedirectView modifyRequest(@RequestParam String body, @RequestParam String field,
+//                                      @RequestParam Integer phone, @RequestParam String date,
+//                                      @RequestParam String time,Principal p) {
+//
+//    }
 }

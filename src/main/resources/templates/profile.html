@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<h2>Welcome <span th:text="${currentUser.username}"></span></h2>
+<p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
+<p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
+<p>Bio : <span th:text="${currentUser.bio}"></span></p>
+
+<br>
+<form method="POST" action="/addRequest">
+    <br/>
+    <label for="body">Body :</label>
+    <textarea id="body" name="body" cols="40"
+              placeholder="Type what you want to share here about describe..."> </textarea>
+    <br>
+    <label for="body">Field :</label>
+    <textarea id="field" name="field" cols="40"
+              placeholder="Type what you want to share here about your fields..."> </textarea>
+    <br>
+    <label for="body">Date :</label>
+    <textarea id="date" name="date" cols="40" placeholder="Type what you want to share here..."> </textarea>
+    <br>
+    <label for="body">Time :</label>
+    <textarea id="time" name="time" cols="40" placeholder="Type what you want to share here..."> </textarea>
+    <br>
+    <label for="body">Phone number :</label>
+    <textarea id="phone" name="phone" cols="40" placeholder="Type what you want to share here..."> </textarea>
+    <br>
+    <button type="submit">Add Request</button>
+</form>
+<br>
+<div th:each="i:${requests}">
+    <p>Body : <span th:text="${i.body}"></span></p>
+    <p>Field : <span th:text="${i.field}"></span></p>
+    <p>Date : <span th:text="${i.date}"></span></p>
+    <p>Time : <span th:text="${i.time}"></span></p>
+    <p>Phone : <span th:text="${i.phone}"></span></p>
+
+    <form action="/deleteRequest"  method="post">
+        <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
+        <input type="submit" value="Delete"/>
+    </form>
+
+<!--    <form action="/modifyRequest+'?_method=PUT'" method="post">-->
+<!--        <p>Body : <input type="text" th:value="${i.body}"></p>-->
+<!--        <p>Field : <input type="text" th:value="${i.field}"></p>-->
+<!--        <p>Date : <input type="text" th:value="${i.date}"></p>-->
+<!--        <p>Time :<input type="text" th:value="${i.time}"></p>-->
+<!--        <p>Phone :<input type="text" th:value="${i.phone}"></p>-->
+<!--        <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">-->
+<!--        <input type="submit" value="Modify"/>-->
+<!--    </form>-->
+</div>
+</body>
+</html>
