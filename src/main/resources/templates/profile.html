@@ -50,7 +50,7 @@
     <p>Date : <span th:text="${i.date}"></span></p>
     <p>Time : <span th:text="${i.time}"></span></p>
     <p>Phone : <span th:text="${i.phone}"></span></p>
-
+    <p>Status : <span th:text="${i.status}" ></span></p>
     <form action="/deleteRequest" method="post">
         <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
         <input type="submit" value="Delete"/>
@@ -59,7 +59,7 @@
 <!--    <button onclick="myFunction()">Edit your request</button>-->
 
     <div id="myDIV">
-        <form action="/modifyRequest" method="post">
+        <form action="/modifyRequest" th:method="PUT">
             <label for="editedbody">body</label>
             <input id="editedbody" name="body" type="text" th:value="${i.body}">
 
@@ -92,7 +92,7 @@ function myFunction() {
     x.style.display = "block";
   } else {
     x.style.display = "none";
-  } 
+  }
 }
 </script>
 
