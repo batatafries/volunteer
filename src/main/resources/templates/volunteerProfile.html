@@ -6,5 +6,90 @@
 </head>
 <body>
 
+<h2>Welcome <span th:text="${currentUser.username}"></span></h2>
+<p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
+<p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
+<p>Bio : <span th:text="${currentUser.bio}"></span></p>
+<br>
+<button onclick="myFunction()">Give A Hand!</button>
+
+<div id="addSkill" style="display:none">
+    <form method="POST" action="/addSkill">
+        <br/>
+        <label for="description">description         :</label>
+        <textarea id="description" name="description" cols="40" placeholder="Type what you want to share here about describe..."> </textarea>
+        <br>
+        <label for="skills">skills        :</label>
+        <textarea id="skills" name="skills" cols="40" placeholder="Type what you want to share here about your fields..."> </textarea>
+        <br>
+        <label for="email">email         :</label>
+        <textarea id="email" name="email" cols="40" placeholder="Type what you want to share here..."> </textarea>
+        <br>
+        <label for="field">field         :</label>
+        <textarea id="field" name="field" cols="40" placeholder="Type what you want to share here..."> </textarea>
+        <br>
+        <button type="submit">Post your card</button>
+    </form>
+</div>
+
+
+<div th:each="i:${cards}">
+    <!--  <p>Username : <span th:text="${i.getUser().getUsername()}"></span></p>-->
+    <p>Field : <span th:text="${i.field}"></span></p>
+    <p>description : <span th:text="${i.description}"></span></p>
+    <p>Volunteer's Name : <span th:text="${i.getVolunteer().getFirstname()}"></span></p>
+    <p>Volunteer's E-mail : <span th:text="${i.email}"></span></p>
+    <p>-----------</p>
+
+    <form action="/deleteSkillCard" method="post">
+        <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
+        <input type="submit" value="Delete"/>
+    </form>
+
+<!--    <button onclick="myFunction()">Edit Your Card</button>-->
+
+    <div id="myDIV">
+
+        <form action="/modifySkillCard" method="post">
+
+            <label for="editedfield">Field :</label>
+            <input id="editedfield" name="field" type="text" th:value="${i.field}">
+
+            <label for="editedDescription">description</label>
+            <input id="editedDescription" name="description" type="text" th:value="${i.description}">
+
+            <label for="editedEmail">E-mail</label>
+            <input id="editedEmail" name="email" type="text" th:value="${i.email}">
+
+            <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">
+
+            <input type="submit" value="update"/>
+        </form>
+    </div>
+
+</div>
+
+<script>
+<!--function myFunction() {-->
+<!--  var x = document.getElementById("myDIV");-->
+<!--  if (x.style.display === "none") {-->
+<!--    x.style.display = "block";-->
+<!--  } else {-->
+<!--    x.style.display = "none";-->
+<!--  }-->
+<!--}-->
+function myFunction() {
+  var x = document.getElementById("addSkill");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+
+
+
 </body>
 </html>
