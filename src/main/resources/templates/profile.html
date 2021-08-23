@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../static/main.js"  th:src="@{/static/main.js}"></script>
+
+    <script type="text/javascript" src="../static/main.js"  th:src="@{/main.js}"></script>
+
     <link rel="stylesheet" th:href="@{/css/profile.css}">
     <title>My Profile</title>
 </head>
@@ -117,53 +119,7 @@
                 </form>
 <!--           Buttom Update Model    -->
 
-                <a  class="btn btn-primary"  >Update</a>
-
-
-                <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                    <form  method="POST" action="/editRequest">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" > Update</h5>
-                                    <!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                                </div>
-                                <div class="modal-body">
-
-                                    <div class="mb-3">
-                                        <label for="body" class="col-form-label" >Body:</label>
-                                        <input type="text" class="form-control" id="body1" name="body" th:value="${i.body}">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="field" class="col-form-label">Field:</label>
-                                        <input type="text" class="form-control" id="field1" name="field">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="date" class="col-form-label">Date:</label>
-                                        <input type="text" class="form-control" id="date1" name="date">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="time" class="col-form-label">time:</label>
-                                        <input type="text" class="form-control" id="time1" name="time">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="phone" class="col-form-label">Phone number :</label>
-                                        <input type="text" class="form-control" id="phone1" name="phone">
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >Update</button>
 
 
 <!--         End model Update model  -->
@@ -176,6 +132,53 @@
     </div>
 
 </div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <form  method="POST" action="/editRequest">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" > Update</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="body" class="col-form-label" >Body:</label>
+                        <input type="text" class="form-control" id="body1" name="body" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="field" class="col-form-label">Field:</label>
+                        <input type="text" class="form-control" id="field1" name="field">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date" class="col-form-label">Date:</label>
+                        <input type="text" class="form-control" id="date1" name="date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="time" class="col-form-label">time:</label>
+                        <input type="text" class="form-control" id="time1" name="time">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="col-form-label">Phone number :</label>
+                        <input type="text" class="form-control" id="phone1" name="phone">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 </body>
 </html>
 
