@@ -41,11 +41,13 @@ public class VolunteerController {
     }
 
     @GetMapping("/volunteer/{username}")
-    public String getVolunteer(@PathVariable("username") String username, Model m) {
+    public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(username);
-        m.addAttribute("volunteer", volunteer);
+        m.addAttribute("currentUser", volunteer);
         m.addAttribute("cards", volunteer.getvSkills());
-
+        if (p.getName().equals(volunteer.getUsername())){
+            return ("volunteerProfile.html");
+        }
         return ("volunteerpage.html");
     }
 

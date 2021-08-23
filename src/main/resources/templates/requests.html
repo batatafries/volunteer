@@ -22,7 +22,12 @@
     <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
         <button type="submit"  th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
     </form>
+    <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
+        <button type="submit"  th:text="${'Requester Profile'}"></button>
+    </form>
+
     <p>--------</p>
+
 </div>
 
 <div  th:each="i:${allRequests}" th:if="${i.status} == 'PROCESSING'">
@@ -42,8 +47,15 @@
     <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
         <button type="submit"  th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
     </form>
+
+    <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
+        <button type="submit"  th:text="${'Requester Profile'}"></button>
+    </form>
+
     <p>--------</p>
+
 </div>
+
 
 </body>
 </html>
