@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
+<p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
+<p>Bio : <span th:text="${currentUser.bio}"></span></p>
+
+</body>
+</html>

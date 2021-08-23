@@ -24,3 +24,13 @@ display: inline-block;
     flex-direction: row;
     justify-content: space-between;
 }
+
+.header-card{
+ display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+}
+
+.header-card h5{
+display:inline-block;
+}

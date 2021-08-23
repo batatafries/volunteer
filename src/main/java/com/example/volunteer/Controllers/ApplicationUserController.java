@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class ApplicationUserController {
@@ -27,8 +28,6 @@ public class ApplicationUserController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    PostRepository postRepository;
 
     @GetMapping("/signup")
     public String getSignUpPage() {
@@ -37,7 +36,7 @@ public class ApplicationUserController {
 
     @GetMapping("/login")
     public String getSignInPage() {
-        return "signin.html";
+        return "signin1.html";
     }
 
     @PostMapping("/signup")
@@ -72,33 +71,57 @@ public class ApplicationUserController {
 
     @GetMapping("/myprofile")
     public String getProfile(Principal p, Model m) {
+
         DBUser currentUser = DBUserRepository.findByUsername(p.getName());
-        m.addAttribute("currentUser", currentUser);
-        m.addAttribute("requests", currentUser.getPost());
-        return "profile.html";
+        if (currentUser!=null){
+            m.addAttribute("currentUser", currentUser);
+            m.addAttribute("requests", currentUser.getPost());
+            return "profile.html";
+        }
+        DBVolunteer currentUser1 = dbVolunteerRepository.findByUsername(p.getName());
+        if (currentUser1!=null){
+            m.addAttribute("currentUser", currentUser1);
+            m.addAttribute("cards", currentUser1.getvSkills());
+            return "volunteerProfile.html";
+        }
+        throw new NullPointerException();
     }
 
-    @PostMapping("/addRequest")
-    public RedirectView getAskForHelp(@RequestParam String body, @RequestParam String field,
-                                      @RequestParam Integer phone, @RequestParam String date,
-                                      @RequestParam String time, Principal p) {
-        DBUser user = DBUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field, date, time, phone, user);
-        postRepository.save(post);
-        return new RedirectView("/myprofile");
+    @GetMapping("/user/{username}")
+    public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
+        DBUser user = DBUserRepository.findByUsername(username);
+        m.addAttribute("currentUser", user);
+        m.addAttribute("requests", user.getPost());
+        if (p.getName().equals(user.getUsername())){
+            return ("profile.html");
+        }
+        return ("userpage.html");
     }
 
-    @PostMapping("/deleteRequest")
-    public RedirectView deleteRequest(@RequestParam Integer id) {
-        System.out.println(id);
-        postRepository.deleteById(id);
-        return new RedirectView("/myprofile");
-    }
-
-//    @PutMapping("/modifyRequest")
-//    public RedirectView modifyRequest(@RequestParam String body, @RequestParam String field,
-//                                      @RequestParam Integer phone, @RequestParam String date,
-//                                      @RequestParam String time,Principal p) {
-//
+//    @PostMapping("/modifyRequest")
+//    public RedirectView modifyRequest(@RequestParam String body ,Principal p,@RequestParam Integer id) {
+//        Post post = postRepository.findById(id).get();
+//        String loggedInUserName = p.getName();
+//        DBUser loggedInUser = DBUserRepository.findByUsername(loggedInUserName);
+////        if(loggedInUser.getId().equals(post.getUser().getId())){
+//            post.setBody(body);
+//            postRepository.save(post);
+////        }
+//        return new RedirectView("/myprofile");
 //    }
+
+
+//    @PutMapping("/profiles/{id}")
+//    public RedirectView editProfile(Principal p, @PathVariable Integer id, @RequestParam String username){
+//        String loggedInUserName = p.getName();
+//        DBUser loggedInUser = dbUserRepository.findByUsername(loggedInUserName);
+//        if(loggedInUser.getId() == id) {
+//            loggedInUser.setUsername(username);
+//            dbUserRepository.save(loggedInUser);
+//            return new RedirectView("/profiles/"+id);
+//        } else {
+//            return new RedirectView("/error?message=Unauthorized");
+//        }
+//    }
+
 }

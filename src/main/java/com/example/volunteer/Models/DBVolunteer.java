@@ -2,6 +2,7 @@ package com.example.volunteer.Models;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class DBVolunteer {
@@ -20,6 +21,9 @@ public class DBVolunteer {
     @OneToMany(mappedBy = "volunteer")
     List<VSkill> vSkills;
 
+    @OneToMany(mappedBy = "dbVolunteer")
+    Set<Post> adoptedRequests;
+
     public DBVolunteer() {
     }
 
@@ -31,6 +35,9 @@ public class DBVolunteer {
         this.bio = bio;
         this.dateOfBirth = dateOfBirth;
         this.authority = authority;
+    }
+    public void addRequest(Post post){
+        adoptedRequests.add(post);
     }
 
     public Integer getId() {
@@ -103,5 +110,13 @@ public class DBVolunteer {
 
     public void setvSkills(List<VSkill> vSkills) {
         this.vSkills = vSkills;
+    }
+
+    public Set<Post> getAdoptedRequests() {
+        return adoptedRequests;
+    }
+
+    public void setAdoptedRequests(Set<Post> adoptedRequests) {
+        this.adoptedRequests = adoptedRequests;
     }
 }
