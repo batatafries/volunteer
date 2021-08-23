@@ -20,13 +20,10 @@
 
 </div>
 <h2>Adopted requests</h2>
-
 <div th:each="i:${volunteer.adoptedRequests}">
     <p>request : <span th:text="${i.body}"></span></p>
     <p>request : <span th:text="${i.field}"></span></p>
     <p>-----------</p>
-
 </div>
-
 </body>
 </html>
