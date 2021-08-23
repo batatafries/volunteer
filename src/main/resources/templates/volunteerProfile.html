@@ -149,6 +149,17 @@
         </div>
     </div>
 </div>
+  
+
+<h2>Adopted requests</h2>
+
+<div th:each="i:${currentUser.adoptedRequests}">
+    <p>request : <span th:text="${i.body}"></span></p>
+    <p>request : <span th:text="${i.field}"></span></p>
+    <p>-----------></p>
+ 
+
+
 <script>
     function myFunction() {
         var x = document.getElementById("addSkill");
@@ -159,9 +170,6 @@
         }
     }
 </script>
-
-
-
 
 </body>
 </html>
