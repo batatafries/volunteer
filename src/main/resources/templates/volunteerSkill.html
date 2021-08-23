@@ -90,6 +90,7 @@
         grid-template-columns: repeat(3, 1fr);
         border-radius: 3px;
         margin: 25px;
+    
 
       }
       .card {
@@ -190,7 +191,7 @@
   <body> 
       <!-- https://images.unsplash.com/photo-1617900906639-cab7adceb499?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80 -->
     <div style="background-image: url(https://images.unsplash.com/photo-1530385804661-647f1e9134e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjkxfHxrZXlib2FyZCUyMGFuZCUyMG1vdXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60);
-     position: relative; background-size: cover; height: 555px;">
+     position: relative; background-size: cover; height: 615px;">
      <header>
       <img
         height="100px"
@@ -222,7 +223,7 @@
 
     <div class="container" style="margin-left: 9%;" >
       <div th:each="i:${allSkillsCards}">
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem" >
           <div class="card-header">
             Field : <span th:text="${i.field}"></span>
           </div>
