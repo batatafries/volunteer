@@ -1,6 +1,7 @@
 package com.example.volunteer.Controllers;
 
 import com.example.volunteer.Models.DBUser;
+import com.example.volunteer.Models.DBVolunteer;
 import com.example.volunteer.Models.Post;
 import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.DBVolunteerRepository;
@@ -25,8 +26,15 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
+    @Autowired
+    DBVolunteerRepository dbVolunteerRepository;
+
     @GetMapping("/requests")
-    public String getAllRequests(Model m){
+    public String getAllRequests(Model m,Principal p){
+        DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
+        if (volunteer!=null){
+            m.addAttribute("isVolunteer",volunteer);
+        }
         m.addAttribute("allRequests",postRepository.findAll());
         return "requests.html";
     }
