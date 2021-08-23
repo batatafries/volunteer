@@ -39,6 +39,12 @@ public class ApplicationUserController {
         return "signin1.html";
     }
 
+    @GetMapping("/login/error")
+    public String getSignInErrorPage(Model m) {
+        m.addAttribute("errorMsg",true);
+        return "signin1.html";
+    }
+
     @PostMapping("/signup")
     public RedirectView signUp(@RequestParam(value = "username") String username,
                                @RequestParam(value = "password") String password,
@@ -71,15 +77,17 @@ public class ApplicationUserController {
 
     @GetMapping("/myprofile")
     public String getProfile(Principal p, Model m) {
-
+//        if(p==null){
+//            return "singin1.html";
+//        }
         DBUser currentUser = DBUserRepository.findByUsername(p.getName());
-        if (currentUser!=null){
+        if (currentUser != null) {
             m.addAttribute("currentUser", currentUser);
             m.addAttribute("requests", currentUser.getPost());
             return "profile.html";
         }
         DBVolunteer currentUser1 = dbVolunteerRepository.findByUsername(p.getName());
-        if (currentUser1!=null){
+        if (currentUser1 != null) {
             m.addAttribute("currentUser", currentUser1);
             m.addAttribute("cards", currentUser1.getvSkills());
             return "volunteerProfile.html";
@@ -88,12 +96,14 @@ public class ApplicationUserController {
     }
 
     @GetMapping("/user/{username}")
-    public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
+    public String getVolunteer(@PathVariable("username") String username, Model m, Principal p) {
         DBUser user = DBUserRepository.findByUsername(username);
         m.addAttribute("currentUser", user);
         m.addAttribute("requests", user.getPost());
-        if (p.getName().equals(user.getUsername())){
-            return ("profile.html");
+        if (p != null) {
+            if (p.getName().equals(user.getUsername())) {
+                return ("profile.html");
+            }
         }
         return ("userpage.html");
     }

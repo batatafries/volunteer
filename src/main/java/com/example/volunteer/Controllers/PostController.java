@@ -31,11 +31,13 @@ public class PostController {
 
     @GetMapping("/requests")
     public String getAllRequests(Model m,Principal p){
-        DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
-        if (volunteer!=null){
-            m.addAttribute("isVolunteer",volunteer);
+        if (p!=null){
+            DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
+            if (volunteer!=null){
+                m.addAttribute("isVolunteer",volunteer);
+            }
         }
-        m.addAttribute("allRequests",postRepository.findAll());
+        m.addAttribute("allRequests",postRepository.findAllByOrderByIdAsc());
         return "requests.html";
     }
 
@@ -67,7 +69,6 @@ public class PostController {
         post.setPhone(phone);
         post.setTime(time);
         postRepository.save(post);
-
         return new RedirectView("/myprofile");
     }
 

@@ -5,9 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<p>Name : <span th:text="${volunteer.firstname} +' ' + ${volunteer.lastname}"></span></p>
-<p>Date of birth : <span th:text="${volunteer.dateOfBirth}"></span></p>
-<p>Bio : <span th:text="${volunteer.bio}"></span></p>
+<p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
+<p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
+<p>Bio : <span th:text="${currentUser.bio}"></span></p>
 
 <h2>Volunteer Cards</h2>
 <div th:each="i:${cards}">
@@ -21,7 +21,7 @@
 </div>
 <h2>Adopted requests</h2>
 
-<div th:each="i:${volunteer.adoptedRequests}">
+<div th:each="i:${currentUser.adoptedRequests}">
     <p>request : <span th:text="${i.body}"></span></p>
     <p>request : <span th:text="${i.field}"></span></p>
     <p>-----------</p>

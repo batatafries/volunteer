@@ -189,9 +189,12 @@ a{color:inherit;text-decoration:none}
                         <label for="passSignUp" class="label">Password</label>
                         <input id="passSignUp" type="password" name="password" class="input" data-type="password">
                     </div>
+
                     <div class="group">
-                        <input id="check" type="checkbox" class="check" checked>
-                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                        <p th:if="${errorMsg}" style="color:red ">Please, Try again </p>
+
+                        <!--                        <input id="check" type="checkbox" class="check" checked>-->
+<!--                        <label for="check"><span class="icon"></span> Keep me Signed in</label>-->
                     </div>
                     <div class="group">
                         <input type="submit" class="button" value="Sign In">

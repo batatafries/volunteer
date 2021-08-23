@@ -5,9 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
-<p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
-<p>Bio : <span th:text="${currentUser.bio}"></span></p>
+<div>
+    <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
+    <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
+    <p>Bio : <span th:text="${currentUser.bio}"></span></p>
 
+</div>
+
+<div th:each="i:${requests}">
+    <p>Body : <span th:text="${i.body}"></span></p>
+    <p>Field : <span th:text="${i.field}"></span></p>
+    <p>Date : <span th:text="${i.date}"></span></p>
+    <p>Time : <span th:text="${i.time}"></span></p>
+    <p>Phone : <span th:text="${i.phone}"></span></p>
+    <p>Status : <span th:text="${i.status}"></span></p>
+</div>
 </body>
 </html>
