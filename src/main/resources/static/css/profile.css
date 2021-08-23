@@ -1,0 +1,36 @@
+.cardrequest{
+
+    display: flex;
+/* grid-template-columns: repeat(3,1fr); */
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 70%;
+margin: 0px auto; 
+    padding: 20px;
+
+}
+.card{
+    margin: 10px;
+
+}
+.form_buttom{
+display: inline-block;
+}
+
+.continer-buttom-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-card{
+ display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+}
+
+.header-card h5{
+display:inline-block;
+}

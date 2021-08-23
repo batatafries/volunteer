@@ -5,7 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+<!--    <script type="text/javascript" src="../static/main.js"  th:src="@{/main.js}"></script>-->
+
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <title>My Profile</title>
 </head>
 
 <body>
@@ -16,88 +24,304 @@
 
 <br>
 
-<button onclick="myFunction()">Ask for help!</button>
 
-<div  id="askForHelp" style="display:none">
-    <form method="POST" action="/addRequest">
-        <br/>
-        <label for="body">Body :</label>
-        <textarea id="body" name="body" cols="40"
-                  placeholder="Type what you want to share here about describe..."> </textarea>
-        <br>
-        <label for="field">Field :</label>
-        <textarea id="field" name="field" cols="40"
-                  placeholder="Type what you want to share here about your fields..."> </textarea>
-        <br>
-        <label for="date">Date :</label>
-        <textarea id="date" name="date" cols="40" placeholder="Type what you want to share here..."> </textarea>
-        <br>
-        <label for="time">Time :</label>
-        <textarea id="time" name="time" cols="40" placeholder="Type what you want to share here..."> </textarea>
-        <br>
-        <label for="phone">Phone number :</label>
-        <textarea id="phone" name="phone" cols="40" placeholder="Type what you want to share here..."> </textarea>
-        <br>
-        <button type="submit">Add Request</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" >Add Request</button>
+
+<!--Add Request-->
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form  method="POST" action="/addRequest">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Request</h5>
+<!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="body" class="col-form-label">Body:</label>
+                        <input type="text" class="form-control" id="body" name="body">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="field" class="col-form-label">Field:</label>
+                        <input type="text" class="form-control" id="field" name="field">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date" class="col-form-label">Date:</label>
+                        <input type="text" class="form-control" id="date" name="date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="time" class="col-form-label">time:</label>
+                        <input type="text" class="form-control" id="time" name="time">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="col-form-label">Phone number :</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
     </form>
-
-
 </div>
+<!--=======-->
+<!--<button onclick="myFunction()">Ask for help!</button>-->
+
+<!--<div  id="askForHelp" style="display:none">-->
+<!--    <form method="POST" action="/addRequest">-->
+<!--        <br/>-->
+<!--        <label for="body">Body :</label>-->
+<!--        <textarea id="body" name="body" cols="40"-->
+<!--                  placeholder="Type what you want to share here about describe..."> </textarea>-->
+<!--        <br>-->
+<!--        <label for="field">Field :</label>-->
+<!--        <textarea id="field" name="field" cols="40"-->
+<!--                  placeholder="Type what you want to share here about your fields..."> </textarea>-->
+<!--        <br>-->
+<!--        <label for="date">Date :</label>-->
+<!--        <textarea id="date" name="date" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--        <br>-->
+<!--        <label for="time">Time :</label>-->
+<!--        <textarea id="time" name="time" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--        <br>-->
+<!--        <label for="phone">Phone number :</label>-->
+<!--        <textarea id="phone" name="phone" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--        <br>-->
+<!--        <button type="submit">Add Request</button>-->
+<!--    </form>-->
+
+
+<!--</div>-->
+<!--<br>-->
+<!--<div th:each="i:${requests}">-->
+<!--    <p>Body : <span th:text="${i.body}"></span></p>-->
+<!--    <p>Field : <span th:text="${i.field}"></span></p>-->
+<!--    <p>Date : <span th:text="${i.date}"></span></p>-->
+<!--    <p>Time : <span th:text="${i.time}"></span></p>-->
+<!--    <p>Phone : <span th:text="${i.phone}"></span></p>-->
+<!--    <p>Status : <span th:text="${i.status}" ></span></p>-->
+<!--    <form action="/deleteRequest" method="post">-->
+<!--        <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">-->
+<!--        <input type="submit" value="Delete"/>-->
+<!--&gt;>>>>>> f4df558faeb6958288cf15906df6327436ee19ad-->
+<!--    </form>-->
+<!--</div>-->
+
+
+
+<!--<form method="POST" action="/addRequest">-->
+<!--    <br/>-->
+<!--    <label for="body">Body :</label>-->
+<!--    <textarea id="body" name="body" cols="40"-->
+<!--              placeholder="Type what you want to share here about describe..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Field :</label>-->
+<!--    <textarea id="field" name="field" cols="40"-->
+<!--              placeholder="Type what you want to share here about your fields..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Date :</label>-->
+<!--    <textarea id="date" name="date" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Time :</label>-->
+<!--    <textarea id="time" name="time" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--    <br>-->
+<!--    <label for="body">Phone number :</label>-->
+<!--    <textarea id="phone" name="phone" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
+<!--    <br>-->
+<!--    <button type="submit">Add Request</button>-->
+<!--</form>-->
 <br>
-<div th:each="i:${requests}">
-    <p>Body : <span th:text="${i.body}"></span></p>
-    <p>Field : <span th:text="${i.field}"></span></p>
-    <p>Date : <span th:text="${i.date}"></span></p>
-    <p>Time : <span th:text="${i.time}"></span></p>
-    <p>Phone : <span th:text="${i.phone}"></span></p>
-    <p>Status : <span th:text="${i.status}" ></span></p>
-    <form action="/deleteRequest" method="post">
-        <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
-        <input type="submit" value="Delete"/>
-    </form>
+<div class="cardrequest">
 
-    <!--    <button onclick="myFunction()">Edit your request</button>-->
-
-    <div id="myDIV">
-        <form action="/modifyRequest" th:method="PUT">
-            <label for="editedbody">body</label>
-            <input id="editedbody" name="body" type="text" th:value="${i.body}">
-
-            <label for="editedfield">Field :</label>
-            <input id="editedfield" name="field" type="text" th:value="${i.field}">
-
-            <label for="editedDate">Date :</label>
-            <input id="editedDate" name="date" type="date" th:value="${i.date}">
-
-            <label for="editedTime">Time :</label>
-            <input id="editedTime" name="time" type="text" th:value="${i.time}">
-
-            <label for="editedPhone">Phone :</label>
-            <input id="editedPhone" name="phone" type="text" th:value="${i.phone}">
+    <div th:each="i:${requests}">
 
 
-            <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="header-card">
+                <h5 class="card-title">Field : <span th:text="${i.field}"></span>  </h5>
+                <h5 class="card-title"><span  th:text="${i.status}"></span>  </h5>
+              </div>
+                <p class="card-text"><span id="status" th:text="${i.body}"></span></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> Name : <span th:text="${i.getUser().getUsername()}"></span></li>
+                <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
+                <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>
+            </ul>
+            <div class="card-body continer-buttom-card"  >
+                <form action="/deleteRequest"  method="post"  class="form_buttom">
+                    <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id" th:value="${i.id}">
+                    <button type="submit" class="btn btn-danger" >Delete</button>
+                </form>
+<!--           Buttom Update Model    -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >Update</button>
 
-            <input type="submit" value="update"/>
-        </form>
 
+            </div>
+
+        </div>
     </div>
-    <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
-        <button type="submit"  th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
-    </form>
-
-
 </div>
-<script>
-function myFunction() {
-  var x = document.getElementById("askForHelp");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
 
 </body>
 </html>
+
+
+<!-- Updat Card Model  -->
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <form  method="POST" action="/editRequest">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" > Update</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="body" class="col-form-label" >Body:</label>
+                        <input type="text" class="form-control" id="body1" name="body" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="field" class="col-form-label">Field:</label>
+                        <input type="text" class="form-control" id="field1" name="field">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date" class="col-form-label">Date:</label>
+                        <input type="text" class="form-control" id="date1" name="date">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="time" class="col-form-label">time:</label>
+                        <input type="text" class="form-control" id="time1" name="time">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="col-form-label">Phone number :</label>
+                        <input type="text" class="form-control" id="phone1" name="phone">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--<<<<<<< HEAD-->
+
+<!--    &lt;!&ndash;    <button onclick="myFunction()">Edit your request</button>&ndash;&gt;-->
+
+<!--    <div id="myDIV">-->
+<!--        <form action="/modifyRequest" th:method="PUT">-->
+<!--            <label for="editedbody">body</label>-->
+<!--            <input id="editedbody" name="body" type="text" th:value="${i.body}">-->
+
+<!--            <label for="editedfield">Field :</label>-->
+<!--            <input id="editedfield" name="field" type="text" th:value="${i.field}">-->
+
+<!--            <label for="editedDate">Date :</label>-->
+<!--            <input id="editedDate" name="date" type="date" th:value="${i.date}">-->
+
+<!--            <label for="editedTime">Time :</label>-->
+<!--            <input id="editedTime" name="time" type="text" th:value="${i.time}">-->
+
+<!--            <label for="editedPhone">Phone :</label>-->
+<!--            <input id="editedPhone" name="phone" type="text" th:value="${i.phone}">-->
+
+
+<!--            <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">-->
+
+<!--            <input type="submit" value="update"/>-->
+<!--        </form>-->
+<!---->
+<!---->
+
+
+<!--    </div>-->
+<!--    <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">-->
+<!--        <button type="submit"  th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>-->
+<!--    </form>-->
+
+
+<!--&gt;>>>>>> f4df558faeb6958288cf15906df6327436ee19ad-->
+
+
+
+
+
+
+<!--<script>-->
+<!--function myFunction() {-->
+<!--  var x = document.getElementById("askForHelp");-->
+<!--  if (x.style.display === "none") {-->
+<!--    x.style.display = "block";-->
+<!--  } else {-->
+<!--    x.style.display = "none";-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
+<!--&gt;>>>>>> main-->
+
+
+
+<!--    <tr class="table-active">-->
+<!--        <th scope="row">1</th>-->
+<!--        <td><span th:text="${i.body}"></span></td>-->
+<!--        <td><span th:text="${i.field}"></span></td>-->
+<!--        <td><span th:text="${i.date}"></span></td>-->
+<!--        <td><span th:text="${i.time}"></span></td>-->
+<!--        <td><span th:text="${i.phone}"></span></td>-->
+<!--        <td> <form action="/deleteRequest"  method="post">-->
+<!--            <div class="mb-3">-->
+<!--                <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id" th:value="${i.id}">-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-danger" >Delete</button>-->
+<!--        </form></td>-->
+<!--        <td></td>-->
+
+<!--    </tr>-->
+
+
+
+
+
+
+<!--<div >-->
+
+
+<!--    <p>Body : </p>-->
+<!--    <p>Field : </p>-->
+<!--    <p>Date : </p>-->
+<!--    <p>Time : </p>-->
+<!--    <p>Phone : </p>-->
+
+
+
+<!--&lt;!&ndash;    <form action="/modifyRequest+'?_method=PUT'" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Body : <input type="text" th:value="${i.body}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Field : <input type="text" th:value="${i.field}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Date : <input type="text" th:value="${i.date}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Time :<input type="text" th:value="${i.time}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Phone :<input type="text" th:value="${i.phone}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="submit" value="Modify"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--</div>-->

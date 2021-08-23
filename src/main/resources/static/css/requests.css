@@ -1,0 +1,40 @@
+.inprogress{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 70%;
+margin: 0px auto; 
+    padding: 20px;
+    margin-top: 30px;
+
+}
+.card{
+    margin: 10px;
+}
+.header-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-card h5{
+    display: inline-block;
+}
+.status{
+    color: green;
+    font-size: 20px;
+
+}
+
+.adobt-request-buttom{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+
+}
+
+.name{
+    text-transform: capitalize;
+}
