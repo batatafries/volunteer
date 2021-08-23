@@ -45,8 +45,10 @@ public class VolunteerController {
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(username);
         m.addAttribute("currentUser", volunteer);
         m.addAttribute("cards", volunteer.getvSkills());
-        if (p.getName().equals(volunteer.getUsername())){
-            return ("volunteerProfile.html");
+        if(p!=null){
+            if (p.getName().equals(volunteer.getUsername())){
+                return ("volunteerProfile.html");
+            }
         }
         return ("volunteerpage.html");
     }

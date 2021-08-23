@@ -34,12 +34,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().disable().csrf().disable().authorizeRequests()
-                .antMatchers( "/login", "/signup","/").permitAll()
-                .antMatchers("/userPage","/askForHelp").hasAuthority("ROLE_USER")
-                .antMatchers("/volunteerPage","/volunteerSkill").hasAuthority("ROLE_VOLUNTEER")
+                .antMatchers( "/**").permitAll()
+//                .antMatchers("/userPage","/askForHelp").hasAuthority("ROLE_USER")
+//                .antMatchers("/volunteerPage","/volunteerSkill").hasAuthority("ROLE_VOLUNTEER")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login").defaultSuccessUrl("/myprofile", true)
-                .failureUrl("/error").and().logout().logoutUrl("/perform_logout").deleteCookies("JSESSIONID");
+                .failureUrl("/login/error").and().logout().logoutUrl("/perform_logout").deleteCookies("JSESSIONID");
     }
 
 }
