@@ -88,7 +88,7 @@
 
         <div class="card-body">
             <div class="header-card">
-            <h5 class="card-title"><span th:text="${i.getUser().getUsername()}"></span></h5>
+            <h5 class="card-title"><span class="name"  th:text="${i.getUser().getUsername()}"></span></h5>
             <h5 class="card-title"><span th:text="${i.status}" class="status"></span></h5>
             </div>
             </hr>
@@ -101,7 +101,7 @@
             <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
             <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>
         </ul>
-        <div class="card-body">
+        <div class="card-body  adobt-request-buttom ">
 <!--            <button type="button" class="btn btn-outline-warning">Profile</button>-->
 <!--            <button type="button" class="btn btn-warning">Adopt</button>-->
 
@@ -109,19 +109,19 @@
                 <div class="mb-3" >
                     <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id" th:value="${i.id}">
                 </div>
-                <button type="submit" class="btn btn-primary">Adopt</button>
+                <button type="submit" class="btn btn-outline-success">Adopt</button>
             </form>
 
             <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
 <!--                <div class="mb-3" >-->
 <!--                </div>-->
-                <button type="submit" class="btn btn-primary" th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
+                <button type="submit" class="btn btn-outline-success" th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
             </form>
 
             <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
                 <!--                <div class="mb-3" >-->
                 <!--                </div>-->
-                <button type="submit" class="btn btn-primary" th:text="${'Requester Profile'}"></button>
+                <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}"></button>
             </form>
 
         </div>
@@ -166,7 +166,7 @@
 
         <div class="card-body">
             <div class="header-card">
-            <h5 class="card-title"><span th:text="${i.getUser().getUsername()}"></span></h5>
+            <h5 class="card-title"><span class="name" th:text="${i.getUser().getUsername()}"></span></h5>
             <h5 class="card-title"> <span th:text="${i.status}" class="status"></span></h5>
             </div>
             </hr>
@@ -179,24 +179,21 @@
             <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
             <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>
         </ul>
-        <div class="card-body">
-            <!--            <button type="button" class="btn btn-outline-warning">Profile</button>-->
-            <!--            <button type="button" class="btn btn-warning">Adopt</button>-->
+        <div class="card-body  adobt-request-buttom ">
 
             <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
                 <div class="mb-3" >
                     <input type="hidden" class="form-control" id="id1" name="id" aria-describedby="id" th:value="${i.id}">
                 </div>
-                <button type="submit" class="btn btn-primary">Adopt</button>
+                <button type="submit" class="btn btn-warning">Adopt</button>
             </form>
 
             <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
-                <!--                <div class="mb-3" >-->
-                <!--                </div>-->
-                <button type="submit" class="btn btn-primary" th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
+
+                <button type="submit" class="btn btn btn-outline-warning" th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
             </form>
             <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
-                            <button type="submit" class="btn btn-primary" th:text="${'Requester Profile'}"></button>
+                            <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}"></button>
             </form>
         </div>
     </div>
