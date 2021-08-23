@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Name : <span th:text="${volunteer.firstname} +' ' + ${volunteer.lastname}"></span></p>
+<p>Date of birth : <span th:text="${volunteer.dateOfBirth}"></span></p>
+<p>Bio : <span th:text="${volunteer.bio}"></span></p>
+
+<h2>Volunteer Cards</h2>
+<div th:each="i:${cards}">
+    <!--  <p>Username : <span th:text="${i.getUser().getUsername()}"></span></p>-->
+    <p>Field : <span th:text="${i.field}"></span></p>
+    <p>description : <span th:text="${i.description}"></span></p>
+    <p>Volunteer's Name : <span th:text="${i.getVolunteer().getFirstname()}"></span></p>
+    <p>Volunteer's E-mail : <span th:text="${i.email}"></span></p>
+    <p>-----------</p>
+
+</div>
+<h2>Adopted requests</h2>
+
+<div th:each="i:${volunteer.adoptedRequests}">
+    <p>request : <span th:text="${i.body}"></span></p>
+    <p>request : <span th:text="${i.field}"></span></p>
+    <p>-----------</p>
+
+</div>
+
+</body>
+</html>
