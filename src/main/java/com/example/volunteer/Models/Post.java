@@ -15,12 +15,15 @@ public class Post {
     private String date;
     private String time;
     private Integer phone;
-
+    private String status;
     @CreationTimestamp
     Date createdAt;
 
     @ManyToOne
     DBUser user;
+
+    @ManyToOne
+    DBVolunteer dbVolunteer;
 
     public Post() {
     }
@@ -30,14 +33,14 @@ public class Post {
         this.user = user;
     }
 
-
-    public Post(String body, String field, String date, String time, Integer phone, DBUser user) {
+    public Post(String body, String field, String date, String time, Integer phone, DBUser user , String status) {
         this.user = user;
         this.body = body;
         this.field = field;
         this.date = date;
         this.time = time;
         this.phone = phone;
+        this.status = status;
     }
 
     public DBUser getUser() {
@@ -100,4 +103,19 @@ public class Post {
         this.createdAt = createdAt;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public DBVolunteer getDbVolunteer() {
+        return dbVolunteer;
+    }
+
+    public void setDbVolunteer(DBVolunteer dbVolunteer) {
+        this.dbVolunteer = dbVolunteer;
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.volunteer.Controllers;
 
 import com.example.volunteer.Models.DBUser;
+import com.example.volunteer.Models.DBVolunteer;
 import com.example.volunteer.Models.Post;
 import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.DBVolunteerRepository;
@@ -25,8 +26,15 @@ public class PostController {
     @Autowired
     PostRepository postRepository;
 
+    @Autowired
+    DBVolunteerRepository dbVolunteerRepository;
+
     @GetMapping("/requests")
-    public String getAllRequests(Model m){
+    public String getAllRequests(Model m,Principal p){
+        DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
+        if (volunteer!=null){
+            m.addAttribute("isVolunteer",volunteer);
+        }
         m.addAttribute("allRequests",postRepository.findAll());
         return "requests.html";
     }
@@ -36,7 +44,7 @@ public class PostController {
                                       @RequestParam Integer phone, @RequestParam String date,
                                       @RequestParam String time, Principal p) {
         DBUser user = DBUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field, date, time, phone, user);
+        Post post = new Post(body, field, date, time, phone, user ,"PENDING");
         postRepository.save(post);
         return new RedirectView("/myprofile");
     }
@@ -48,7 +56,7 @@ public class PostController {
         return new RedirectView("/myprofile");
     }
 
-    @PostMapping("/modifyRequest")
+    @PutMapping("/modifyRequest")
     public RedirectView modifyRequest(@RequestParam String body, @RequestParam String field,
                                       @RequestParam Integer phone, @RequestParam String date,
                                       @RequestParam String time,Principal p,@RequestParam Integer id) {
@@ -59,6 +67,7 @@ public class PostController {
         post.setPhone(phone);
         post.setTime(time);
         postRepository.save(post);
+
         return new RedirectView("/myprofile");
     }
 

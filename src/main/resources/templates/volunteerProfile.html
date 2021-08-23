@@ -16,16 +16,18 @@
 <div id="addSkill" style="display:none">
     <form method="POST" action="/addSkill">
         <br/>
-        <label for="description">description         :</label>
-        <textarea id="description" name="description" cols="40" placeholder="Type what you want to share here about describe..."> </textarea>
+        <label for="description">description :</label>
+        <textarea id="description" name="description" cols="40"
+                  placeholder="Type what you want to share here about describe..."> </textarea>
         <br>
-        <label for="skills">skills        :</label>
-        <textarea id="skills" name="skills" cols="40" placeholder="Type what you want to share here about your fields..."> </textarea>
+        <label for="skills">skills :</label>
+        <textarea id="skills" name="skills" cols="40"
+                  placeholder="Type what you want to share here about your fields..."> </textarea>
         <br>
-        <label for="email">email         :</label>
+        <label for="email">email :</label>
         <textarea id="email" name="email" cols="40" placeholder="Type what you want to share here..."> </textarea>
         <br>
-        <label for="field">field         :</label>
+        <label for="field">field :</label>
         <textarea id="field" name="field" cols="40" placeholder="Type what you want to share here..."> </textarea>
         <br>
         <button type="submit">Post your card</button>
@@ -46,7 +48,7 @@
         <input type="submit" value="Delete"/>
     </form>
 
-<!--    <button onclick="myFunction()">Edit Your Card</button>-->
+    <!--    <button onclick="myFunction()">Edit Your Card</button>-->
 
     <div id="myDIV">
 
@@ -67,6 +69,16 @@
         </form>
     </div>
 
+
+</div>
+<h2>Adopted requests</h2>
+
+<div th:each="i:${currentUser.adoptedRequests}">
+    <p>request : <span th:text="${i.body}"></span></p>
+    <p>request : <span th:text="${i.field}"></span></p>
+    <p>-----------></p>
+
+
 </div>
 
 <script>
@@ -79,10 +91,7 @@ function myFunction() {
     x.style.display = "none";
   }
 }
+
 </script>
-
-
-
-
 </body>
 </html>

@@ -50,16 +50,16 @@
     <p>Date : <span th:text="${i.date}"></span></p>
     <p>Time : <span th:text="${i.time}"></span></p>
     <p>Phone : <span th:text="${i.phone}"></span></p>
-
+    <p>Status : <span th:text="${i.status}" ></span></p>
     <form action="/deleteRequest" method="post">
         <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
         <input type="submit" value="Delete"/>
     </form>
 
-<!--    <button onclick="myFunction()">Edit your request</button>-->
+    <!--    <button onclick="myFunction()">Edit your request</button>-->
 
     <div id="myDIV">
-        <form action="/modifyRequest" method="post">
+        <form action="/modifyRequest" th:method="PUT">
             <label for="editedbody">body</label>
             <input id="editedbody" name="body" type="text" th:value="${i.body}">
 
@@ -82,6 +82,9 @@
         </form>
 
     </div>
+    <form th:if="${i.status} != 'PENDING'" method="Get" th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
+        <button type="submit"  th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
+    </form>
 
 
 </div>
