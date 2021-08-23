@@ -87,6 +87,16 @@ public class ApplicationUserController {
         throw new NullPointerException();
     }
 
+    @GetMapping("/user/{username}")
+    public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
+        DBUser user = DBUserRepository.findByUsername(username);
+        m.addAttribute("currentUser", user);
+        m.addAttribute("requests", user.getPost());
+        if (p.getName().equals(user.getUsername())){
+            return ("profile.html");
+        }
+        return ("userpage.html");
+    }
 
 //    @PostMapping("/modifyRequest")
 //    public RedirectView modifyRequest(@RequestParam String body ,Principal p,@RequestParam Integer id) {
