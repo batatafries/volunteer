@@ -110,4 +110,12 @@ public class Post {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public DBVolunteer getDbVolunteer() {
+        return dbVolunteer;
+    }
+
+    public void setDbVolunteer(DBVolunteer dbVolunteer) {
+        this.dbVolunteer = dbVolunteer;
+    }
 }
