@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
@@ -49,6 +49,7 @@
 </head>
 <body>
 <div th:insert="fragment :: header"></div>
+<!--user info-->
 <div>
     <div class="split left">
         <div class="data">
@@ -71,6 +72,7 @@
     </div>
 </div>
 <br>
+<!--Add skill-->
 <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form method="POST" action="/addSkill">
         <div class="modal-dialog">
@@ -105,6 +107,7 @@
         </div>
     </form>
 </div>
+<!--display skills cards-->
 <div style="padding-top: 35%">
     <div th:each="i:${cards}">
         <p>Field : <span th:text="${i.field}"></span></p>
@@ -129,11 +132,14 @@
         </div>
     </div>
 </div>
+<!--display the Adopted requests-->
 <h2>Adopted requests</h2>
 <div th:each="i:${currentUser.adoptedRequests}">
     <p>request : <span th:text="${i.body}"></span></p>
     <p>request : <span th:text="${i.field}"></span></p>
     <p>-----------></p>
+
+
     <script>
     function myFunction() {
         var x = document.getElementById("addSkill");
@@ -145,6 +151,13 @@
     }
 
     </script>
+</div>
+<!--display the reviews-->
+<h2>my reviews</h2>
+<div th:each="review:${reviews}">
+    <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
+    <p>review : <span th:text="${review.review}"></span></p>
+    <p>-----------</p>
 </div>
 
 <div th:insert="fragment :: footer"></div>
