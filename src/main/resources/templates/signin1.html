@@ -218,7 +218,7 @@
 </head>
 
 <body>
-<h1 class="headline">Welcome in Volunteerism 🕊️</h1>
+<h1 class="headline">Welcome to Volunteerism 🕊️</h1>
 <form action="perform_login" method="POST">
   <div class="login-wrap">
     <div class="login-html">
@@ -253,27 +253,23 @@
           <div class="sign-up-htm">
             <div class="group">
               <label for="user" class="label">Username</label>
-              <input id="user" name="username" type="text" class="input">
+              <input id="user" name="username" type="text" class="input" required>
             </div>
             <div class="group">
               <label for="pass" class="label">Password</label>
-              <input id="pass" name="password" type="password" class="input" data-type="password">
+              <input id="pass" name="password" type="password" class="input" data-type="password" required>
             </div>
             <div class="group">
               <label for="firstName" class="label">First Name</label>
-              <input id="firstName" name="firstName" type="text" class="input" data-type="password">
+              <input id="firstName" name="firstName" type="text" class="input" data-type="text" required>
             </div>
             <div class="group">
               <label for="lastName" class="label">Last Name</label>
-              <input id="lastName" name="lastName" type="text" class="input">
+              <input id="lastName" name="lastName" type="text" class="input" required>
             </div>
             <div class="group">
               <label for="dateOfBirth" class="label">Date Of Birth</label>
-              <input id="dateOfBirth" name="dateOfBirth" type="text" class="input">
-            </div>
-            <div class="group">
-              <label for="bio" class="label">BIO</label>
-              <input id="bio" name="bio" type="text" class="input">
+              <input id="dateOfBirth" name="dateOfBirth" type="date" class="input" required>
             </div>
             <div class="types">
               <label for="standard-select">Choose type: </label>

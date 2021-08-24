@@ -31,13 +31,13 @@ public class VSkillController {
 
     @PostMapping("/addSkill")
     public RedirectView getVolunteerPage(@RequestParam String description,
-                                         @RequestParam String skills,
                                          @RequestParam String email,
                                          @RequestParam String field,
+                                         @RequestParam String phone,
                                          Principal p) {
         String username = p.getName();
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(username);
-        VSkill vSkill = new VSkill(volunteer, description, skills, field, email);
+        VSkill vSkill = new VSkill(volunteer, description, field, email,phone);
         vSkillRepository.save(vSkill);
         return new RedirectView("/myprofile");
     }
@@ -52,11 +52,13 @@ public class VSkillController {
     public RedirectView modifyRequest(@RequestParam String description,
                                       @RequestParam String email,
                                       @RequestParam String field,
+                                      @RequestParam String phone,
                                       Principal p,@RequestParam Integer id) {
         VSkill skillCard = vSkillRepository.findById(id).get();
         skillCard.setDescription(description);
         skillCard.setField(field);
         skillCard.setEmail(email);
+        skillCard.setPhone(phone);
         vSkillRepository.save(skillCard);
         return new RedirectView("/myprofile");
     }

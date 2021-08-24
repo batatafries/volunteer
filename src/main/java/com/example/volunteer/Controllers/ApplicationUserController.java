@@ -54,15 +54,14 @@ public class ApplicationUserController {
                                @RequestParam(value = "firstName") String firstName,
                                @RequestParam(value = "lastName") String lastName,
                                @RequestParam(value = "dateOfBirth") String dateOfBirth,
-                               @RequestParam(value = "bio") String bio,
                                @RequestParam(value = "type") String typeOfUser
     ) {
         if (typeOfUser.equals("Volunteer")) {
-            DBVolunteer newVolunteer = new DBVolunteer(username, bCryptPasswordEncoder.encode(password), firstName, lastName, bio, dateOfBirth, "ROLE_VOLUNTEER");
+            DBVolunteer newVolunteer = new DBVolunteer(username, bCryptPasswordEncoder.encode(password), firstName, lastName, dateOfBirth, "ROLE_VOLUNTEER");
             dbVolunteerRepository.save(newVolunteer);
         }
         if (typeOfUser.equals("User")) {
-            DBUser newUser = new DBUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, bio, dateOfBirth, "ROLE_USER");
+            DBUser newUser = new DBUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, dateOfBirth, "ROLE_USER");
             DBUserRepository.save(newUser);
         }
         return new RedirectView("/login");
@@ -121,7 +120,7 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
     @PostMapping("/modifyRequest")
     public RedirectView modifyRequest(@RequestParam String body ,
                                       @RequestParam String field ,
-                                      @RequestParam String time ,@RequestParam String date ,@RequestParam Integer phone ,
+                                      @RequestParam String phone ,
                                       Principal p,
                                       @RequestParam Integer id,
                                       Model m) {
@@ -131,8 +130,8 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
         if(loggedInUser.getId().equals(post.getUser().getId())){
             post.setBody(body);
             post.setField(field);
-            post.setTime(time);
-            post.setDate(date);
+//            post.setTime(time);
+//            post.setDate(date);
             post.setPhone(phone);
             postRepository.save(post);
         }
