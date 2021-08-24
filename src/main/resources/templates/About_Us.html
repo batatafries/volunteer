@@ -16,7 +16,7 @@
         }
 
         body {
-            height: 100vh;
+            height: 100%;
             font-family: 'Courgette', cursive;
             font-weight: 600;
             font-size: 18px;
@@ -280,11 +280,13 @@
 
         footer {
             width: 100%;
-            position: fixed;
+            position: relative;
             box-sizing: border-box;
             bottom: 0;
             background-image: linear-gradient(rgb(73, 70, 70), black);
             margin-bottom: 0;
+
+
         }
 
         .copy-rights {
@@ -350,9 +352,9 @@
 </head>
 
 <body>
-<div th:replace="fragment :: header"></div>
 
 <div class="iimmgg">
+    <div th:replace="fragment :: header"></div>
     <div class="Text">
         <h2>About Us</h2><br>
         <p style="margin-right: 5%;">
@@ -443,12 +445,13 @@
                     <a href="https://web.facebook.com/ali.alshiyyab.14/"><i class="fa fa-facebook"></i></a>
                 </div>
             </div>
-
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
         </div>
+
     </div>
-    <br><br><br>
-    <br><br><br>
-    <br><br><br>
+
 </section>
 <!--<footer style="padding-top: 20px; padding-bottom: 20px;">-->
 <!--    <div class="copy-rights">-->
@@ -467,8 +470,7 @@
 <!--    <script src="https://kit.fontawesome.com/9e5d1913ca.js" crossorigin="anonymous"></script>-->
 <!--</footer>-->
 
-
-</body>
 <div th:insert="fragment :: footer"></div>
+</body>
 
 </html>
