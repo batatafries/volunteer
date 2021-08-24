@@ -216,9 +216,18 @@
                 <h6 class="card-text">
                     Volunteer's E-mail : <span th:text="${i.email}"></span>
                 </h6>
+                <h6 class="card-text">
+                    Volunteer's Phone : <span th:text="${i.phone}"></span>
+                </h6>
             </div>
+            <form method="Get" th:action="@{/volunteer/{username}(username=${i.getVolunteer().getUsername()})}">
+                <button type="submit"  th:text="${'Volunteer Profile'}"></button>
+            </form>
+
         </div>
+
     </div>
+
 </div>
 <br><br><br><br><br><br><br>
 <div th:insert="fragment :: footer"></div>

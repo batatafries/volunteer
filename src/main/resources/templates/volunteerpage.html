@@ -337,12 +337,17 @@
     <p>description : <span th:text="${i.description}"></span></p>
     <p>Volunteer's Name : <span th:text="${i.getVolunteer().getFirstname()}"></span></p>
     <p>Volunteer's E-mail : <span th:text="${i.email}"></span></p>
+    <p>Volunteer's Phone : <span th:text="${i.phone}"></span></p>
     <p>-----------</p>
 </div>
 <h2>Adopted requests</h2>
 <div th:each="i:${currentUser.adoptedRequests}">
-    <p>request : <span th:text="${i.body}"></span></p>
-    <p>request : <span th:text="${i.field}"></span></p>
+
+    <p>Name : <span th:text="${i.getUser().getUsername()}"></span></p>
+    <p>Field : <span th:text="${i.field}"></span></p>
+    <p>Description : <span th:text="${i.body}"></span></p>
+    <p>Phone Number : <span th:text="${i.phone}"></span></p>
+    <p>Created At : <span th:text="${i.createdAt}"></span></p>
     <p>-----------</p>
 </div>
 
@@ -350,6 +355,21 @@
 <div th:each="review:${reviews}">
     <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
     <p>review : <span th:text="${review.review}"></span></p>
+    <p>Created At : <span th:text="${review.createdAt}"></span></p>
+
+    <form method="Get" th:action="@{/user/{username}(username=${review.getReviewerName()})}">
+        <button type="submit"  th:text="${'Reviewer Profile'}"></button>
+    </form>
+
+    <form th:if="${p}==${review.reviewerName}" action="/deleteReview" method="post" class="form_buttom">
+        <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
+               th:value="${review.getId()}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+
+
+
     <p>-----------</p>
 </div>
 <!--<form method="Get" th:action="@{/user/{username}(username=${i.reviewerName})}">-->

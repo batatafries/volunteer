@@ -9,6 +9,7 @@ import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.DBVolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
@@ -28,28 +29,46 @@ public class ReviewController {
     DBUserRepository dbUserRepository;
 
     @PostMapping("/addReview")
-    public RedirectView getReview(@RequestParam String body, Principal p,@RequestParam Integer id) {
+    public RedirectView getReview(@RequestParam String body, Principal p, @RequestParam Integer id) {
         DBUser user = dbUserRepository.findByUsername(p.getName());
         DBVolunteer reviewdVolunteer = dbVolunteerRepository.findById(id).get();
-        Reviews review = new Reviews(body,user.getUsername());
+        Reviews review = new Reviews(body, user.getUsername());
         review.setReviewedVolunteer(reviewdVolunteer);
         reviewdVolunteer.addReview(review);
         dbVolunteerRepository.save(reviewdVolunteer);
         dbReviewsRepository.save(review);
-        return new RedirectView ("/volunteer/"+reviewdVolunteer.getUsername());
+        return new RedirectView("/volunteer/" + reviewdVolunteer.getUsername());
     }
 
     @PostMapping("/addReviewUser")
-    public RedirectView getReviewForUser(@RequestParam String body, Principal p,@RequestParam Integer id) {
+    public RedirectView getReviewForUser(@RequestParam String body, Principal p, @RequestParam Integer id) {
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
         DBUser reviewdUser = dbUserRepository.findById(id).get();
-        Reviews review = new Reviews(body,volunteer.getUsername());
+        Reviews review = new Reviews(body, volunteer.getUsername());
         review.setReviewedUser(reviewdUser);
         reviewdUser.addReview(review);
         dbUserRepository.save(reviewdUser);
         dbReviewsRepository.save(review);
-        return new RedirectView ("/user/"+reviewdUser.getUsername());
+        return new RedirectView("/user/" + reviewdUser.getUsername());
+    }
+
+
+    @PostMapping("/deleteReview")
+    public RedirectView deleteReview(@RequestParam Integer id, Principal p) {
+        Reviews reqReview = dbReviewsRepository.findById(id).get();
+        DBVolunteer volunteer = dbVolunteerRepository.findByUsername(reqReview.getReviewerName());
+//        m.addAttribute("p",p.getName());
+//        System.out.println(id);
+//        System.out.println(p.getName());
+        dbReviewsRepository.deleteById(id);
+        if (volunteer != null) {
+            return new RedirectView("/user/" + reqReview.getReviewedUser().getUsername());
+        }
+        DBUser user = dbUserRepository.findByUsername(reqReview.getReviewerName());
+        if (user != null) {
+            return new RedirectView("/volunteer/" + reqReview.getReviewedVolunteer().getUsername());
+        }
+        return new RedirectView("/") ;
     }
 
 }
-

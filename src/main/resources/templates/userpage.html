@@ -352,6 +352,18 @@
 <div th:each="review:${reviews}">
     <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
     <p>review : <span th:text="${review.review}"></span></p>
+    <p>Created At : <span th:text="${review.createdAt}"></span></p>
+    <form method="Get" th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">
+        <button type="submit"  th:text="${'Reviewer Profile'}"></button>
+    </form>
+<!--    th:if="'${p}'=='${review.reviewerName}'"-->
+<!--    th:if="${review.reviewerName}==${currentUser.username}"-->
+    <form th:if="${p}==${review.reviewerName}" action="/deleteReview" method="post" class="form_buttom">
+        <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
+               th:value="${review.getId()}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
     <p>-----------</p>
 </div>
 <div th:insert="fragment :: footer"></div>

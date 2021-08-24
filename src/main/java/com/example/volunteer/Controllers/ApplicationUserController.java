@@ -113,6 +113,7 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
             if (p.getName().equals(user.getUsername())) {
                 return ("profile.html");
             }
+            m.addAttribute("p",p.getName());
         }
         return ("userpage.html");
     }
