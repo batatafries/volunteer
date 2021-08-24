@@ -7,6 +7,7 @@ import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.DBVolunteerRepository;
 import com.example.volunteer.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,8 @@ public class ApplicationUserController {
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
-
+@Autowired
+    PostRepository postRepository;
 
     @GetMapping("/signup")
     public String getSignUpPage() {
@@ -94,6 +96,13 @@ public class ApplicationUserController {
         }
         throw new NullPointerException();
     }
+@GetMapping("/getcard/{id}")
+public String getCardToModify(Model m,@PathVariable Integer id  ){
+        Post p1 =postRepository.findById(id).get();
+        m.addAttribute("cardUpdate",p1);
+        m.addAttribute("show",true);
+        return "modaltest.html";
+}
 
     @GetMapping("/user/{username}")
     public String getVolunteer(@PathVariable("username") String username, Model m, Principal p) {
@@ -108,5 +117,28 @@ public class ApplicationUserController {
         }
         return ("userpage.html");
     }
+
+    @PostMapping("/modifyRequest")
+    public RedirectView modifyRequest(@RequestParam String body ,
+                                      @RequestParam String field ,
+                                      @RequestParam String time ,@RequestParam String date ,@RequestParam Integer phone ,
+                                      Principal p,
+                                      @RequestParam Integer id,
+                                      Model m) {
+        Post post = postRepository.findById(id).get();
+        String loggedInUserName = p.getName();
+        DBUser loggedInUser = DBUserRepository.findByUsername(loggedInUserName);
+        if(loggedInUser.getId().equals(post.getUser().getId())){
+            post.setBody(body);
+            post.setField(field);
+            post.setTime(time);
+            post.setDate(date);
+            post.setPhone(phone);
+            postRepository.save(post);
+        }
+        m.addAttribute("show",false);
+        return new RedirectView("/myprofile");
+    }
+
 
 }

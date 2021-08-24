@@ -10,7 +10,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-<!--    <script type="text/javascript" src="../static/main.js"  th:src="@{/main.js}"></script>-->
 
     <link rel="stylesheet" th:href="@{/css/profile.css}">
     <style>
@@ -301,20 +300,22 @@
 </head>
 
 <body>
-
+  
 <div th:insert="fragment :: header"></div>
+  
+  <div class="infoAndRequest">
+<div class="infoUser">
 
 <h2>Welcome <span th:text="${currentUser.username}"></span></h2>
 <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
 <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
 <p>Bio : <span th:text="${currentUser.bio}"></span></p>
-
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" >Add Request</button>
+</div>
 <br>
 
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" >Add Request</button>
-
-<!--Add Request-->
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" >Add Request</button>-->
 
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form  method="POST" action="/addRequest">
@@ -373,7 +374,7 @@
                 <h5 class="card-title">Field : <span th:text="${i.field}"></span>  </h5>
                 <h5 class="card-title"><span  th:text="${i.status}"></span>  </h5>
               </div>
-                <p class="card-text"><span id="status" th:text="${i.body}"></span></p>
+                <p class="card-text"><span id="bodyc" name="body" th:text="${i.body}"></span></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"> Name : <span th:text="${i.getUser().getUsername()}"></span></li>
@@ -386,55 +387,22 @@
                     <button type="submit" class="btn btn-danger" >Delete</button>
                 </form>
 <!--           Buttom Update Model    -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" >Update</button>
 
+                <a th:href="@{'/getcard/'+${i.id}}" id="editCardModal">
+                    <button  class="btn btn-danger" >    Update  </button>
+                </a>
 
             </div>
 
         </div>
     </div>
 </div>
-<!-- Updat Card Model  -->
-
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-    <form  method="POST" action="/modifySkillCard">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" > Update</h5>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="body" class="col-form-label" >Body:</label>
-                        <input type="text" class="form-control" id="body1" name="body" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="field" class="col-form-label">Field:</label>
-                        <input type="text" class="form-control" id="field1" name="field">
-                    </div>
-                    <div class="mb-3">
-                        <label for="date" class="col-form-label">Date:</label>
-                        <input type="text" class="form-control" id="date1" name="date">
-                    </div>
-                    <div class="mb-3">
-                        <label for="time" class="col-form-label">time:</label>
-                        <input type="text" class="form-control" id="time1" name="time">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="col-form-label">Phone number :</label>
-                        <input type="text" class="form-control" id="phone1" name="phone">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </div>
-            </div>
-        </div>
-    </form>
 </div>
-
+<!--Add Request modal-->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <form  method="POST" action="/addRequest">
+</body>
+</html>
 
 <h2>volunteer's feedback</h2>
 <div th:each="review:${reviews}">
@@ -448,6 +416,5 @@
 
 </body>
 </html>
-
 
 

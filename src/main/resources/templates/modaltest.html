@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+  <title>Update</title>
+</head>
+<body>
+
+<div  th:if=${show} class="modal fade show d-block" id="editModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <form  method="POST" action="/modifyRequest">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" > Update</h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+        </div>
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label for="body1" class="col-form-label" >Body:</label>
+            <input type="text" class="form-control" id="body1" name="body" th:value="${cardUpdate.body}" >
+            <input type="hidden" class="form-control" id="idh" name="id" th:value="${cardUpdate.id}" >
+          </div>
+
+          <div class="mb-3">
+            <label for="field1" class="col-form-label">Field:</label>
+            <input type="text" class="form-control" id="field1" name="field" th:value="${cardUpdate.field}">
+          </div>
+
+          <div class="mb-3">
+            <label for="date1" class="col-form-label">Date:</label>
+            <input type="text" class="form-control" id="date1" name="date" th:value="${cardUpdate.date}">
+          </div>
+
+          <div class="mb-3">
+            <label for="time1" class="col-form-label">time:</label>
+            <input type="text" class="form-control" id="time1" name="time" th:value="${cardUpdate.time}">
+          </div>
+
+          <div class="mb-3">
+            <label for="phone1" class="col-form-label">Phone number :</label>
+            <input type="text" class="form-control" id="phone1" name="phone" th:value="${cardUpdate.phone}">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <a th:href="@{'/myprofile'}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button></a>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
