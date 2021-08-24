@@ -16,7 +16,7 @@
         }
 
         body {
-            height: 100vh;
+            height: 100%;
             font-family: 'Courgette', cursive;
             font-weight: 600;
             font-size: 18px;
@@ -280,11 +280,13 @@
 
         footer {
             width: 100%;
-            position: fixed;
+            position: relative;
             box-sizing: border-box;
             bottom: 0;
             background-image: linear-gradient(rgb(73, 70, 70), black);
             margin-bottom: 0;
+
+
         }
 
         .copy-rights {
@@ -343,24 +345,16 @@
             height: 130vh;
             border-radius: 5px;
         }
+
+
+
     </style>
 </head>
 
 <body>
+
 <div class="iimmgg">
-    <header>
-        <img height="100px" width="100px" src="https://image.shutterstock.com/image-vector/volunteer-concept-illustration-600w-339821348.jpg" alt="Image Not Found" class="logo" />
-        <nav>
-            <ul class="nav-area" style="padding-right: 330px;">
-                <li><a href="/">Home</a></li>
-                <li><a href="/requests">User</a></li>
-                <li><a href="/volunteerSkill">Volunteer</a></li>
-                <li><a href="/myprofile">Profile</a></li>
-                <li><a href="/About_Us">AboutUs</a></li>
-            </ul>
-            <a style="margin-top: -35px;" href="./signin.html" class="btn-area">Login</a>
-        </nav>
-    </header>
+    <div th:replace="fragment :: header"></div>
     <div class="Text">
         <h2>About Us</h2><br>
         <p style="margin-right: 5%;">
@@ -381,7 +375,8 @@
 
         <div class="row">
             <div class="card" style="width: 275px" id="id">
-                <img src="https://avatars.githubusercontent.com/u/35654043?v=4" alt="John" style="width: 100%; height: 275px; border-radius: 35px;" />
+                <img src="https://avatars.githubusercontent.com/u/35654043?v=4" alt="John"
+                     style="width: 100%; height: 275px; border-radius: 35px;"/>
                 <h2>Osama Al-Ali</h2>
                 <p class="title">Software Developer</p>
                 <div class="mar" style="margin: 24px 0">
@@ -391,7 +386,8 @@
                 </div>
             </div>
             <div class="card" style="width: 275px">
-                <img src="https://avatars.githubusercontent.com/u/81149062?v=4" alt="John" style="width: 100%; height: 275px; border-radius: 35px;" />
+                <img src="https://avatars.githubusercontent.com/u/81149062?v=4" alt="John"
+                     style="width: 100%; height: 275px; border-radius: 35px;"/>
                 <h2>Mohammad Al-Saify</h2>
                 <p class="title">Software Developer</p>
                 <div class="mar" style="margin: 24px 0">
@@ -401,7 +397,8 @@
                 </div>
             </div>
             <div class="card" style="width: 275px">
-                <img src="https://avatars.githubusercontent.com/u/81148879?v=4" alt="John" style="width: 100%; height: 275px; border-radius: 35px;" />
+                <img src="https://avatars.githubusercontent.com/u/81148879?v=4" alt="John"
+                     style="width: 100%; height: 275px; border-radius: 35px;"/>
                 <h2>Majd Khasawneh</h2>
                 <p class="title">Software Developer</p>
                 <div class="mar" style="margin: 24px 0">
@@ -410,10 +407,12 @@
                     <a href="https://web.facebook.com/Anxiety97/"><i class="fa fa-facebook"></i></a>
                 </div>
             </div>
-        </div><br />
+        </div>
+        <br/>
         <div class="row1">
             <div class="card" style="width: 275px;">
-                <img src="https://avatars.githubusercontent.com/u/80686934?v=4" alt="John" style="height: 275px; width: 100%; border-radius: 35px;" />
+                <img src="https://avatars.githubusercontent.com/u/80686934?v=4" alt="John"
+                     style="height: 275px; width: 100%; border-radius: 35px;"/>
                 <h2>Sanabel Abu-Ezbaid</h2>
                 <p class="title">Software Developer</p>
                 <div class="mar" style="margin: 24px 0">
@@ -424,7 +423,8 @@
                 </div>
             </div>
             <div class="card" style="width: 275px">
-                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGRrx0PSCqvfA/profile-displayphoto-shrink_200_200/0/1617542735340?e=1634774400&v=beta&t=tA4D2HmrOdHLKNLfCgtd4SKDb7M_gnLX_A84Uwv6xEU" alt="John" style="width: 100%; height: 275px; border-radius: 35px;" />
+                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGRrx0PSCqvfA/profile-displayphoto-shrink_200_200/0/1617542735340?e=1634774400&v=beta&t=tA4D2HmrOdHLKNLfCgtd4SKDb7M_gnLX_A84Uwv6xEU"
+                     alt="John" style="width: 100%; height: 275px; border-radius: 35px;"/>
                 <h2>Shath Smadi</h2>
                 <p class="title">Software Developer</p>
                 <div class="mar" style="margin: 24px 0">
@@ -435,7 +435,8 @@
                 </div>
             </div>
             <div class="card" style="width: 275px">
-                <img src="https://production-clubhouse-avatars.s3.amazonaws.com/1488051555_5f5e4a13-fc0b-486d-994d-ef7483197287" alt="John" style="width: 100%; height: 275px; border-radius: 35px;" />
+                <img src="https://production-clubhouse-avatars.s3.amazonaws.com/1488051555_5f5e4a13-fc0b-486d-994d-ef7483197287"
+                     alt="John" style="width: 100%; height: 275px; border-radius: 35px;"/>
                 <h2>Ali Akef</h2>
                 <p class="title">Software Developer</p>
                 <div class="mar" style="margin: 24px 0">
@@ -444,29 +445,32 @@
                     <a href="https://web.facebook.com/ali.alshiyyab.14/"><i class="fa fa-facebook"></i></a>
                 </div>
             </div>
-
+            <br><br><br>
+            <br><br><br>
+            <br><br><br>
         </div>
+
     </div>
-    <br><br><br>
-    <br><br><br>
-    <br><br><br>
+
 </section>
-<footer style="padding-top: 20px; padding-bottom: 20px;">
-    <div class="copy-rights">
-        <p style="font-size: 18px; margin-top: 10px;">Copyright &copy; 2021 All rights reserved | This project made
-            by
-            <label style="font-weight: bold; color: #F8B600;">Potato Creative Team</label>
-        </p>
-    </div>
-    <div class="footer-social" style=" margin-left: 47%; ">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-behance"></i></a>
-    </div>
-    </div>
-    <script src="https://kit.fontawesome.com/9e5d1913ca.js" crossorigin="anonymous"></script>
-</footer>
+<!--<footer style="padding-top: 20px; padding-bottom: 20px;">-->
+<!--    <div class="copy-rights">-->
+<!--        <p style="font-size: 18px; margin-top: 10px;">Copyright &copy; 2021 All rights reserved | This project made-->
+<!--            by-->
+<!--            <label style="font-weight: bold; color: #F8B600;">Potato Creative Team</label>-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    <div class="footer-social" style=" margin-left: 47%; ">-->
+<!--        <a href="#"><i class="fa fa-facebook"></i></a>-->
+<!--        <a href="#"><i class="fa fa-twitter"></i></a>-->
+<!--        <a href="#"><i class="fa fa-dribbble"></i></a>-->
+<!--        <a href="#"><i class="fa fa-behance"></i></a>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    <script src="https://kit.fontawesome.com/9e5d1913ca.js" crossorigin="anonymous"></script>-->
+<!--</footer>-->
+
+<div th:insert="fragment :: footer"></div>
 </body>
 
 </html>

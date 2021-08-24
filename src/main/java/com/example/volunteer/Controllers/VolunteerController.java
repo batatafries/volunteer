@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class VolunteerController {
@@ -31,7 +28,6 @@ public class VolunteerController {
                                      @RequestParam Integer id) {
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
         Post adoptedPost = postRepository.findById(id).get();
-
         volunteer.addRequest(adoptedPost);
         adoptedPost.setDbVolunteer(volunteer);
         adoptedPost.setStatus("PROCESSING");
@@ -52,5 +48,4 @@ public class VolunteerController {
         }
         return ("volunteerpage.html");
     }
-
 }
