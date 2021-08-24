@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-      crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-      crossorigin="anonymous"></script>
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
@@ -90,7 +90,7 @@
         grid-template-columns: repeat(3, 1fr);
         border-radius: 3px;
         margin: 25px;
-    
+
 
       }
       .card {
@@ -127,7 +127,7 @@
         }
         footer {
             width: 100%;
-            position: fixed;
+            position: relative;
             box-sizing: border-box;
             bottom: 0;
             background-image: linear-gradient(rgb(73, 70, 70), black);
@@ -185,83 +185,42 @@
         /* .card-text {
             overflow: auto;
         } */
+
     </style>
     <title>Volunteers Cards</title>
-  </head>
-  <body> 
-      <!-- https://images.unsplash.com/photo-1617900906639-cab7adceb499?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80 -->
-    <div style="background-image: url(https://images.unsplash.com/photo-1530385804661-647f1e9134e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjkxfHxrZXlib2FyZCUyMGFuZCUyMG1vdXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60);
+</head>
+<body>
+<!-- https://images.unsplash.com/photo-1617900906639-cab7adceb499?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80 -->
+<div style="background-image: url(https://images.unsplash.com/photo-1530385804661-647f1e9134e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjkxfHxrZXlib2FyZCUyMGFuZCUyMG1vdXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60);
      position: relative; background-size: cover; height: 615px;">
-     <header>
-      <img
-        height="100px"
-        width="100px"
-        src="./backgroundImg.png"
-        alt="Image Not Found"
-        class="logo"
-      />
-      <nav>
-        <ul class="nav-area" style="padding-right: 330px">
-          <li><a href="/">Home</a></li>
-          <li><a href="/user">User</a></li>
-          <li><a href="/volunteer">Volunteer</a></li>
-          <li><a href="/myProfile">Profile</a></li>
-          <li><a href="/AboutUs.html">AboutUs</a></li>
-        </ul>
-        <a style="margin-top: -45px" href="./signin.html" class="btn-area"
-          >Login</a
-        >
-      </nav>
-    </header>
-    <h1 class="titlh1" style="padding-top: 8%;" >Volunteer Skills 🙌</h1>
-     <p class="shring">~ sharing is caring ~</p>
-     <h5></h5>
+    <div th:insert="fragment :: header"></div>
 
+    <h1 class="titlh1" style="padding-top: 8%;">Volunteer Skills 🙌</h1>
+    <p class="shring">~ sharing is caring ~</p>
+    <h5></h5>
 </div>
-
-
-
-    <div class="container" style="margin-left: 9%;" >
-      <div th:each="i:${allSkillsCards}">
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem" >
-          <div class="card-header">
-            Field : <span th:text="${i.field}"></span>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              description : <span th:text="${i.description}"></span>
-            </p>
-            <h6 class="card-text">
-              Volunteer's Name :
-              <span th:text="${i.getVolunteer().getFirstname()}"></span>
-            </h6>
-            <h6 class="card-text">
-              Volunteer's E-mail : <span th:text="${i.email}"></span>
-            </h6>
-          </div>
+<div class="container" style="margin-left: 9%;">
+    <div th:each="i:${allSkillsCards}">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem">
+            <div class="card-header">
+                Field : <span th:text="${i.field}"></span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    description : <span th:text="${i.description}"></span>
+                </p>
+                <h6 class="card-text">
+                    Volunteer's Name :
+                    <span th:text="${i.getVolunteer().getFirstname()}"></span>
+                </h6>
+                <h6 class="card-text">
+                    Volunteer's E-mail : <span th:text="${i.email}"></span>
+                </h6>
+            </div>
         </div>
-      </div>
     </div>
-    <br><br><br><br><br><br><br>
-  
-
-
-
-    <footer style="padding-top: 20px; padding-bottom: 20px;">
-        <div class="copy-rights">
-            <p style="font-size: 18px; margin-top: 10px;">Copyright &copy; 2021 All rights reserved | This project made
-                by
-                <label style="font-weight: bold; color: #F8B600;">Potato Creative Team</label>
-            </p>
-        </div>
-        <div class="footer-social" style=" margin-left: 47%; ">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-behance"></i></a>
-        </div>
-        </div>
-        <script src="https://kit.fontawesome.com/9e5d1913ca.js" crossorigin="anonymous"></script>
-    </footer>
-  </body>
+</div>
+<br><br><br><br><br><br><br>
+<div th:insert="fragment :: footer"></div>
+</body>
 </html>
