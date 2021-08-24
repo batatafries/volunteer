@@ -24,6 +24,9 @@ public class DBVolunteer {
     @OneToMany(mappedBy = "dbVolunteer")
     Set<Post> adoptedRequests;
 
+    @OneToMany(mappedBy = "reviewedVolunteer")
+    List<Reviews> volunteerReviews;
+
     public DBVolunteer() {
     }
 
@@ -36,8 +39,13 @@ public class DBVolunteer {
         this.dateOfBirth = dateOfBirth;
         this.authority = authority;
     }
-    public void addRequest(Post post){
+
+    public void addRequest(Post post) {
         adoptedRequests.add(post);
+    }
+
+    public void addReview(Reviews review) {
+        volunteerReviews.add(review);
     }
 
     public Integer getId() {
@@ -118,5 +126,13 @@ public class DBVolunteer {
 
     public void setAdoptedRequests(Set<Post> adoptedRequests) {
         this.adoptedRequests = adoptedRequests;
+    }
+
+    public List<Reviews> getVolunteerReviews() {
+        return volunteerReviews;
+    }
+
+    public void setVolunteerReviews(List<Reviews> volunteerReviews) {
+        this.volunteerReviews = volunteerReviews;
     }
 }

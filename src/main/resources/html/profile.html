@@ -1,0 +1,332 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Document</title>-->
+
+<!--<style>-->
+<!--  /* for botton-->
+<!--   */-->
+<!--  -->
+<!--  -->
+<!--   * {-->
+<!--  margin: 0;-->
+<!--  padding: 0;-->
+<!--  box-sizing: content-box;-->
+<!--}-->
+
+<!--html,-->
+<!--body {  -->
+<!--    width: 100%;-->
+<!--    height: 100%;-->
+<!--} -->
+
+<!--.main-container {-->
+<!--    width: 100%;-->
+<!--    height: 100%;-->
+<!--    display: flex;-->
+<!--    justify-content: center;-->
+<!--    align-items: center;-->
+<!--    background-color: #111111;-->
+<!--    color: #ffffff;-->
+<!--}-->
+
+<!--.button {-->
+<!--  position: relative;-->
+<!--  background-color: transparent;-->
+<!--  padding: 10px 20px;-->
+<!--  color: #ffffff;-->
+<!--  border: none;-->
+<!--  font-size: 1.9em;-->
+<!--  transform: none;-->
+<!--  cursor: pointer;-->
+<!--    margin-left: 10%;-->
+<!--}-->
+
+<!--.button:after {-->
+<!--  content: "";-->
+<!--  height: 100%;-->
+<!--  width: calc(100% + 20px);-->
+<!--  position: absolute;-->
+<!--  top: -2px;-->
+<!--  left: -10px;-->
+<!--  border-top: 2px solid #fff;-->
+<!--  border-bottom: 2px solid #fff;-->
+<!--  transition: 1s;-->
+<!--}-->
+
+<!--.button:before {-->
+<!--  content:"";-->
+<!--  height: calc(100% + 20px);-->
+<!--  width: 100%;-->
+<!--  position: absolute; -->
+<!--  top: -10px;-->
+<!--  left: -2px;-->
+<!--  border-left: 2px solid #fff;-->
+<!--  border-right: 2px solid #fff;-->
+<!--  transition: 1s;-->
+<!--}-->
+
+<!--.button:hover:before {-->
+<!--  transform: rotateY(180deg);-->
+<!--}-->
+
+<!--.button:hover:after {-->
+<!--  transform: rotateX(180deg);-->
+<!--}-->
+
+<!--  -->
+<!--  -->
+<!--  /*  for form-->
+<!--        */-->
+
+<!-- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');-->
+
+<!--/* body {-->
+<!--  margin: 0;-->
+<!--  width: 100vw;-->
+<!--  height: 100vh;-->
+<!--  background: #ecf0f3;-->
+<!--  display: flex;-->
+<!--  align-items: center;-->
+<!--  text-align: center;-->
+<!--  justify-content: center;-->
+<!--  place-items: center;-->
+<!--  overflow: hidden;-->
+<!--  font-family: poppins;-->
+<!--} */-->
+
+<!--.container {-->
+<!--  position: relative;-->
+<!--  width: 350px;-->
+<!--  height: 500px;-->
+<!--  border-radius: 20px;-->
+<!--  padding: 40px;-->
+<!--  box-sizing: border-box;-->
+<!--  background: #ecf0f3;-->
+<!--  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;-->
+<!--}-->
+
+<!--.brand-logo {-->
+<!--  height: 100px;-->
+<!--  width: 100px;-->
+<!--  background: url("https://img.icons8.com/color/100/000000/twitter&#45;&#45;v2.png");-->
+<!--  margin: auto;-->
+<!--  border-radius: 50%;-->
+<!--  box-sizing: border-box;-->
+<!--  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;-->
+<!--}-->
+
+<!--.brand-title {-->
+<!--  margin-top: 10px;-->
+<!--  font-weight: 900;-->
+<!--  font-size: 1.8rem;-->
+<!--  color: #1DA1F2;-->
+<!--  letter-spacing: 1px;-->
+<!--}-->
+
+<!--.inputs {-->
+<!--  text-align: left;-->
+<!--  margin-top: 30px;-->
+<!--}-->
+
+<!--label, input, button {-->
+<!--  display: block;-->
+<!--  width: 100%;-->
+<!--  padding: 0;-->
+<!--  border: none;-->
+<!--  outline: none;-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+
+<!--label {-->
+<!--  margin-bottom: 4px;-->
+<!--}-->
+
+<!--label:nth-of-type(2) {-->
+<!--  margin-top: 12px;-->
+<!--}-->
+
+<!--input::placeholder {-->
+<!--  color: gray;-->
+<!--}-->
+
+<!--input {-->
+<!--  background: #ecf0f3;-->
+<!--  padding: 10px;-->
+<!--  padding-left: 20px;-->
+<!--  height: 50px;-->
+<!--  font-size: 14px;-->
+<!--  border-radius: 50px;-->
+<!--  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;-->
+<!--}-->
+
+<!--button {-->
+<!--  margin-top: 20px;-->
+<!--  background: #1DA1F2;-->
+<!--  height: 40px;-->
+<!--  border-radius: 20px;-->
+<!--  cursor: pointer;-->
+<!--  font-weight: 900;-->
+<!--  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;-->
+<!--  transition: 0.5s;-->
+<!--}-->
+
+<!--button:hover {-->
+<!--  box-shadow: none;-->
+<!--}-->
+
+<!--a {-->
+<!--  position: absolute;-->
+<!--  font-size: 8px;-->
+<!--  bottom: 4px;-->
+<!--  right: 4px;-->
+<!--  text-decoration: none;-->
+<!--  color: black;-->
+<!--  background: yellow;-->
+<!--  border-radius: 10px;-->
+<!--  padding: 2px;-->
+<!--}-->
+
+<!--h1 {-->
+<!--  position: absolute;-->
+<!--  top: 0;-->
+<!--  left: 0;-->
+<!--}-->
+<!--  -->
+<!--  -->
+<!--  /* for card*/-->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  :root {-->
+<!--  &#45;&#45;main:#1e1f26;-->
+<!--  &#45;&#45;accent: #b3b3b3;-->
+<!--  &#45;&#45;white: #fff;-->
+<!--  &#45;&#45;signal: #f7fa5ffb;-->
+<!--}-->
+<!--*,-->
+<!--*::before,-->
+<!--*::after {-->
+<!--  box-sizing: border-box;-->
+<!--  font-family: sans-serif;-->
+<!--  line-height: 1.4;-->
+<!--}-->
+
+<!--/* body {-->
+<!--  background: #1d1e22;-->
+<!--  display: flex;-->
+<!--  justify-content: center;-->
+<!--  align-content: center;-->
+<!--} */-->
+<!--.card {-->
+<!--  background: url(https://www.probuilder.com/sites/probuilder/files/17624886_l.jpg);-->
+<!--  background-size: cover;-->
+<!--  background-repeat: no-repeat;-->
+<!--  padding: 3em 0 0 0;-->
+<!--  margin-top: 2rem;-->
+<!--  max-width: 400px;-->
+<!--  border-radius: 1rem;-->
+<!--  overflow: hidden;-->
+<!--  transition: ease-in-out 0.3s;-->
+<!--  box-shadow: 5px 8px 12px 2px rgba(255, 163, 135, 0.2);-->
+<!--  backdrop-filter: blur(4px);-->
+<!--  -webkit-backdrop-filter: blur(4px);-->
+<!--  transform: scale(0.7);-->
+<!--}-->
+
+<!--.card-content {-->
+<!--  background: linear-gradient(-->
+<!--    180deg,-->
+<!--    rgba(0, 0, 0, 0) 0%,-->
+<!--    rgba(0, 0, 0, 0.2) 10%,-->
+<!--    rgba(0, 0, 0, 0.4) 20%,-->
+<!--    rgba(0, 0, 0, 1) 100%-->
+<!--  );-->
+<!--  padding: 1em 2em;-->
+<!--  color: var(&#45;&#45;white);-->
+<!--  transform: translateY(24em);-->
+<!--  transition: ease-in-out 0.5s;-->
+<!--  height: 100%;-->
+<!--}-->
+
+<!--.card-titel {-->
+<!--  position: relative;-->
+<!--}-->
+<!--.card:hover {-->
+<!--  transform: scale(1.02);-->
+<!--}-->
+<!--.card:hover .card-titel::after {-->
+<!--  transform: translateX(-10%);-->
+<!--}-->
+<!--.card:hover .card-content {-->
+<!--  transform: translateY(0);-->
+<!--}-->
+<!--.card-titel::after {-->
+<!--  content: "";-->
+<!--  height: 4px;-->
+<!--  width: 100%;-->
+<!--  background-color: var(&#45;&#45;signal);-->
+<!--  position: absolute;-->
+<!--  bottom: 0;-->
+<!--  left: 0;-->
+<!--  transform: translateX(-90%);-->
+<!--  transition: ease-in-out 0.5s;-->
+<!--  transition-delay: 0.5s;-->
+<!--}-->
+<!--.card-button {-->
+<!--  display: inline-block;-->
+<!--  padding: 0.5rem 2rem;-->
+<!--  border-radius: 0.2rem;-->
+<!--  background-color: var(&#45;&#45;signal);-->
+<!--  cursor: pointer;-->
+<!--  font-weight: 700;-->
+<!--    margin-left: 10%;-->
+<!--}-->
+
+<!--.card-button:hover,-->
+<!--.card-button:focus {-->
+<!--  background-color: var(&#45;&#45;accent);-->
+<!--}-->
+
+<!--</style>-->
+<!--    -->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <div class="main-container">-->
+<!--        <button class="button">About </button>-->
+<!--        <button class="button">Request </button>-->
+<!--    </div>-->
+<!--  -->
+<!--<div class="container">-->
+<!--    <div class="brand-logo"></div>-->
+<!--    <div class="brand-title">Volunteerism</div>-->
+<!--    <div class="inputs">-->
+<!--      <label>Body</label>-->
+<!--      <input type="text" placeholder="" />-->
+<!--      <label>Field</label>-->
+<!--      <input type="text" placeholder="" />-->
+<!--      <label>Date </label>-->
+<!--      <input type="date" placeholder="" />-->
+<!--      <label>Time</label>-->
+<!--      <input type="time" placeholder="" />-->
+<!--      <label>Phone</label>-->
+<!--      <input type="number" placeholder="" />-->
+<!--      <button type="submit">LOGIN</button>-->
+<!--    </div>-->
+<!--    <a href="https://twitter.com/prathkum">MADE BY PRATHAM</a>-->
+<!--  </div>-->
+
+<!--    <div class="card">-->
+<!--        <div class="card-content">-->
+<!--          <h1 class="card-titel">Lorem ipsum</h1>-->
+<!--          <p class="card-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>-->
+<!--          <a class="card-button">Update </a>-->
+<!--            <a class="card-button">Delete </a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--</body>-->
+<!--</html>-->

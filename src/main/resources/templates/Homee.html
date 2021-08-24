@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
         @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Arima+Madurai:wght@900&display=swap');
@@ -24,6 +26,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
+
         }
 
         .one-image {
@@ -287,38 +290,57 @@
 
     </style>
 </head>
-<body>
-<header th:fragment="header">
-    <img height="100px" width="100px" src="./backgroundImg" alt="Image Not Found" class="logo"/>
-    <nav>
-        <ul class="nav-area" style="padding-right: 330px;">
-            <li><a href="/">Home</a></li>
-            <li><a href="/requests">Requests</a></li>
-            <li><a href="/volunteerSkill">Services</a></li>
-            <li sec:authorize="isAuthenticated()"><a href="/myprofile">Profile</a></li>
-            <li><a href="/About_Us">AboutUs</a></li>
-        </ul>
-        <a sec:authorize="!isAuthenticated()" style="margin-top: -50px;" href="/login" class="btn-area">Login</a>
-        <a sec:authorize="isAuthenticated()" style="margin-top: -50px;" href="/perform_logout"
-           class="btn-area">Logout</a>
-    </nav>
-</header>
 
-<footer th:fragment="footer" style="padding-top: 20px; padding-bottom: 20px;">
-    <div class="copy-rights">
-        <p style="font-size: 18px; margin-top: 10px;">Copyright &copy; 2021 All rights reserved | This project made
-            by
-            <label style="font-weight: bold; color: #F8B600;">Potato Creative Team</label>
-        </p>
+<body>
+
+<div class="hero-image">
+    <div th:insert="fragment :: header"></div>
+    <div class="hero-text">
+        <h1 style="font-size: 70px">Volunteerism 🕊️</h1>
+        <p id="paragrah">If you can draw a smile don't be short</p>
     </div>
-    <div class="footer-social" style=" margin-left: 47%; ">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-behance"></i></a>
+</div>
+<div class="one-image">
+    <div class="one-text">
+        🤍 Together we volunteer, together we build the civilization of a
+        nation 🤍
+        </h1>
     </div>
+</div>
+<div class="third-text">
+    <div class="cards" style="padding-left: 15%;">
+        <div class="container"><a href="#"><img
+                src="https://images.unsplash.com/photo-1566938077754-8a2ea6258253?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                alt="card1">
+            <div class="overlay">
+                <div class="text">Buy Products</div>
+            </div>
+        </a></div>
+        <div class="container"><a href="About_Us.html"> <img
+                src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80"
+                alt="card2">
+            <div class="overlay">
+                <div class="text">Meet Our Team</div>
+            </div>
+        </a></div>
+        <div class="container"><a href="#"><img
+                src="https://images.unsplash.com/photo-1612933510543-5b442296703b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                alt="card3">
+            <div class="overlay">
+                <div class="text">Are you facing a problem!
+                    we can try to solve it with you.
+                </div>
+            </div>
+        </a></div>
     </div>
-    <script src="https://kit.fontawesome.com/9e5d1913ca.js" crossorigin="anonymous"></script>
-</footer>
+</div>
+<div class="sec-image">
+    <div class="sec-text"></div>
+</div>
+<div class="bg-image img1"></div>
+<div class="bg-image img2"></div>
 </body>
+
+<div th:insert="fragment :: footer"></div>
+
 </html>

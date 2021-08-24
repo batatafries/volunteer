@@ -36,8 +36,15 @@ public class ApplicationUserController {
         return "signup.html";
     }
 
+
     @GetMapping("/login")
     public String getSignInPage() {
+        return "signin1.html";
+    }
+
+    @GetMapping("/login/error")
+    public String getSignInErrorPage(Model m) {
+        m.addAttribute("errorMsg",true);
         return "signin1.html";
     }
 
@@ -73,17 +80,18 @@ public class ApplicationUserController {
 
     @GetMapping("/myprofile")
     public String getProfile(Principal p, Model m) {
-
         DBUser currentUser = DBUserRepository.findByUsername(p.getName());
-        if (currentUser!=null){
+        if (currentUser != null) {
             m.addAttribute("currentUser", currentUser);
             m.addAttribute("requests", currentUser.getPost());
+            m.addAttribute("reviews", currentUser.getUserReviews());
             return "profile.html";
         }
         DBVolunteer currentUser1 = dbVolunteerRepository.findByUsername(p.getName());
-        if (currentUser1!=null){
+        if (currentUser1 != null) {
             m.addAttribute("currentUser", currentUser1);
             m.addAttribute("cards", currentUser1.getvSkills());
+            m.addAttribute("reviews", currentUser1.getVolunteerReviews());
             return "volunteerProfile.html";
         }
         throw new NullPointerException();
@@ -97,12 +105,15 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
 }
 
     @GetMapping("/user/{username}")
-    public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
+    public String getVolunteer(@PathVariable("username") String username, Model m, Principal p) {
         DBUser user = DBUserRepository.findByUsername(username);
         m.addAttribute("currentUser", user);
         m.addAttribute("requests", user.getPost());
-        if (p.getName().equals(user.getUsername())){
-            return ("profile.html");
+        m.addAttribute("reviews", user.getUserReviews());
+        if (p != null) {
+            if (p.getName().equals(user.getUsername())) {
+                return ("profile.html");
+            }
         }
         return ("userpage.html");
     }
@@ -129,18 +140,5 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
         return new RedirectView("/myprofile");
     }
 
-
-//    @PutMapping("/profiles/{id}")
-//    public RedirectView editProfile(Principal p, @PathVariable Integer id, @RequestParam String username){
-//        String loggedInUserName = p.getName();
-//        DBUser loggedInUser = dbUserRepository.findByUsername(loggedInUserName);
-//        if(loggedInUser.getId() == id) {
-//            loggedInUser.setUsername(username);
-//            dbUserRepository.save(loggedInUser);
-//            return new RedirectView("/profiles/"+id);
-//        } else {
-//            return new RedirectView("/error?message=Unauthorized");
-//        }
-//    }
 
 }
