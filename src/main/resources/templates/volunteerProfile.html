@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
     <style>
         .split {
             width: 50%;
@@ -41,10 +44,11 @@
             margin-left: 26%;
         }
 
-    </style>
 
+    </style>
 </head>
 <body>
+<div th:insert="fragment :: header"></div>
 <div>
     <div class="split left">
         <div class="data">
@@ -53,7 +57,9 @@
             <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
             <p>Bio : <span th:text="${currentUser.bio}"></span></p>
             <!--            <button onclick="myFunction()">Give A Hand!</button>-->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#volunteerModal" data-bs-whatever="@mdo">Give A Hand!</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#volunteerModal"
+                    data-bs-whatever="@mdo">Give A Hand!
+            </button>
         </div>
     </div>
     <div class="split right">
@@ -64,10 +70,7 @@
         </div>
     </div>
 </div>
-
-
 <br>
-
 <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form method="POST" action="/addSkill">
         <div class="modal-dialog">
@@ -81,17 +84,14 @@
                         <label for="description" class="col-form-label">Description:</label>
                         <input type="text" name="description" class="form-control" id="description">
                     </div>
-
                     <div class="mb-3">
                         <label for="skills" class="col-form-label">Skills: :</label>
                         <input type="text" name="skills" class="form-control" id="skills">
                     </div>
-
                     <div class="mb-3">
                         <label for="email" class="col-form-label">E-mail:</label>
                         <input type="text" name="email" class="form-control" id="email">
                     </div>
-
                     <div class="mb-3">
                         <label for="field" class="col-form-label">Field:</label>
                         <input type="text" name="field" class="form-control" id="field">
@@ -105,26 +105,6 @@
         </div>
     </form>
 </div>
-
-<!--    <div id="addSkill" style="display:none">-->
-<!--        <form method="POST" action="/addSkill">-->
-<!--            <br/>-->
-<!--            <label for="description">description         :</label>-->
-<!--            <textarea id="description" name="description" cols="40" placeholder="Type what you want to share here about describe..."> </textarea>-->
-<!--            <br>-->
-<!--            <label for="skills">skills        :</label>-->
-<!--            <textarea id="skills" name="skills" cols="40" placeholder="Type what you want to share here about your fields..."> </textarea>-->
-<!--            <br>-->
-<!--            <label for="email">email         :</label>-->
-<!--            <textarea id="email" name="email" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
-<!--            <br>-->
-<!--            <label for="field">field         :</label>-->
-<!--            <textarea id="field" name="field" cols="40" placeholder="Type what you want to share here..."> </textarea>-->
-<!--            <br>-->
-<!--            <button type="submit">Post your card</button>-->
-<!--        </form>-->
-<!--    </div>-->
-
 <div style="padding-top: 35%">
     <div th:each="i:${cards}">
         <p>Field : <span th:text="${i.field}"></span></p>
@@ -149,18 +129,12 @@
         </div>
     </div>
 </div>
-  
-
 <h2>Adopted requests</h2>
-
 <div th:each="i:${currentUser.adoptedRequests}">
     <p>request : <span th:text="${i.body}"></span></p>
     <p>request : <span th:text="${i.field}"></span></p>
     <p>-----------></p>
- 
-
-
-<script>
+    <script>
     function myFunction() {
         var x = document.getElementById("addSkill");
         if (x.style.display === "none") {
@@ -169,7 +143,11 @@
             x.style.display = "none";
         }
     }
-</script>
+
+    </script>
+</div>
+
+<div th:insert="fragment :: footer"></div>
 
 </body>
 </html>

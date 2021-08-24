@@ -17,6 +17,8 @@
 </head>
 
 <body>
+<div th:insert="fragment :: header"></div>
+
 <h2>Welcome <span th:text="${currentUser.username}"></span></h2>
 <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
 <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>

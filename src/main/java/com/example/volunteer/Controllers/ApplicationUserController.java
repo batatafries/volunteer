@@ -34,6 +34,7 @@ public class ApplicationUserController {
         return "signup.html";
     }
 
+
     @GetMapping("/login")
     public String getSignInPage() {
         return "signin1.html";

@@ -286,25 +286,14 @@
             text-align: center;
             text-indent: -10px;
         }
+
     </style>
 </head>
 
 <body>
 
 <div class="hero-image">
-    <header>
-        <img height="100px" width="100px" src="./backgroundImg" alt="Image Not Found" class="logo" />
-        <nav>
-            <ul class="nav-area" style="padding-right: 330px;">
-                <li><a href="/">Home</a></li>
-                <li><a href="/requests">User</a></li>
-                <li><a href="/volunteerSkill">Volunteer</a></li>
-                <li><a href="/myprofile">Profile</a></li>
-                <li><a href="/About_Us">AboutUs</a></li>
-            </ul>
-            <a style="margin-top: -50px;" href="/signin1" class="btn-area">Login</a>
-        </nav>
-    </header>
+    <div th:insert="fragment :: header"></div>
     <div class="hero-text">
         <h1 style="font-size: 70px">Volunteerism 🕊️</h1>
         <p id="paragrah">If you can draw a smile don't be short</p>
@@ -319,23 +308,29 @@
 </div>
 <div class="third-text">
     <div class="cards" style="padding-left: 15%;">
-        <div class="container"> <a href="#"><img src="https://images.unsplash.com/photo-1566938077754-8a2ea6258253?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="card1">
+        <div class="container"><a href="#"><img
+                src="https://images.unsplash.com/photo-1566938077754-8a2ea6258253?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                alt="card1">
             <div class="overlay">
                 <div class="text">Buy Products</div>
             </div>
-        </a> </div>
-        <div class="container"> <a href="About_Us.html"> <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80" alt="card2">
+        </a></div>
+        <div class="container"><a href="About_Us.html"> <img
+                src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80"
+                alt="card2">
             <div class="overlay">
                 <div class="text">Meet Our Team</div>
             </div>
-        </a> </div>
-        <div class="container"> <a href="#"><img src="https://images.unsplash.com/photo-1612933510543-5b442296703b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="card3">
+        </a></div>
+        <div class="container"><a href="#"><img
+                src="https://images.unsplash.com/photo-1612933510543-5b442296703b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                alt="card3">
             <div class="overlay">
                 <div class="text">Are you facing a problem!
                     we can try to solve it with you.
                 </div>
             </div>
-        </a> </div>
+        </a></div>
     </div>
 </div>
 <div class="sec-image">
@@ -343,22 +338,8 @@
 </div>
 <div class="bg-image img1"></div>
 <div class="bg-image img2"></div>
-<footer style="padding-top: 20px; padding-bottom: 20px;">
-    <div class="copy-rights">
-        <p style="font-size: 18px; margin-top: 10px;">Copyright &copy; 2021 All rights reserved | This project made
-            by
-            <label style="font-weight: bold; color: #F8B600;">Potato Creative Team</label>
-        </p>
-    </div>
-    <div class="footer-social" style=" margin-left: 47%; ">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-behance"></i></a>
-    </div>
-    </div>
-    <script src="https://kit.fontawesome.com/9e5d1913ca.js" crossorigin="anonymous"></script>
-</footer>
 </body>
+
+<div th:insert="fragment :: footer"></div>
 
 </html>
