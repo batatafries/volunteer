@@ -330,7 +330,6 @@
 
 <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
 <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
-<p>Bio : <span th:text="${currentUser.bio}"></span></p>
 <h2>Volunteer Cards</h2>
 <div th:each="i:${cards}">
     <!--  <p>Username : <span th:text="${i.getUser().getUsername()}"></span></p>-->

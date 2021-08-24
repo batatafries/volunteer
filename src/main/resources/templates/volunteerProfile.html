@@ -56,7 +56,6 @@
             <h2>Welcome <span th:text="${currentUser.username}"></span></h2>
             <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
             <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
-            <p>Bio : <span th:text="${currentUser.bio}"></span></p>
             <!--            <button onclick="myFunction()">Give A Hand!</button>-->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#volunteerModal"
                     data-bs-whatever="@mdo">Give A Hand!
@@ -73,6 +72,7 @@
 </div>
 <br>
 <!--Add skill-->
+<!--<div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
 <div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form method="POST" action="/addSkill">
         <div class="modal-dialog">
@@ -86,10 +86,10 @@
                         <label for="description" class="col-form-label">Description:</label>
                         <input type="text" name="description" class="form-control" id="description">
                     </div>
-                    <div class="mb-3">
-                        <label for="skills" class="col-form-label">Skills: :</label>
-                        <input type="text" name="skills" class="form-control" id="skills">
-                    </div>
+<!--                    <div class="mb-3">-->
+<!--                        <label for="skills" class="col-form-label">Skills: :</label>-->
+<!--                        <input type="text" name="skills" class="form-control" id="skills">-->
+<!--                    </div>-->
                     <div class="mb-3">
                         <label for="email" class="col-form-label">E-mail:</label>
                         <input type="text" name="email" class="form-control" id="email">
@@ -98,6 +98,11 @@
                         <label for="field" class="col-form-label">Field:</label>
                         <input type="text" name="field" class="form-control" id="field">
                     </div>
+                    <div class="mb-3">
+                        <label for="phone" class="col-form-label">Phone Number:</label>
+                        <input type="text" name="phone" class="form-control" id="phone">
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -114,6 +119,7 @@
         <p>description : <span th:text="${i.description}"></span></p>
         <p>Volunteer's Name : <span th:text="${i.getVolunteer().getFirstname()}"></span></p>
         <p>Volunteer's E-mail : <span th:text="${i.email}"></span></p>
+        <p>Volunteer's Phone : <span th:text="${i.phone}"></span></p>
         <form action="/deleteSkillCard" method="post">
             <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
             <input type="submit" value="Delete"/>
@@ -126,6 +132,8 @@
                 <input id="editedDescription" name="description" type="text" th:value="${i.description}">
                 <label for="editedEmail">E-mail</label>
                 <input id="editedEmail" name="email" type="text" th:value="${i.email}">
+                <label for="editedEmail">Phone Number</label>
+                <input id="editedPhone" name="phone" type="text" th:value="${i.phone}">
                 <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">
                 <input type="submit" value="update"/>
             </form>

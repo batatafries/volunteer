@@ -30,23 +30,23 @@ public class PostController {
     DBVolunteerRepository dbVolunteerRepository;
 
     @GetMapping("/requests")
-    public String getAllRequests(Model m,Principal p){
-        if (p!=null){
+    public String getAllRequests(Model m, Principal p) {
+        if (p != null) {
             DBVolunteer volunteer = dbVolunteerRepository.findByUsername(p.getName());
-            if (volunteer!=null){
-                m.addAttribute("isVolunteer",volunteer);
+            if (volunteer != null) {
+                m.addAttribute("isVolunteer", volunteer);
             }
         }
-        m.addAttribute("allRequests",postRepository.findAllByOrderByIdAsc());
+        m.addAttribute("allRequests", postRepository.findAllByOrderByIdAsc());
         return "requests.html";
     }
 
     @PostMapping("/addRequest")
     public RedirectView getAskForHelp(@RequestParam String body, @RequestParam String field,
-                                      @RequestParam Integer phone, @RequestParam String date,
-                                      @RequestParam String time, Principal p) {
+                                      @RequestParam String phone, @RequestParam String date,
+                                      Principal p) {
         DBUser user = DBUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field, date, time, phone, user ,"PENDING");
+        Post post = new Post(body, field, date, phone, user, "PENDING");
         postRepository.save(post);
         return new RedirectView("/myprofile");
     }
@@ -58,18 +58,18 @@ public class PostController {
         return new RedirectView("/myprofile");
     }
 
-    @PutMapping("/modifyRequest")
-    public RedirectView modifyRequest(@RequestParam String body, @RequestParam String field,
-                                      @RequestParam Integer phone, @RequestParam String date,
-                                      @RequestParam String time,Principal p,@RequestParam Integer id) {
-        Post post = postRepository.findById(id).get();
-        post.setBody(body);
-        post.setField(field);
-        post.setDate(date);
-        post.setPhone(phone);
-        post.setTime(time);
-        postRepository.save(post);
-        return new RedirectView("/myprofile");
-    }
+//    @PutMapping("/modifyRequest")
+//    public RedirectView modifyRequest(@RequestParam String body, @RequestParam String field,
+//                                      @RequestParam Integer phone, @RequestParam String date,
+//                                      @RequestParam String time,Principal p,@RequestParam Integer id) {
+//        Post post = postRepository.findById(id).get();
+//        post.setBody(body);
+//        post.setField(field);
+//        post.setDate(date);
+//        post.setPhone(phone);
+//        post.setTime(time);
+//        postRepository.save(post);
+//        return new RedirectView("/myprofile");
+//    }
 
 }

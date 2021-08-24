@@ -303,18 +303,17 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <div class="header-card">
-                    <h5 class="card-title"><span class="name" th:text="${i.getUser().getUsername()}"></span></h5>
+                    <h5 class="card-title"><span th:text="${i.field}"></span></h5>
                     <h5 class="card-title"><span th:text="${i.status}" class="status"></span></h5>
                 </div>
                 </hr>
                 <p class="card-text"><span th:text="${i.body}"></span></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"> Field : <span th:text="${i.field}"></span></li>
-                <li class="list-group-item"> Date : <span th:text="${i.date}"></span></li>
-                <li class="list-group-item"> Time : <span th:text="${i.time}"></span></li>
+                <li class="list-group-item"> Name : <span class="name" th:text="${i.getUser().getUsername()}"></span></li>
                 <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
-                <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>
+<!--                <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>-->
+                <li class="list-group-item"> Created At : <span th:text="${i.createdAt}"></span></li>
             </ul>
             <div class="card-body  adobt-request-buttom ">
                 <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
@@ -356,7 +355,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"> Field : <span th:text="${i.field}"></span></li>
                 <li class="list-group-item"> Date : <span th:text="${i.date}"></span></li>
-                <li class="list-group-item"> Time : <span th:text="${i.time}"></span></li>
+<!--                <li class="list-group-item"> Time : <span th:text="${i.time}"></span></li>-->
                 <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
                 <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>
             </ul>
