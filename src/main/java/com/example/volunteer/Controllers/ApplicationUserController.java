@@ -78,19 +78,18 @@ public class ApplicationUserController {
 
     @GetMapping("/myprofile")
     public String getProfile(Principal p, Model m) {
-//        if(p==null){
-//            return "singin1.html";
-//        }
         DBUser currentUser = DBUserRepository.findByUsername(p.getName());
         if (currentUser != null) {
             m.addAttribute("currentUser", currentUser);
             m.addAttribute("requests", currentUser.getPost());
+            m.addAttribute("reviews", currentUser.getUserReviews());
             return "profile.html";
         }
         DBVolunteer currentUser1 = dbVolunteerRepository.findByUsername(p.getName());
         if (currentUser1 != null) {
             m.addAttribute("currentUser", currentUser1);
             m.addAttribute("cards", currentUser1.getvSkills());
+            m.addAttribute("reviews", currentUser1.getVolunteerReviews());
             return "volunteerProfile.html";
         }
         throw new NullPointerException();
@@ -101,6 +100,7 @@ public class ApplicationUserController {
         DBUser user = DBUserRepository.findByUsername(username);
         m.addAttribute("currentUser", user);
         m.addAttribute("requests", user.getPost());
+        m.addAttribute("reviews", user.getUserReviews());
         if (p != null) {
             if (p.getName().equals(user.getUsername())) {
                 return ("profile.html");
@@ -108,31 +108,5 @@ public class ApplicationUserController {
         }
         return ("userpage.html");
     }
-
-//    @PostMapping("/modifyRequest")
-//    public RedirectView modifyRequest(@RequestParam String body ,Principal p,@RequestParam Integer id) {
-//        Post post = postRepository.findById(id).get();
-//        String loggedInUserName = p.getName();
-//        DBUser loggedInUser = DBUserRepository.findByUsername(loggedInUserName);
-////        if(loggedInUser.getId().equals(post.getUser().getId())){
-//            post.setBody(body);
-//            postRepository.save(post);
-////        }
-//        return new RedirectView("/myprofile");
-//    }
-
-
-//    @PutMapping("/profiles/{id}")
-//    public RedirectView editProfile(Principal p, @PathVariable Integer id, @RequestParam String username){
-//        String loggedInUserName = p.getName();
-//        DBUser loggedInUser = dbUserRepository.findByUsername(loggedInUserName);
-//        if(loggedInUser.getId() == id) {
-//            loggedInUser.setUsername(username);
-//            dbUserRepository.save(loggedInUser);
-//            return new RedirectView("/profiles/"+id);
-//        } else {
-//            return new RedirectView("/error?message=Unauthorized");
-//        }
-//    }
 
 }

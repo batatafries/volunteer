@@ -434,6 +434,15 @@
         </div>
     </form>
 </div>
+
+
+<h2>volunteer's feedback</h2>
+<div th:each="review:${reviews}">
+    <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
+    <p>review : <span th:text="${review.review}"></span></p>
+    <p>-----------</p>
+</div>
+
 <div th:insert="fragment :: footer"></div>
 
 

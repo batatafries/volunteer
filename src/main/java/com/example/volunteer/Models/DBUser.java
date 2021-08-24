@@ -20,6 +20,9 @@ public class DBUser {
     @OneToMany(mappedBy = "user")
         List<Post> post;
 
+    @OneToMany(mappedBy = "reviewedUser")
+    List<Reviews> userReviews;
+
     public DBUser() {
     }
 
@@ -31,6 +34,9 @@ public class DBUser {
         this.bio = bio;
         this.dateOfBirth = dateOfBirth;
         this.authority = authority;
+    }
+    public void addReview(Reviews review) {
+        userReviews.add(review);
     }
 
     public List<Post> getPost() {
@@ -103,5 +109,13 @@ public class DBUser {
 
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    public List<Reviews> getUserReviews() {
+        return userReviews;
+    }
+
+    public void setUserReviews(List<Reviews> userReviews) {
+        this.userReviews = userReviews;
     }
 }
