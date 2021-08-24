@@ -43,10 +43,10 @@ public class PostController {
 
     @PostMapping("/addRequest")
     public RedirectView getAskForHelp(@RequestParam String body, @RequestParam String field,
-                                      @RequestParam String phone, @RequestParam String date,
+                                      @RequestParam String phone,
                                       Principal p) {
         DBUser user = DBUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field, date, phone, user, "PENDING");
+        Post post = new Post(body, field, phone, user, "PENDING");
         postRepository.save(post);
         return new RedirectView("/myprofile");
     }

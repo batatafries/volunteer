@@ -328,21 +328,22 @@
                         <!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
                     </div>
                     <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="field" class="col-form-label">Field:</label>
+                            <input type="text" class="form-control" id="field" name="field">
+                        </div>
+
 
                         <div class="mb-3">
                             <label for="body" class="col-form-label">Body:</label>
                             <input type="text" class="form-control" id="body" name="body">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="field" class="col-form-label">Field:</label>
-                            <input type="text" class="form-control" id="field" name="field">
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="date" class="col-form-label">Date:</label>
-                            <input type="date" class="form-control" id="date" name="date">
-                        </div>
+<!--                        <div class="mb-3">-->
+<!--                            <label for="date" class="col-form-label">Date:</label>-->
+<!--                            <input type="date" class="form-control" id="date" name="date">-->
+<!--                        </div>-->
 
 <!--                        <div class="mb-3">-->
 <!--                            <label for="time" class="col-form-label">time:</label>-->
@@ -402,22 +403,33 @@
     </div>
 </div>
 <!--Add Request modal-->
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-    <form method="POST" action="/addRequest">
-</body>
-</html>
-
+<!--<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">-->
+<!--    <form method="POST" action="/addRequest">-->
 <h2>volunteer's feedback</h2>
 <div th:each="review:${reviews}">
     <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
     <p>review : <span th:text="${review.review}"></span></p>
+    <p>Created At : <span th:text="${review.createdAt}"></span></p>
+    <form method="Get" th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">
+        <button type="submit" th:text="${'Reviewer Profile'}"></button>
+    </form>
     <p>-----------</p>
 </div>
 
-<div th:insert="fragment :: footer"></div>
-
-
 </body>
 </html>
+
+<!--<h2>volunteer's feedback</h2>-->
+<!--<div th:each="review:${reviews}">-->
+<!--    <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>-->
+<!--    <p>review : <span th:text="${review.review}"></span></p>-->
+<!--    <p>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--</div>-->
+
+<!--<div th:insert="fragment :: footer"></div>-->
+
+
+<!--</body>-->
+<!--</html>-->
 
 

@@ -353,11 +353,10 @@
                 <p class="card-text"><span th:text="${i.body}"></span></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"> Field : <span th:text="${i.field}"></span></li>
-                <li class="list-group-item"> Date : <span th:text="${i.date}"></span></li>
-<!--                <li class="list-group-item"> Time : <span th:text="${i.time}"></span></li>-->
+                <li class="list-group-item"> Name : <span class="name" th:text="${i.getUser().getUsername()}"></span></li>
                 <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
-                <li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>
+                <!--<li class="list-group-item">Due Date : <span th:text="${i.date}"></span></li>-->
+                <li class="list-group-item"> Created At : <span th:text="${i.createdAt}"></span></li>
             </ul>
             <div class="card-body  adobt-request-buttom ">
 

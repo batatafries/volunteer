@@ -50,6 +50,7 @@ public class VolunteerController {
             if (p.getName().equals(volunteer.getUsername())){
                 return ("volunteerProfile.html");
             }
+            m.addAttribute("p",p.getName());
         }
         return ("volunteerpage.html");
     }

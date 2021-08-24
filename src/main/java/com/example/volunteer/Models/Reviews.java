@@ -1,6 +1,9 @@
 package com.example.volunteer.Models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Reviews {
@@ -10,6 +13,8 @@ public class Reviews {
     private Integer id;
     private String review;
     private String reviewerName;
+    @CreationTimestamp
+    Date createdAt;
 
     @ManyToOne
     DBVolunteer reviewedVolunteer;
@@ -23,6 +28,18 @@ public class Reviews {
     public Reviews(String review, String reviewerName) {
         this.review = review;
         this.reviewerName = reviewerName;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getReview() {

@@ -32,11 +32,11 @@ public class Post {
         this.user = user;
     }
 
-    public Post(String body, String field, String date, String phone, DBUser user , String status) {
+    public Post(String body, String field,  String phone, DBUser user , String status) {
         this.user = user;
         this.body = body;
         this.field = field;
-        this.date = date;
+//        this.date = date;
         this.phone = phone;
         this.status = status;
     }
