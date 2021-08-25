@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="no-js" xmlns:th="http://www.w3.org/1999/xhtml">
+<html class="no-js" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -64,6 +64,7 @@
                 <li><a data-scroll href="/#AboutUUUUS">About Us</a></li>
                 <li><a data-scroll href="/requests">Requests</a></li>
                 <li><a data-scroll href="/volunteerSkill">Skills</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/myprofile">Profile Page</a></li>
             </ul>
         </nav>
         <!-- /main nav -->
@@ -86,7 +87,7 @@ End Fixed Navigation
                          style="color: aliceblue;"  th:each="i:${allRequests}" th:if="${i.status} == 'PENDING'">
                     <div class="post-block content" >
                         <div >
-                            <h3 th:text="${i.getUser().getUsername()}" style="text-align: center; padding: 5px; color: aqua;">aa
+                            <h3 th:text="${i.getUser().getUsername()}" style="text-align: center; padding: 5px; color: aqua;">
                             </h3>
                             <div class="border" style="width: 100%; padding: 5px;"></div>
                             <p style="padding-top: 5px;">Status : <span th:text="${i.status}"></span></p>
