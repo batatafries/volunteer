@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/userPage","/askForHelp").hasAuthority("ROLE_USER")
 //                .antMatchers("/volunteerPage","/volunteerSkill").hasAuthority("ROLE_VOLUNTEER")
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login").defaultSuccessUrl("/myprofile", true)
+                .and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login").defaultSuccessUrl("/", true)
                 .failureUrl("/login").and().logout().logoutUrl("/perform_logout").deleteCookies("JSESSIONID");
     }
 }

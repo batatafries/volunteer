@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="">
+<html lang="en" xmlns:th="" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -298,9 +298,7 @@
             <li sec:authorize="isAuthenticated()"><a href="/myprofile">Profile</a></li>
             <li><a href="/About_Us">AboutUs</a></li>
         </ul>
-        <a sec:authorize="!isAuthenticated()" style="margin-top: -50px;" href="/login" class="btn-area">Login</a>
-        <a sec:authorize="isAuthenticated()" style="margin-top: -50px;" href="/perform_logout"
-           class="btn-area">Logout</a>
+
     </nav>
 </header>
 
