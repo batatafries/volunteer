@@ -1,226 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="no-js" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8"/>
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-            crossorigin="anonymous"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-            crossorigin="anonymous"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
-
-      a {
-            text-decoration: none;
-        }
-        header {
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 70px;
-        }
-        .logo {
-            cursor: pointer;
-        }
-        .nav-area {
-            list-style: none;
-        }
-        .nav-area li {
-            display: inline-block;
-            padding: 0 15px;
-            text-transform: uppercase;
-        }
-        .nav-area li a {
-            cursor: pointer;
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            padding: 5px 5px;
-            float: right;
-        }
-        .nav-area li a:hover {
-            cursor: pointer;
-            color: #F8B600;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            background: #fff;
-            float: right;
-        }
-        .btn-area {
-            cursor: pointer;
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            padding: 5px 5px;
-            background: #F8B600;
-            float: right;
-        }
-        .btn-area:hover {
-            cursor: pointer;
-            color: #F8B600;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            background: #fff;
-            float: right;
-        }
-
-      .container {
-        /* display: flex;
-        flex-wrap: wrap;
-        flex-direction: row; */
-        align-items: center;
-        display: inline;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        border-radius: 3px;
-        margin: 25px;
-
-
-      }
-      .card {
-        padding: 10px;
-        width: 100%;
-        height: auto;
-      }
-
-      .titlh1 {
-        text-align: center;
-        margin-bottom: 50px;
-        margin-top: 50px;
-        font-family: "Courgette", cursive;
-        color: #F8B600;
-        font-size: 60px;
-      }
-      .fa:hover {
-            color: #F8B600;
-        }
-        span {
-            color: #F8B600;
-        }
-        .card a {
-            text-decoration: none;
-            font-size: 22px;
-            color: black;
-        }
-        .card:hover {
-            box-shadow: 10px 10px 10px 1px rgba(0.01, 0.01, 0.1, 0.4);
-        }
-        footer ul li a {
-            color: #F8B600;
-            font-size: 18px;
-        }
-        footer {
-            width: 100%;
-            position: relative;
-            box-sizing: border-box;
-            bottom: 0;
-            background-image: linear-gradient(rgb(73, 70, 70), black);
-            margin-bottom: 0;
-        }
-        .copy-rights {
-            align-items: center;
-            text-align: center;
-            position: static;
-            color: white;
-        }
-        .footer-social a i {
-            width: 20px;
-            margin-top: 10px;
-            padding-left: 15px;
-            display: inline-block;
-            height: 40px;
-            text-align: center;
-            padding-bottom: 0%;
-            padding: 5px;
-            -webkit-transition: all 0.3s ease 0s;
-            -moz-transition: all 0.3s ease 0s;
-            -o-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
-        }
-        .footer-social i {
-            color: white;
-            -webkit-transition: all 0.3s ease 0s;
-            -moz-transition: all 0.3s ease 0s;
-            -o-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
-        }
-        .footer-social a :hover {
-            color: #F8B600;
-        }
-        .footer-area {
-            background: rgba(0, 0, 0, 0.2);
-            padding-top: 0px;
-        }
-        .footer-bottom {
-            margin-top: 15px;
-        }
-        .footer-text {
-            color: #fff;
-            font-size: 18px;
-            padding-left: 31.5%;
-        }
-        .shring{
-            text-align: center;
-        margin-bottom: 20px;
-        font-family: "Courgette", cursive;
-        color: #fff;
-        font-size: 20px;
-        }
-        /* .card-text {
-            overflow: auto;
-        } */
-
-    </style>
-    <title>Volunteers Cards</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meghna One page parallax responsive HTML Template ">
+    <meta name="author" content="Volunteerism">
+    <title>Requests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<!-- https://images.unsplash.com/photo-1617900906639-cab7adceb499?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80 -->
-<div style="background-image: url(https://images.unsplash.com/photo-1530385804661-647f1e9134e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjkxfHxrZXlib2FyZCUyMGFuZCUyMG1vdXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60);
-     position: relative; background-size: cover; height: 615px;">
-    <div th:insert="fragment :: header"></div>
 
-    <h1 class="titlh1" style="padding-top: 8%;">Volunteer Skills 🙌</h1>
-    <p class="shring">~ sharing is caring ~</p>
-    <h5></h5>
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="preloader">
+    <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>
 </div>
-<div class="container" style="margin-left: 9%;">
-    <div th:each="i:${allSkillsCards}">
-        <div class="card text-white bg-success mb-3" style="max-width: 18rem">
-            <div class="card-header">
-                Field : <span th:text="${i.field}"></span>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    description : <span th:text="${i.description}"></span>
-                </p>
-                <h6 class="card-text">
-                    Volunteer's Name :
-                    <span th:text="${i.getVolunteer().getFirstname()}"></span>
-                </h6>
-                <h6 class="card-text">
-                    Volunteer's E-mail : <span th:text="${i.email}"></span>
-                </h6>
+<header id="navigation" class="navbar navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="index.html">
+                <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC" stroke-width="3">
+                            <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                            <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                            <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+            <!-- /logo -->
+        </div>
+
+        <!-- main nav -->
+        <nav class="collapse navbar-collapse navbar-right" role="Navigation">
+            <ul id="nav" class="nav navbar-nav navigation-menu">
+                <li><a data-scroll href="/">Home</a></li>
+                <li><a data-scroll href="/#AboutUUUUS">About Us</a></li>
+                <li><a data-scroll href="/requests">Requests</a></li>
+                <li><a data-scroll href="/volunteerSkill">Skills</a></li>
+            </ul>
+        </nav>
+        <!-- /main nav -->
+
+    </div>
+</header>
+
+<section id="blog" class="section">
+    <div class="title text-center wow fadeInDown">
+        <h2 style="color:white;">Skills</h2>
+        <div class="border"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="clearfix">
+                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
+                         style="color: aliceblue;" th:each="i:${allSkillsCards}">
+                    <div class="post-block content">
+                        <div style="height: 250px; padding: 10px;">
+                            <p style="margin-top: 5px; color:aqua solid;">Field : <span style="color:white;" th:text="${i.field}"></span></p><hr>
+                            <p style="margin-top: 5px; color:aqua solid;">Description : <span style="color:white;" th:text="${i.description}"></span></p><hr>
+                            <p style="margin-top: 5px; color:aqua solid;">Volunteer UserName : <span style="color:white;" th:text="${i.getVolunteer().getFirstname()}"></span></p>
+                            <hr/><p style="margin-top: 5px; color:aqua solid;">E-mail : <span th:text="${i.email}"></span></p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
-</div>
-<br><br><br><br><br><br><br>
-<div th:insert="fragment :: footer"></div>
+</section>
+
+<footer id="footer" class="bg-one" style="border: 10px; box-shadow: 10px white;">
+    <section class="section about-2 padding-0 bg-dark" id="about">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row wow fadeInUp" data-wow-duration="500ms">
+                    <div class="col-lg-12">
+                        <div class="social-icon">
+                            <ul class="list-inline">
+                                <li><a href="https://facebook.com/themefisher"><i
+                                        class="tf-ion-social-facebook"></i></a>
+                                </li>
+                                <li><a href="https://twitter.com/themefisher"><i
+                                        class="tf-ion-social-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA"><i
+                                        class="tf-ion-social-youtube"></i></a></li>
+                                <li><a href="https://dribbble.com/themefisher"><i
+                                        class="tf-ion-social-dribbble-outline"></i></a></li>
+                                <li><a href="https://pinterest.com/themefisher"><i
+                                        class="tf-ion-social-pinterest-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="copyright text-center">
+                            <a href="index.html">
+                                <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC"
+                                           stroke-width="3">
+                                            <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                                            <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                                            <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            <br />
+                            <p>Design And Developed by <samp style="color:aqua ;">E-Volunteers Team.</samp>
+                                Copyright
+                                &copy;
+                                <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>. All Rights Reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script type="text/javascript" src="plugins/filterzr/jquery.filterizr.min.js"></script>
+<script type="text/javascript" src="plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script type="text/javascript" src="plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script type="text/javascript" src="plugins/Sticky/jquery.sticky.js"></script>
+<script type="text/javascript" src="plugins/count-to/jquery.countTo.js"></script>
+<script type="text/javascript" src="plugins/wow/dist/wow.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
 </body>
+
 </html>

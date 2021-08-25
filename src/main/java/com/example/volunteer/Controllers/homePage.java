@@ -14,8 +14,4 @@ public class homePage {
         return "Homee";
     }
 
-    @GetMapping("/About_Us")
-    public String getAboutUs(){
-        return "About_Us";
-    }
 }
