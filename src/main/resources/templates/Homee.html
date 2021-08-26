@@ -56,7 +56,7 @@
                 <li><a data-scroll href="/#AboutUUUUS">About Us</a></li>
                 <li sec:authorize="!isAuthenticated()"><a data-scroll href="/login">Login</a></li>
                 <li sec:authorize="isAuthenticated()"><a data-scroll href="/perform_logout"
-                   >Logout</a></li>
+                >Logout</a></li>
             </ul>
         </nav>
     </div>
@@ -75,7 +75,7 @@
         <div class="sk-cube sk-cube9"></div>
     </div>
 </div>
-<section class="hero-area overlay" style="background-image: url('images/banner/hero-area.jpg');"  id="Homeeee">
+<section class="hero-area overlay" style="background-image: url('images/banner/hero-area.jpg');" id="Homeeee">
 
     <div class="block">
         <div class="video-button">
@@ -86,23 +86,11 @@
     </div>
 </section>
 
-<!--
-Fixed Navigation
-==================================== -->
-
-<!--
-End Fixed Navigation
-==================================== -->
-
-<!--
-    Start About Section
-    ==================================== -->
-
-<section class="section about-2 padding-0 bg-dark"  >
+<section class="section about-2 padding-0 bg-dark">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 padding-0 ">
-                <img class="img-responsive" src="images/about/about-business-man.jpg" alt="">
+                <img class="img-responsive" src="https://images.pexels.com/photos/3280130/pexels-photo-3280130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
             </div>
             <div class="col-md-6">
                 <div class="content-block">
@@ -128,13 +116,69 @@ End Fixed Navigation
     </div>
 </section>
 
+
+<section id="services" class="bg-one section">
+    <div class="container">
+        <div class="row">
+
+            <!-- section title -->
+            <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                <h2>Our <span class="color">Services</span></h2>
+                <div class="border"></div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Single Service Item -->
+            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms">
+                <div class="service-block text-center" style="height: 350px;">
+                    <div class="service-icon text-center">
+                        <i class="tf-globe"></i>
+                    </div>
+                    <h3>Volunteer's Services</h3>
+                    <p> here you can have a look at what our volunteers have to offer and you can check their profiles</p>
+                    <button style="color: black;height:56px; background-color: white; width: 100px;"><a style="color: black;" href="/volunteerSkill">Services</a></button>
+                </div>
+            </article>
+            <!-- End Single Service Item -->
+
+            <!-- Single Service Item -->
+            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
+                     data-wow-delay="200ms">
+                <div class="service-block text-center" style="height: 350px;">
+                    <div class="service-icon text-center">
+                        <i class="tf-ion-laptop"></i>
+                    </div>
+                    <h3>Requests List</h3>
+                    <p> Here we have a list of the requests of all the users and our volunteers can track them and adopt their requests </p>
+                    <button style="color: black;height:56px; background-color: white; width: 100px;"><a style="color: black;" href="/requests">Requests</a></button>
+                </div>
+            </article>
+            <!-- End Single Service Item -->
+
+            <!-- Single Service Item -->
+            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
+                     data-wow-delay="400ms">
+                <div class="service-block text-center" style="height: 350px;">
+                    <div class="service-icon text-center">
+                        <i class="tf-lifesaver"></i>
+                    </div>
+                    <h3>Be part of something great</h3>
+                    <p> whether you want to help people or look for help then what are you waiting for!</p>
+                    <button style="color: black; height:56px; background-color: white; width: 100px; "><a  style="color: black;" href="/login">Join Our Community</a></button>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+
 <section class="bg-one about section" id="AboutUUUUS">
-    <div class="container" >
+    <div class="container">
         <div class="row">
 
             <!-- section title -->
             <div class="title text-center wow fadeIn" data-wow-duration="1500ms">
-                <h2>About <span class="color">Us</span> </h2>
+                <h2>About <span class="color">Us</span></h2>
                 <div class="border"></div>
             </div>
             <!-- /section title -->
@@ -218,115 +262,8 @@ End Fixed Navigation
             </div>
 
         </div>
-    </div> <!-- End container -->
-</section> <!-- End section -->
-
-
-<section id="services" class="bg-one section">
-    <div class="container">
-        <div class="row">
-
-            <!-- section title -->
-            <div class="title text-center wow fadeIn" data-wow-duration="500ms">
-                <h2>Our <span class="color">Services</span></h2>
-                <div class="border"></div>
-            </div>
-            <!-- /section title -->
-
-            <!-- Single Service Item -->
-            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms">
-                <div class="service-block text-center" style="height: 350px;">
-                    <div class="service-icon text-center">
-                        <i class="tf-globe"></i>
-                    </div>
-                    <h3>WordPress Theme</h3>
-                    <p> is a group of files (graphics, style sheets, and code) that dictates the overall appearance
-                        of your blog or website. Themes can control something as vast as your site's layout, or as
-                        minute as your hyperlink colors </p>
-                </div>
-            </article>
-            <!-- End Single Service Item -->
-
-            <!-- Single Service Item -->
-            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
-                     data-wow-delay="200ms">
-                <div class="service-block text-center" style="height: 350px;">
-                    <div class="service-icon text-center">
-                        <i class="tf-ion-laptop"></i>
-                    </div>
-                    <h3>Responsive Design</h3>
-                    <p> graphic user interface (GUI) design approach used to create content that adjusts smoothly to
-                        various screen sizes</p>
-                </div>
-            </article>
-            <!-- End Single Service Item -->
-
-            <!-- Single Service Item -->
-            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
-                     data-wow-delay="400ms">
-                <div class="service-block text-center" style="height: 350px;">
-                    <div class="service-icon text-center">
-                        <i class="tf-genius"></i>
-                    </div>
-                    <h3>Media &amp; Advertisement</h3>
-                    <p> used for communicating a promotional message.Examples include online banners, radio spots,
-                        billboards, television advertisements or in print media, ads in newspapers
-                    </p>
-                </div>
-            </article>
-            <!-- End Single Service Item -->
-
-            <!-- Single Service Item -->
-            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
-                     data-wow-delay="200ms">
-                <div class="service-block text-center" style="height: 350px;">
-                    <div class="service-icon text-center">
-                        <i class="tf-dial"></i>
-                    </div>
-                    <h3>Graphic Design</h3>
-                    <p>is a craft where professionals create visual content to communicate messages. By applying
-                        visual hierarchy and page layout techniques, designers use typography and pictures to meet
-                        users' specific needs and focus on the logic of displaying elements in interactive designs,
-                        to optimize the user experience.
-                    </p>
-                </div>
-            </article>
-            <!-- End Single Service Item -->
-
-            <!-- Single Service Item -->
-            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
-                     data-wow-delay="400ms">
-                <div class="service-block text-center" style="height: 350px;">
-                    <div class="service-icon text-center">
-                        <i class="tf-target3"></i>
-                    </div>
-                    <h3>Apps Development</h3>
-                    <p>We have a full practical team can helping you to developed something in your project or
-                        website and all of these people have a certificated with the app developer.
-                    </p>
-                </div>
-            </article>
-            <!-- End Single Service Item -->
-
-            <!-- Single Service Item -->
-            <article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms"
-                     data-wow-delay="600ms">
-                <div class="service-block text-center kill-margin-bottom" style="height: 350px;">
-                    <div class="service-icon text-center">
-                        <i class="tf-lifesaver"></i>
-                    </div>
-                    <h3>Networking</h3>
-                    <p>we have some networking engineeres to helping you when you are needed to connect for the
-                        client/server and if you lose the connection with server and the reasong is network, the
-                        team can helping you to solved, All team member should have a certificated.
-                    </p>
-                </div>
-            </article>
-            <!-- End Single Service Item -->
-
-        </div> <!-- End row -->
-    </div> <!-- End container -->
-</section> <!-- End section -->
+    </div>
+</section>
 
 
 <footer id="footer" class="bg-one" style="border: 10px; box-shadow: 10px white;">
@@ -370,14 +307,17 @@ End Fixed Navigation
                                     </g>
                                 </svg>
                             </a>
-                            <br />
+                            <br/>
 
                             <p>Design And Developed by <samp style="color:aqua ;">E-Volunteers Team.</samp>
                                 Copyright
                                 &copy;
                                 <script>
 										document.write(new Date().getFullYear())
-									</script>. All Rights Reserved.
+
+
+                                </script>
+                                . All Rights Reserved.
                             </p>
                         </div>
                         <!-- /copyright -->
