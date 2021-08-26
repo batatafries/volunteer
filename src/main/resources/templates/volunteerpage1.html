@@ -125,16 +125,16 @@
           <div class="post-block content">
             <div style="margin: 5px; padding: 5px;">
               <p style="margin-top: 10px; font-weight: bolder;">Field : <span
-                      style="color: aqua; float: right;" th:text="${i.field}"></span></p>
+                      style="color: aqua; " th:text="${i.field}"></span></p>
               <p style="height: 36px; font-weight: bolder;">description : <span
-                      style="color: aqua; float: right;" th:text="${i.description}"></span></p>
+                      style="color: aqua; " th:text="${i.description}"></span></p>
               <p style="font-weight: bolder;"> Volunteer's Name : <span
-                      style="color: aqua; float: right;"
+                      style="color: aqua;"
                       th:text="${i.getVolunteer().getFirstname()}"></span></p>
               <p style="font-weight: bolder;">Volunteer's E-mail : <span
-                      style="color: aqua; float: right;" th:text="${i.email}"></span></p>
+                      style="color: aqua; " th:text="${i.email}"></span></p>
               <p style="font-weight: bolder;">Volunteer's Phone : <span
-                      style="color: aqua; float: right;" th:text="${i.phone}"></span></p>
+                      style="color: aqua; " th:text="${i.phone}"></span></p>
 
 
             </div>
@@ -160,12 +160,13 @@
           <div class="post-block content">
             <div class="border" style="width: 100%; padding: 5px;"></div>
             <div style="margin: 7px; padding: 7px;">
-              <p style="padding-top: 5px; font-weight: bolder;">Status : <span
-                      th:text="${i.body}"></span></p>
               <p style="height: 40px; font-weight: bolder;">Field : <span th:text="${i.field}"></span>
               </p>
+
+              <p style="padding-top: 5px; font-weight: bolder;">Description : <span
+                      th:text="${i.body}"></span></p>
               <p style="font-weight: bolder;">Phone Number : <span th:text="${i.phone}"></span></p>
-              <p style="font-weight: bolder;">Created At : <span th:text="${i.createdAt}"></span></p>
+              <p style="font-weight: bolder;">Creation At : <span th:text="${i.createdAt}"></span></p>
             </div>
             <div class="border" style="width: 100%;"></div>
           </div>
@@ -202,7 +203,7 @@
               <p style="font-weight: bolder;">Reviewer username : <span
                       th:text="${review.reviewerName}"></span></p>
               <p style="font-weight: bolder;">review : <span th:text="${review.review}"></span></p>
-              <p style="font-weight: bolder;">Created At : <span th:text="${review.createdAt}"></span>
+              <p style="font-weight: bolder;">Creation At : <span th:text="${review.createdAt}"></span>
               </p>
               <form method="Get"
                     th:action="@{/{username}(username=${review.getReviewerName()})}">
