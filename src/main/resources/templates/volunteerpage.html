@@ -442,7 +442,7 @@
 
 <h2 style="text-align: center; color: aqua;">Volunteer Cards</h2>
 
-<section id="blog" class="section">
+<section id="blog" class="section" style="margin-top: -50px;">
     <div class="container">
         <div class="row">
             <div class="clearfix">
@@ -451,17 +451,17 @@
                     <div class="post-block content">
                         <div class="border" style="width: 100%;"></div>
                         <div style="margin: 5px; padding: 5px;">
-                            <p style="margin-top: 10px; font-weight: bolder;">Field : <span
-                                    style="color: aqua; float: right;" th:text="${i.field}"></span></p>
-                            <p style="height: 36px; font-weight: bolder;">description : <span
-                                    style="color: aqua; float: right;" th:text="${i.description}"></span></p>
-                            <p style="font-weight: bolder;"> Volunteer's Name : <span
-                                    style="color: aqua; float: right;"
+                            <p style="color: aqua; margin-top: 10px; font-weight: bolder;">Field : <span
+                                    style="color: white; float: right;" th:text="${i.field}"></span></p>
+                            <p style="color: aqua; height: 36px; font-weight: bolder;">description : <span
+                                    style="color: white; float: right;" th:text="${i.description}"></span></p>
+                            <p style="color: aqua; font-weight: bolder;"> Volunteer's Name : <span
+                                    style="color: white; float: right;"
                                     th:text="${i.getVolunteer().getFirstname()}"></span></p>
-                            <p style="font-weight: bolder;">Volunteer's E-mail : <span
-                                    style="color: aqua; float: right;" th:text="${i.email}"></span></p>
-                            <p style="font-weight: bolder;">Volunteer's Phone : <span
-                                    style="color: aqua; float: right;" th:text="${i.phone}"></span></p>
+                            <p style="color: aqua; font-weight: bolder;">Volunteer's E-mail : <span
+                                    style="color: white; float: right;" th:text="${i.email}"></span></p>
+                            <p style="color: aqua; font-weight: bolder;">Volunteer's Phone : <span
+                                    style="color: white; float: right;" th:text="${i.phone}"></span></p>
                         </div>
                         <div class="border" style="width: 100%;"></div>
                     </div>
@@ -491,9 +491,6 @@
                                     style="color: aqua; float: right;" th:text="${i.field}"></span></p>
                             <p style="height: 36px; font-weight: bolder;">Description : <span
                                     style="color: aqua; float: right;" th:text="${i.body}"></span></p>
-<!--                            <p style="font-weight: bolder;"> Volunteer's Name : <span-->
-<!--                                    style="color: aqua; float: right;"-->
-<!--                                    th:text="${i.getVolunteer().getFirstname()}"></span></p>-->
                             <p style="font-weight: bolder;">Phone Number : <span style="color: aqua; float: right;"
                                                                                  th:text="${i.phone}"></span></p>
                             <p style="font-weight: bolder;">Created At : <span style="color: aqua; float: right;"

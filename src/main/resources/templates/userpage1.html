@@ -138,7 +138,7 @@
         </div>
     </div>
 </div>
-<section id="blog" class="section">
+<section id="blog" class="section" style="margin-top: -100px;">
     <div class="title text-center wow fadeInDown">
         <h2 style="color:aqua;">Requests</h2>
         <div class="border"></div>
@@ -150,18 +150,20 @@
                          style="color: aliceblue;" th:each="i:${requests}">
                     <div class="post-block content">
                         <div style="margin: 5px; padding: 5px;">
-                            <h2 style="text-align: center; color: aliceblue;">Status: <span class="color" th:text="${i.status}"></span>
-                            </h2>
-                            <p style="margin-top: 10px; font-weight: bolder;">Field : <span
-                                    style="color: aqua; " th:text="${i.field}"></span></p>
-                            <p style="height: 36px; font-weight: bolder;">Description : <span
-                                    style="color: aqua; " th:text="${i.body}"></span></p>
-                            <p style="font-weight: bolder;">Created Due : <span
-                                    style="color: aqua;"
+                            <h2 style="text-align: center; color: aqua;">Status: <span class="color" style="color: white;" th:text="${i.status}"></span>
+                            </h2><div class="border" style="width:100%"></div>
+                            <p style="color: aqua;margin-top: 10px; font-weight: bolder;">Field : <span
+                                    style="color: white; " th:text="${i.field}"></span></p>
+                            <p style="color: aqua;height: 36px; font-weight: bolder;">Description : <span
+                                    style="color: white; " th:text="${i.body}"></span></p>
+                            <p style="font-weight: bolder;color: aqua;">Created Due : <span
+                                    style="color: white;"
                                     th:text="${i.CreatedAt}"></span></p>
-                            <p style="font-weight: bolder;">Phone Number : <span
-                                    style="color: aqua;" th:text="${i.phone}"></span></p>
+                            <p style="font-weight: bolder;color: aqua;">Phone Number : <span
+                                    style="color: white;" th:text="${i.phone}"></span></p>
                             <br>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
@@ -227,7 +229,7 @@
 <!--</section>-->
 
 
-<section id="blog" class="section">
+<section id="blog" class="section"  style="margin-top: -100px;">
     <div class="title text-center wow fadeInDown">
         <h2 style="color:aqua;">Volunteer's Reviews</h2>
         <div class="border"></div>
@@ -240,10 +242,10 @@
                     <div class="post-block content">
                         <div class="border" style="width: 100%;"></div>
                         <div style="padding: 7px; margin: 7px;">
-                            <p style="font-weight: bolder;">Reviewer username : <span
+                            <p style="font-weight: bolder; color:aqua;">Reviewer username : <span style="color:white;"
                                     th:text="${review.reviewerName}"></span></p>
-                            <p style="font-weight: bolder;">review : <span th:text="${review.review}"></span></p>
-                            <p style="font-weight: bolder;">Creation At : <span th:text="${review.createdAt}"></span>
+                            <p style="font-weight: bolder; color:aqua;">Review : <span style="color:white;" th:text="${review.review}"></span></p>
+                            <p style="font-weight: bolder; color:aqua;">Creation At : <span style="color:white;" th:text="${review.createdAt}"></span>
                             </p>
                             <form method="Get"
                                   th:action="@{/V-{username}(username=${review.getReviewerName()})}">
