@@ -98,11 +98,11 @@
                                     style="color: aqua; padding-top: 30px; font-size: 15px;">Adopt</button>
                         </form>
                         <form th:if="${i.status} != 'Pending'" method="Get"
-                              th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
+                              th:action="@{/V-{username}(username=${i.getDbVolunteer().getFirstname()})}">
                             <button type="submit" class="btn btn-outline-success" style="color:white;"
                                     th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                         </form>
-                        <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
+                        <form method="Get" th:action="@{/{username}(username=${i.getUser().getUsername()})}">
                             <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}">Requester Profile</button>
                         </form>
                     </div>
@@ -142,12 +142,12 @@
                                 </form>
 
                                 <form th:if="${i.status} != 'Pending'" method="Get"
-                                      th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
+                                      th:action="@{/V-{username}(username=${i.getDbVolunteer().getFirstname()})}">
 
                                     <button type="submit" class="btn btn btn-outline-warning"
                                             th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                                 </form>
-                                <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
+                                <form method="Get" th:action="@{/{username}(username=${i.getUser().getUsername()})}">
                                     <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}"></button>
                                 </form>
                             </div>
