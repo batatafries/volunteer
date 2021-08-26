@@ -1,153 +1,364 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<html class="no-js" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-            crossorigin="anonymous"></script>
-    <style>
-        .split {
-            width: 50%;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            margin-left: 20%;
-            margin-right: -5%;
-            overflow-x: hidden;
-            height: 220px;
-        }
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meghna One page parallax responsive HTML Template ">
+    <meta name="author" content="Volunteerism">
+    <title>Requests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"-->
+<!--            crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
 
-        .left {
-            left: 0;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-        }
-
-        .right {
-            right: 0;
-        }
-
-        .data {
-            margin-left: 35px;
-            color: black;
-        }
-
-        .image img{
-            height: 220px;
-            float: left;
-        }
-
-        .data button{
-            margin-left: 26%;
-        }
-
-
-    </style>
 </head>
-<body>
-<div th:insert="fragment :: header"></div>
-<div>
-    <div class="split left">
-        <div class="data">
-            <h2>Welcome <span th:text="${currentUser.username}"></span></h2>
-            <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
-            <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
-            <p>Bio : <span th:text="${currentUser.bio}"></span></p>
-            <!--            <button onclick="myFunction()">Give A Hand!</button>-->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#volunteerModal"
-                    data-bs-whatever="@mdo">Give A Hand!
-            </button>
-        </div>
-    </div>
-    <div class="split right">
-        <div class="image">
-            <img style="float:left;"
-                 src="https://dazedimg-dazedgroup.netdna-ssl.com/900/azure/dazed-prod/1290/3/1293498.jpg"
-                 alt="Image Not Found">
-        </div>
+
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="preloader">
+    <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
     </div>
 </div>
-<br>
-<div class="modal fade" id="volunteerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="POST" action="/addSkill">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="description" class="col-form-label">Description:</label>
-                        <input type="text" name="description" class="form-control" id="description">
+<header id="navigation" class="navbar navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="#body">
+                <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC" stroke-width="3">
+                            <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                            <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                            <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse navbar-right" role="Navigation">
+            <ul id="nav" class="nav navbar-nav navigation-menu">
+                <li><a data-scroll href="/">Home</a></li>
+                <li><a data-scroll th:href="@{/requests}">Requests</a></li>
+                <li><a data-scroll href="/volunteerSkill">Services</a></li>
+                <li sec:authorize="isAuthenticated()"><a data-scroll href="/myprofile">Profile</a></li>
+                <li><a data-scroll href="/#AboutUUUUS">About Us</a></li>
+                <li sec:authorize="!isAuthenticated()"><a data-scroll href="/login">Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a data-scroll href="/perform_logout"
+                >Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<br/>
+
+<div class="page-content page-container" id="page-content">
+    <br/>
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-8 col-xl-16">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-xs-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-18"><img width="170px; height: 170px;"
+                                                         src="https://images.unsplash.com/photo-1568611066080-e54db9abb0f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                                                         class="img-radius" alt="User-Profile-Image"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3 class="f-w-600" style="color: wheat;"
+                                th:text="${currentUser.firstname} + ' ' + ${currentUser.lastname}"></h3>
+                            <br/>
+                            <p style="color: wheat;">Web Designer</p> <i
+                                class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                            <br/>
+                            <div class="card-block">
+                                <p style="color: wheat;" class="m-b-20 p-b-5 b-b-default f-w-600">Birth Date :<span
+                                        th:text="${currentUser.dateOfBirth}"></span></p>
+                                <br>
+                            </div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#volunteerModal" data-bs-whatever="@mdo" style="color: wheat;">Give
+                                A Hand ❕
+                            </button>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="skills" class="col-form-label">Skills: :</label>
-                        <input type="text" name="skills" class="form-control" id="skills">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="col-form-label">E-mail:</label>
-                        <input type="text" name="email" class="form-control" id="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="field" class="col-form-label">Field:</label>
-                        <input type="text" name="field" class="form-control" id="field">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Post Your Card</button>
                 </div>
             </div>
         </div>
-    </form>
-</div>
-<div style="padding-top: 35%">
-    <div th:each="i:${cards}">
-        <p>Field : <span th:text="${i.field}"></span></p>
-        <p>description : <span th:text="${i.description}"></span></p>
-        <p>Volunteer's Name : <span th:text="${i.getVolunteer().getFirstname()}"></span></p>
-        <p>Volunteer's E-mail : <span th:text="${i.email}"></span></p>
-        <form action="/deleteSkillCard" method="post">
-            <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
-            <input type="submit" value="Delete"/>
-        </form>
-        <div id="myDIV">
-            <form action="/modifySkillCard" method="post">
-                <label for="editedfield">Field :</label>
-                <input id="editedfield" name="field" type="text" th:value="${i.field}">
-                <label for="editedDescription">description</label>
-                <input id="editedDescription" name="description" type="text" th:value="${i.description}">
-                <label for="editedEmail">E-mail</label>
-                <input id="editedEmail" name="email" type="text" th:value="${i.email}">
-                <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}">
-                <input type="submit" value="update"/>
-            </form>
-        </div>
     </div>
 </div>
-<h2>Adopted requests</h2>
-<div th:each="i:${currentUser.adoptedRequests}">
-    <p>request : <span th:text="${i.body}"></span></p>
-    <p>request : <span th:text="${i.field}"></span></p>
-    <p>-----------></p>
+
+<section>
+    <div class="modal" id="volunteerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+         style="color: black;">
+        <form method="POST" action="/addSkill">
+            <div class="modal-dialog" style="width: 500px;">
+                <div class="modal-content" style="background-color: white; color: black; font-size: medium;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black;" id="exampleModalLabel">Give a Hand</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="field">Field:</label>
+                            <input type="text" name="field"
+                                   style="background-color: white; width: 100%; border-radius: 10px;" id="field">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description">Description:</label>
+                            <input type="text" name="description"
+                                   style="background-color: white; width: 100%; border-radius: 10px;" id="description">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">E-mail:</label>
+                            <input type="email" name="email"
+                                   style="background-color: white; width: 100%; border-radius: 10px;" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" name="phone"
+                                   style="background-color: white; width: 100%; border-radius: 10px;" id="phone">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="border-radius: 10px; color: red;"
+                                data-bs-dismiss="modal">Cancel
+                        </button>
+                        <button style="border-radius: 10px; color: blue;" type="submit">Post Your Card</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="blog12" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="clearfix">
+                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
+                         style="color: aliceblue;" th:each="i:${cards}">
+                    <div class="post-block content">
+                        <div style="margin: 10px; padding: 10px; height: 400px">
+                            <p style="height: 16px;">Field : <span th:text="${i.field}"></span></p>
+                            <p style="height: 40px;">description : <span th:text="${i.description}"></span></p>
+                            <p style="height: 16px;">Volunteer's Name : <span
+                                    th:text="${i.getVolunteer().getFirstname()}"></span></p>
+                            <p style="height: 16px;">Volunteer's E-mail : <span th:text="${i.email}"></span></p>
+                            <p style="height: 16px;">Volunteer's Phone : <span th:text="${i.phone}"></span></p>
+                            <form action="/deleteSkillCard" method="post" style="height: 20px;">
+                                <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
+                                <input type="submit" value="Delete"
+                                       style="color: black; background-color: red; border-radius: 10px; margin-left: 45%;"/>
+                            </form>
+                            <br><br>
+                            <div id="myDIV" style="width: 100%">
+                                <form action="/modifySkillCard" method="post" style="width: 100%">
+                                    <label for="editedfield">Field : </label>
+                                    <input style="color:white; background-color:gray;" id="editedfield" name="field"
+                                           type="text" th:value="${i.field}">
+                                    <br/>
+                                    <label for="editedDescription">Description : </label>
+                                    <input style="color:white; background-color:gray;" id="editedDescription"
+                                           name="description" type="text" th:value="${i.description}">
+                                    <br/>
+                                    <label for="editedEmail">E-mail : </label>
+                                    <input style="color:white; background-color:gray;" id="editedEmail" name="email"
+                                           type="text" th:value="${i.email}">
+                                    <br/>
+                                    <label for="editedEmail">Phone Number : </label>
+                                    <input style="color:white; background-color:gray;" id="editedPhone" name="phone"
+                                           type="text" th:value="${i.phone}">
+                                    <input style="color:white; background-color:gray;" type="hidden" id="id1" name="id"
+                                           cols="40" th:value="${i.id}"><br/>
+                                    <br/><input type="submit" value="update"
+                                                style="color: black; background-color: aqua; border-radius: 10px; margin-left: 45%;"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="border" style="width: 100%;"></div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="blog13" class="section">
+    <div class="title text-center wow fadeInDown">
+        <h2 style="color:aqua;">Adopted Requests</h2>
+        <div class="border"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="clearfix">
+                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
+                         style="color: aliceblue;" th:each="i:${currentUser.adoptedRequests}">
+                    <div class="post-block content">
+                        <div class="border" style="width: 100%;"></div>
+                        <div style="padding: 10px; margin: 10px;">
+                            <p style="color:aqua;">UserName: <span style="color:white;"
+                                                                   th:text="${i.getUser().getUsername()}"></span></p>
+                            <p style="color:aqua;">Status : <span style="color:white;" th:text="${i.body}"></span></p>
+                            <p style="color:aqua;">Field : <span style="color:white;" th:text="${i.field}"></span></p>
+                            <p style="color:aqua;">Phone Number : <span style="color:white;"
+                                                                        th:text="${i.phone}"></span></p>
+                            <p style="color:aqua;">Created At : <span style="color:white;"
+                                                                      th:text="${i.createdAt}"></span></p>
+                        </div>
+                        <div class="border" style="width: 100%;"></div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
     <script>
-    function myFunction() {
-        var x = document.getElementById("addSkill");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
+            function myFunction() {
+                var x = document.getElementById("addSkill");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+
+
+
+
 
     </script>
-</div>
+</section>
 
-<div th:insert="fragment :: footer"></div>
+
+<section id="blog" class="section">
+    <div class="title text-center wow fadeInDown">
+        <h2 style="color:aqua;">User's Review<span class="color"></span></h2>
+        <div class="border"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="clearfix">
+                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
+                         style="color: aliceblue;" th:each="review:${reviews}">
+                    <div class="post-block content">
+                        <div class="border" style="width: 100%;"></div>
+                        <div style="margin:10px; padding 10px;">
+                            <p style="color:aqua;">Reviewer username : <span style="color: white;"
+                                                                             th:text="${review.reviewerName}"></span>
+                            </p>
+                            <p style="color:aqua;">review : <span style="color: white;"
+                                                                  th:text="${review.review}"></span></p>
+                            <p style="color:aqua;">Created At : <span style="color: white;"
+                                                                      th:text="${review.createdAt}"></span></p>
+                            <form method="Get"
+                                  th:action="@{/user/{username}(username=${review.getReviewerName()})}">
+                                <button type="submit" th:text="${'Reviewer Profile'}"
+                                        style="color: black; margin-left:36%;"></button>
+                            </form>
+                        </div>
+                        <div class="border" style="width: 100%;"></div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer id="footer" class="bg-one" style="border: 10px; box-shadow: 10px white;">
+    <section class="section about-2 padding-0 bg-dark" id="about">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row wow fadeInUp" data-wow-duration="500ms">
+                    <div class="col-lg-12">
+                        <div class="social-icon">
+                            <ul class="list-inline">
+                                <li><a href="https://facebook.com/themefisher"><i
+                                        class="tf-ion-social-facebook"></i></a>
+                                </li>
+                                <li><a href="https://twitter.com/themefisher"><i
+                                        class="tf-ion-social-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA"><i
+                                        class="tf-ion-social-youtube"></i></a></li>
+                                <li><a href="https://dribbble.com/themefisher"><i
+                                        class="tf-ion-social-dribbble-outline"></i></a></li>
+                                <li><a href="https://pinterest.com/themefisher"><i
+                                        class="tf-ion-social-pinterest-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="copyright text-center">
+                            <a href="index.html">
+                                <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC"
+                                           stroke-width="3">
+                                            <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                                            <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                                            <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            <br/>
+                            <p>Design And Developed by <samp style="color:aqua ;">E-Volunteers Team.</samp>
+                                Copyright
+                                &copy;
+                                <script>
+                                        document.write(new Date().getFullYear())
+
+
+
+
+
+                                </script>
+                                . All Rights Reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script type="text/javascript" src="plugins/filterzr/jquery.filterizr.min.js"></script>
+<script type="text/javascript" src="plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script type="text/javascript" src="plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script type="text/javascript" src="plugins/Sticky/jquery.sticky.js"></script>
+<script type="text/javascript" src="plugins/count-to/jquery.countTo.js"></script>
+<script type="text/javascript" src="plugins/wow/dist/wow.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
+
 </html>

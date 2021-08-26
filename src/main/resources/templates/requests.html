@@ -42,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand logo" href="index.html">
+            <a class="navbar-brand logo" href="#body">
                 <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -54,30 +54,25 @@
                     </g>
                 </svg>
             </a>
-            <!-- /logo -->
         </div>
-
-        <!-- main nav -->
         <nav class="collapse navbar-collapse navbar-right" role="Navigation">
             <ul id="nav" class="nav navbar-nav navigation-menu">
                 <li><a data-scroll href="/">Home</a></li>
+                <li><a data-scroll th:href="@{/requests}">Requests</a></li>
+                <li><a data-scroll href="/volunteerSkill">Services</a></li>
+                <li sec:authorize="isAuthenticated()"><a data-scroll href="/myprofile">Profile</a></li>
                 <li><a data-scroll href="/#AboutUUUUS">About Us</a></li>
-                <li><a data-scroll href="/requests">Requests</a></li>
-                <li><a data-scroll href="/volunteerSkill">Skills</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/myprofile">Profile Page</a></li>
+                <li sec:authorize="!isAuthenticated()"><a data-scroll href="/login">Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a data-scroll href="/perform_logout"
+                >Logout</a></li>
             </ul>
         </nav>
-        <!-- /main nav -->
-
     </div>
 </header>
-<!--
-End Fixed Navigation
-==================================== -->
 
 <section id="blog" class="section">
     <div class="title text-center wow fadeInDown">
-        <h2 style="color:red;">Pending <span class="color">Requests</span></h2>
+        <h2 style="color:White;">Pending Requests<span class="color"></span></h2>
         <div class="border"></div>
     </div>
     <div class="container">
@@ -85,16 +80,14 @@ End Fixed Navigation
             <div class="clearfix"  >
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
                          style="color: aliceblue;"  th:each="i:${allRequests}" th:if="${i.status} == 'PENDING'">
-                    <div class="post-block content" >
+                    <div class="post-block content" style="padding: 10px; margin: 10px;">
                         <div >
-                            <h3 th:text="${i.getUser().getUsername()}" style="text-align: center; padding: 5px; color: aqua;">
-                            </h3>
+                            <h3 style="color:white; text-align:center;">UserName: <span th:text="${i.getUser().getUsername()}" style="text-align: center; padding: 5px; color: aqua;">
+                            </span></h3>
                             <div class="border" style="width: 100%; padding: 5px;"></div>
-                            <p style="padding-top: 5px;">Status : <span th:text="${i.status}"></span></p>
-                            <p>Field : <span th:text="${i.field}"></span></p>
-                            <p>Date : <span th:text="${i.date}"></span></p>
-                            <p>Time : <span th:text="${i.time}"></span></p>
-                            <p>Phone Number : <span th:text="${i.phone}"></span></p>
+                            <p style="padding-top: 5px; color:aqua;">Status : <span style="color:white;" th:text="${i.status}"></span></p>
+                            <p style="color:aqua;">Field : <span style="color:white;" th:text="${i.field}"></span></p>
+                            <p style="color:aqua;">Phone Number : <span style="color:white;" th:text="${i.phone}"></span></p>
                         </div>
                         <div class="border" style="width: 100%;"></div>
                         <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
@@ -106,11 +99,11 @@ End Fixed Navigation
                         </form>
                         <form th:if="${i.status} != 'PENDING'" method="Get"
                               th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
-                            <button type="submit" class="btn btn-outline-success"
+                            <button type="submit" class="btn btn-outline-success" style="color:white;"
                                     th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                         </form>
                         <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
-                            <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}"></button>
+                            <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}">Requester Profile</button>
                         </form>
                     </div>
                 </article>
@@ -121,9 +114,9 @@ End Fixed Navigation
 </section>
 
 
-<section id="blogs" class="section">
+<section id="blogs" class="section"  style="padding-top: -25%;">
     <div class="title text-center wow fadeInDown">
-        <h2 style="color:green;">Processing <span class="color">Requests</span></h2>
+        <h2 style="color:white;">Processing Requests<span class="color"></span></h2>
         <div class="border"></div>
     </div>
     <div class="container">
@@ -132,37 +125,34 @@ End Fixed Navigation
             <div class="clearfix">
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
                          style="color: aliceblue;" th:each="i:${allRequests}" th:if="${i.status} == 'PROCESSING'">
-                        <div class="content">
-                            <h3 th:text="${i.getUser().getUsername() + ' Well Done'}" style="text-align: center; padding: 5px; color: green;"></h3>
-                            <div class="border" style="width: 100%; padding: 5px;"></div>
-                            <p style="padding-top: 5px;">Status : <span th:text="${i.status}"></span></p>
-                            <p>Field : <span th:text="${i.field}"></span></p>
-                            <p>Date : <span th:text="${i.date}"></span></p>
-                            <p>Time : <span th:text="${i.time}"></span></p>
-                            <p>Phone Number : <span th:text="${i.phone}"></span></p>
-                            <p>Due Date : <span th:text="${i.date}"></span></p>
+                        <div class="content" style="background-color: #292F36; margin: 10px; padding: 10px;">
+                            <p  style="color:aqua;">Status : <span th:text="${i.status}" style="color:white;"></span></p>
+                            <p style="color:aqua;">Field : <span th:text="${i.field}" style="color:white;"></span></p>
+                            <p style="color:aqua;">UserName : <span th:text="${i.getUser().getUsername()}" style="padding: 5px; color: white;">
+                            </span></p>
+                            <p style="color:aqua;">Phone Number : <span style=" color:white;" th:text="${i.phone}"></span></p>
+                            <div class="border" style="width: 100%; background-color: #292F36;"></div>
+                            <div class="card-body  adobt-request-buttom " style="color: aqua; background-color: #292F36;">
+                                <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
+                                    <div class="mb-3">
+                                        <input type="hidden" class="form-control" id="id1" name="id" aria-describedby="id"
+                                               th:value="${i.id}">
+                                    </div>
+                                    <button style="margin-left: 80px; margin-top: 45px;" type="submit" class="btn btn-warning">Adopt</button>
+                                </form>
+
+                                <form th:if="${i.status} != 'PENDING'" method="Get"
+                                      th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
+
+                                    <button type="submit" class="btn btn btn-outline-warning"
+                                            th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
+                                </form>
+                                <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
+                                    <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}"></button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="border" style="width: 100%;"></div>
-                        <div class="card-body  adobt-request-buttom ">
 
-                            <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
-                                <div class="mb-3">
-                                    <input type="hidden" class="form-control" id="id1" name="id" aria-describedby="id"
-                                           th:value="${i.id}">
-                                </div>
-                                <button style="margin-left: 80px; margin-top: 45px;" type="submit" class="btn btn-warning">Adopt</button>
-                            </form>
-
-                            <form th:if="${i.status} != 'PENDING'" method="Get"
-                                  th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
-
-                                <button type="submit" class="btn btn btn-outline-warning"
-                                        th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
-                            </form>
-                            <form method="Get" th:action="@{/user/{username}(username=${i.getUser().getUsername()})}">
-                                <button type="submit" class="btn btn-outline-success" th:text="${'Requester Profile'}"></button>
-                            </form>
-                    </div>
                 </article>
             </div>
         </div>
@@ -193,12 +183,8 @@ End Fixed Navigation
                                 </li>
                             </ul>
                         </div>
-                        <!--/. End Footer Social Links -->
-
-                        <!-- copyright -->
                         <div class="copyright text-center">
                             <a href="index.html">
-                                <!-- <img src="images/logo-meghna.png" alt="Meghna" />  -->
                                 <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -210,7 +196,7 @@ End Fixed Navigation
                                     </g>
                                 </svg>
                             </a>
-                            <br />
+                            <br/>
 
                             <p>Design And Developed by <samp style="color:aqua ;">E-Volunteers Team.</samp>
                                 Copyright
@@ -220,11 +206,9 @@ End Fixed Navigation
                   </script>. All Rights Reserved.
                             </p>
                         </div>
-                        <!-- /copyright -->
-
-                    </div> <!-- end col lg 12 -->
-                </div> <!-- end row -->
-            </div> <!-- end container -->
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>

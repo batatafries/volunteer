@@ -13,24 +13,28 @@ public class DBUser {
     private String password;
     private String firstname;
     private String lastname;
-    private String bio;
     private String dateOfBirth;
     private String authority;
 
     @OneToMany(mappedBy = "user")
         List<Post> post;
 
+    @OneToMany(mappedBy = "reviewedUser")
+    List<Reviews> userReviews;
+
     public DBUser() {
     }
 
-    public DBUser(String username, String password, String firstname, String lastname, String bio, String dateOfBirth, String authority) {
+    public DBUser(String username, String password, String firstname, String lastname, String dateOfBirth, String authority) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.bio = bio;
         this.dateOfBirth = dateOfBirth;
         this.authority = authority;
+    }
+    public void addReview(Reviews review) {
+        userReviews.add(review);
     }
 
     public List<Post> getPost() {
@@ -81,14 +85,6 @@ public class DBUser {
         this.lastname = lastname;
     }
 
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -103,5 +99,13 @@ public class DBUser {
 
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    public List<Reviews> getUserReviews() {
+        return userReviews;
+    }
+
+    public void setUserReviews(List<Reviews> userReviews) {
+        this.userReviews = userReviews;
     }
 }

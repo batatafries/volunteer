@@ -40,11 +40,17 @@ public class VolunteerController {
     public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(username);
         m.addAttribute("currentUser", volunteer);
-        m.addAttribute("cards", volunteer.getvSkills());
+        if (volunteer.getvSkills().size()>0){
+            m.addAttribute("cards", volunteer.getvSkills());
+        }
+        if (volunteer.getVolunteerReviews().size()>0){
+            m.addAttribute("reviews", volunteer.getVolunteerReviews());
+        }
         if(p!=null){
             if (p.getName().equals(volunteer.getUsername())){
                 return ("volunteerProfile.html");
             }
+            m.addAttribute("p",p.getName());
         }
         return ("volunteerpage.html");
     }

@@ -1,6 +1,9 @@
 package com.example.volunteer.Models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class VSkill {
@@ -12,20 +15,23 @@ public class VSkill {
     DBVolunteer volunteer;
 
     private String description;
-    private String skills;
     private String field;
     private String email;
+    private String phone;
+
+    @CreationTimestamp
+    Date createdAt;
 
     public VSkill() {
 
     }
 
-    public VSkill(DBVolunteer volunteer, String description, String skills, String field, String email) {
+    public VSkill(DBVolunteer volunteer, String description, String field, String email , String phone) {
         this.volunteer = volunteer;
         this.description = description;
-        this.skills = skills;
         this.field = field;
         this.email = email;
+        this.phone = phone;
     }
 
     public Integer getId() {
@@ -48,14 +54,6 @@ public class VSkill {
         this.description = description;
     }
 
-    public String getSkills() {
-        return skills;
-    }
-
-    public void setSkills(String skills) {
-        this.skills = skills;
-    }
-
     public String getField() {
         return field;
     }
@@ -70,5 +68,21 @@ public class VSkill {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

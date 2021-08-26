@@ -14,7 +14,6 @@ public class DBVolunteer {
     private String password;
     private String firstname;
     private String lastname;
-    private String bio;
     private String dateOfBirth;
     private String authority;
 
@@ -24,20 +23,27 @@ public class DBVolunteer {
     @OneToMany(mappedBy = "dbVolunteer")
     Set<Post> adoptedRequests;
 
+    @OneToMany(mappedBy = "reviewedVolunteer")
+    List<Reviews> volunteerReviews;
+
     public DBVolunteer() {
     }
 
-    public DBVolunteer(String username, String password, String firstname, String lastname, String bio, String dateOfBirth, String authority) {
+    public DBVolunteer(String username, String password, String firstname, String lastname,String dateOfBirth, String authority) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.bio = bio;
         this.dateOfBirth = dateOfBirth;
         this.authority = authority;
     }
-    public void addRequest(Post post){
+
+    public void addRequest(Post post) {
         adoptedRequests.add(post);
+    }
+
+    public void addReview(Reviews review) {
+        volunteerReviews.add(review);
     }
 
     public Integer getId() {
@@ -80,14 +86,6 @@ public class DBVolunteer {
         this.lastname = lastname;
     }
 
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -118,5 +116,13 @@ public class DBVolunteer {
 
     public void setAdoptedRequests(Set<Post> adoptedRequests) {
         this.adoptedRequests = adoptedRequests;
+    }
+
+    public List<Reviews> getVolunteerReviews() {
+        return volunteerReviews;
+    }
+
+    public void setVolunteerReviews(List<Reviews> volunteerReviews) {
+        this.volunteerReviews = volunteerReviews;
     }
 }

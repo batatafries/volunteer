@@ -7,6 +7,7 @@ import com.example.volunteer.Repositories.DBUserRepository;
 import com.example.volunteer.Repositories.DBVolunteerRepository;
 import com.example.volunteer.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,8 @@ public class ApplicationUserController {
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
-
+@Autowired
+    PostRepository postRepository;
 
     @GetMapping("/signup")
     public String getSignUpPage() {
@@ -52,15 +54,14 @@ public class ApplicationUserController {
                                @RequestParam(value = "firstName") String firstName,
                                @RequestParam(value = "lastName") String lastName,
                                @RequestParam(value = "dateOfBirth") String dateOfBirth,
-                               @RequestParam(value = "bio") String bio,
                                @RequestParam(value = "type") String typeOfUser
     ) {
         if (typeOfUser.equals("Volunteer")) {
-            DBVolunteer newVolunteer = new DBVolunteer(username, bCryptPasswordEncoder.encode(password), firstName, lastName, bio, dateOfBirth, "ROLE_VOLUNTEER");
+            DBVolunteer newVolunteer = new DBVolunteer(username, bCryptPasswordEncoder.encode(password), firstName, lastName, dateOfBirth, "ROLE_VOLUNTEER");
             dbVolunteerRepository.save(newVolunteer);
         }
         if (typeOfUser.equals("User")) {
-            DBUser newUser = new DBUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, bio, dateOfBirth, "ROLE_USER");
+            DBUser newUser = new DBUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, dateOfBirth, "ROLE_USER");
             DBUserRepository.save(newUser);
         }
         return new RedirectView("/login");
@@ -78,61 +79,66 @@ public class ApplicationUserController {
 
     @GetMapping("/myprofile")
     public String getProfile(Principal p, Model m) {
-//        if(p==null){
-//            return "singin1.html";
-//        }
         DBUser currentUser = DBUserRepository.findByUsername(p.getName());
         if (currentUser != null) {
             m.addAttribute("currentUser", currentUser);
             m.addAttribute("requests", currentUser.getPost());
+            m.addAttribute("reviews", currentUser.getUserReviews());
             return "profile.html";
         }
         DBVolunteer currentUser1 = dbVolunteerRepository.findByUsername(p.getName());
         if (currentUser1 != null) {
             m.addAttribute("currentUser", currentUser1);
             m.addAttribute("cards", currentUser1.getvSkills());
+            m.addAttribute("reviews", currentUser1.getVolunteerReviews());
             return "volunteerProfile.html";
         }
         throw new NullPointerException();
     }
+@GetMapping("/getcard/{id}")
+public String getCardToModify(Model m,@PathVariable Integer id  ){
+        Post p1 =postRepository.findById(id).get();
+        m.addAttribute("cardUpdate",p1);
+        m.addAttribute("show",true);
+        return "modaltest.html";
+}
 
     @GetMapping("/user/{username}")
     public String getVolunteer(@PathVariable("username") String username, Model m, Principal p) {
         DBUser user = DBUserRepository.findByUsername(username);
         m.addAttribute("currentUser", user);
         m.addAttribute("requests", user.getPost());
+        m.addAttribute("reviews", user.getUserReviews());
         if (p != null) {
             if (p.getName().equals(user.getUsername())) {
                 return ("profile.html");
             }
+            m.addAttribute("p",p.getName());
         }
         return ("userpage.html");
     }
 
-//    @PostMapping("/modifyRequest")
-//    public RedirectView modifyRequest(@RequestParam String body ,Principal p,@RequestParam Integer id) {
-//        Post post = postRepository.findById(id).get();
-//        String loggedInUserName = p.getName();
-//        DBUser loggedInUser = DBUserRepository.findByUsername(loggedInUserName);
-////        if(loggedInUser.getId().equals(post.getUser().getId())){
-//            post.setBody(body);
-//            postRepository.save(post);
-////        }
-//        return new RedirectView("/myprofile");
-//    }
+    @PostMapping("/modifyRequest")
+    public RedirectView modifyRequest(@RequestParam String body ,
+                                      @RequestParam String field ,
+                                      @RequestParam String phone ,
+                                      Principal p,
+                                      @RequestParam Integer id,
+                                      Model m) {
+        Post post = postRepository.findById(id).get();
+        String loggedInUserName = p.getName();
+        DBUser loggedInUser = DBUserRepository.findByUsername(loggedInUserName);
+        if(loggedInUser.getId().equals(post.getUser().getId())){
+            post.setBody(body);
+            post.setField(field);
+//            post.setTime(time);
+//            post.setDate(date);
+            post.setPhone(phone);
+            postRepository.save(post);
+        }
+        m.addAttribute("show",false);
+        return new RedirectView("/myprofile");
+    }
 
-
-//    @PutMapping("/profiles/{id}")
-//    public RedirectView editProfile(Principal p, @PathVariable Integer id, @RequestParam String username){
-//        String loggedInUserName = p.getName();
-//        DBUser loggedInUser = dbUserRepository.findByUsername(loggedInUserName);
-//        if(loggedInUser.getId() == id) {
-//            loggedInUser.setUsername(username);
-//            dbUserRepository.save(loggedInUser);
-//            return new RedirectView("/profiles/"+id);
-//        } else {
-//            return new RedirectView("/error?message=Unauthorized");
-//        }
-//    }
 
 }

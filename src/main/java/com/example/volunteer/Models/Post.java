@@ -13,8 +13,7 @@ public class Post {
     private String body;
     private String field;
     private String date;
-    private String time;
-    private Integer phone;
+    private String phone;
     private String status;
     @CreationTimestamp
     Date createdAt;
@@ -33,12 +32,10 @@ public class Post {
         this.user = user;
     }
 
-    public Post(String body, String field, String date, String time, Integer phone, DBUser user , String status) {
+    public Post(String body, String field,  String phone, DBUser user , String status) {
         this.user = user;
         this.body = body;
         this.field = field;
-        this.date = date;
-        this.time = time;
         this.phone = phone;
         this.status = status;
     }
@@ -49,10 +46,6 @@ public class Post {
 
     public void setUser(DBUser user) {
         this.user = user;
-    }
-
-    public String getTime() {
-        return time;
     }
 
     public String getField() {
@@ -71,16 +64,12 @@ public class Post {
         this.field = field;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setPhone(Integer phone) {
-        this.phone = phone;
-    }
-
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getBody() {

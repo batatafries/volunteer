@@ -36,5 +36,6 @@ margin: 0px auto;
 }
 
 .name{
+    background-color: transparent;
     text-transform: capitalize;
 }
