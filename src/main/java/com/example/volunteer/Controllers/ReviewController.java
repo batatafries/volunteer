@@ -49,7 +49,7 @@ public class ReviewController {
         reviewdUser.addReview(review);
         dbUserRepository.save(reviewdUser);
         dbReviewsRepository.save(review);
-        return new RedirectView("/user/" + reviewdUser.getUsername());
+        return new RedirectView("/" + reviewdUser.getUsername());
     }
 
 

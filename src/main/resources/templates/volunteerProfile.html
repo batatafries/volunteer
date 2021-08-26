@@ -160,6 +160,10 @@
 
 
 <section id="blog" class="section">
+    <div class="title text-center wow fadeInDown">
+        <h2 style="color: aqua">Services</h2>
+        <div class="border"></div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="clearfix">
@@ -258,7 +262,7 @@
 
 <section id="blog" class="section">
     <div class="title text-center wow fadeInDown">
-        <h2 style="color:aqua;">My Reviews</h2>
+        <h2 style="color:aqua;">Users Reviews</h2>
         <div class="border"></div>
     </div>
     <div class="container">
@@ -275,7 +279,7 @@
                             <p style="font-weight: bolder;">Created At : <span th:text="${review.createdAt}"></span>
                             </p>
                             <form method="Get"
-                                  th:action="@{/user/{username}(username=${review.getReviewerName()})}">
+                                  th:action="@{/{username}(username=${review.getReviewerName()})}">
                                 <button type="submit" class="btn btn-primary" style="text-align: center;"
                                         th:text="${'Reviewer Profile'}"></button>
                             </form>

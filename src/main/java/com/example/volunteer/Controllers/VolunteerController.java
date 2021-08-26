@@ -36,7 +36,7 @@ public class VolunteerController {
         return new RedirectView("/requests");
     }
 
-    @GetMapping("/volunteer/{username}")
+    @GetMapping("/V-{username}")
     public String getVolunteer(@PathVariable("username") String username, Model m,Principal p) {
         DBVolunteer volunteer = dbVolunteerRepository.findByUsername(username);
         m.addAttribute("currentUser", volunteer);
@@ -52,6 +52,6 @@ public class VolunteerController {
             }
             m.addAttribute("p",p.getName());
         }
-        return ("volunteerpage.html");
+        return ("volunteerpage1.html");
     }
 }
