@@ -103,7 +103,7 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
         return "modaltest.html";
 }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/{username}")
     public String getVolunteer(@PathVariable("username") String username, Model m, Principal p) {
         DBUser user = DBUserRepository.findByUsername(username);
         m.addAttribute("currentUser", user);
@@ -115,7 +115,7 @@ public String getCardToModify(Model m,@PathVariable Integer id  ){
             }
             m.addAttribute("p",p.getName());
         }
-        return ("userpage.html");
+        return ("userpage1.html");
     }
 
     @PostMapping("/modifyRequest")
