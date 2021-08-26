@@ -103,7 +103,7 @@
                                     th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                         </form>
                         <form method="Get" th:action="@{/{username}(username=${i.getUser().getUsername()})}">
-                            <button type="submit" class="btn btn-primary" style="text-align-center; ;color: white;width:120px; border-radius: 10px;margin-top:5px;" th:text="${'Requester Profile'}">Requester Profile</button>
+                            <button type="submit" class="btn btn-primary" style="text-align-center; ;color: white;width:150px; border-radius: 10px;margin-top:5px;" th:text="${'Requester Profile'}">Requester Profile</button>
                         </form>
                     </div>
                 </article>
@@ -151,7 +151,7 @@
                                                 th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                                     </form>
                                     <form method="Get" th:action="@{/{username}(username=${i.getUser().getUsername()})}">
-                                        <button type="submit" class="btn btn-primary" style="width: 120px;text-align:center ; color: white; border-radius: 10px;" th:text="${'Requester Profile'}"></button>
+                                        <button type="submit" class="btn btn-primary" style="width: 150px;text-align:center ; color: white; border-radius: 10px;" th:text="${'Requester Profile'}"></button>
                                     </form>
 
                                 </div>
