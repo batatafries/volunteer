@@ -93,7 +93,7 @@
                                     <p style="color: wheat;" class="m-b-20 p-b-5 b-b-default f-w-600">Birth Date
                                         :<span th:text="${currentUser.dateOfBirth}"></span> </p>
                                     <br>
-                                    <p style="color: wheat; font-size: large; font-weight: 700;">To add a Servieces : <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    <p style="color: wheat; font-size: large; font-weight: 700;">To add a Services : <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                                                                                               data-bs-target="#addModal" data-bs-whatever="@mdo" style="color: wheat;">Add Request
                                     </button></p>
                                 </div>
@@ -162,7 +162,7 @@
                                     style="color: aqua; float: right;" th:text="${i.field}"></span></p>
                             <p style="height: 36px; font-weight: bolder;">Description : <span
                                     style="color: aqua; float: right;" th:text="${i.body}"></span></p>
-                            <p style="font-weight: bolder;">Created Due : <span
+                            <p style="font-weight: bolder;">Creation At : <span
                                     style="color: aqua; float: right;"
                                     th:text="${i.CreatedAt}"></span></p>
                             <p style="font-weight: bolder;">Phone Number : <span
@@ -172,7 +172,7 @@
                                 <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
                                        th:value="${i.id}">
                                 <button type="submit" class="btn btn-danger"
-                                        style="margin-left:40%;">Delete</button>
+                                        style="color: white; border-radius: 10px; margin-left: 35%;">Delete</button>
                             </form><br/>
                             <br>
                             <div id="myDIV">
@@ -207,30 +207,64 @@
 </section>
 
 
-<section id="blogs" class="section">
+<!--<section id="blogs" class="section">-->
+<!--    <div class="title text-center wow fadeInDown">-->
+<!--        <h2 style="color:white; text-align: center;">Volunteer's Feedback</h2>-->
+<!--        <div class="border"></div>-->
+<!--    </div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="clearfix" style="padding: 7px; margin: 7px;">-->
+<!--                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"-->
+<!--                         style="color: aliceblue;" th:each="review:${reviews}">-->
+<!--                    <div class="content" style="margin: 7px; padding: 7px;">-->
+<!--                        <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>-->
+<!--                        <p>review : <span th:text="${review.review}"></span></p>-->
+<!--                        <p>Creation At : <span th:text="${review.createdAt}"></span></p>-->
+<!--                        <form method="Get"-->
+<!--                              th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">-->
+<!--                            <button type="submit" class="btn btn-primary" th:text="${'Reviewer Profile'}"></button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<section id="blog" class="section">
     <div class="title text-center wow fadeInDown">
-        <h2 style="color:white; text-align: center;">Volunteer's Feedback</h2>
+        <h2 style="color:aqua;">Volunteer's Reviews</h2>
         <div class="border"></div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="clearfix" style="padding: 7px; margin: 7px;">
+            <div class="clearfix">
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
                          style="color: aliceblue;" th:each="review:${reviews}">
-                    <div class="content" style="margin: 7px; padding: 7px;">
-                        <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
-                        <p>review : <span th:text="${review.review}"></span></p>
-                        <p>Created At : <span th:text="${review.createdAt}"></span></p>
-                        <form method="Get"
-                              th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">
-                            <button type="submit" style="color: black; background-color: white;" th:text="${'Reviewer Profile'}"></button>
-                        </form>
+                    <div class="post-block content">
+                        <div class="border" style="width: 100%;"></div>
+                        <div style="padding: 7px; margin: 7px;">
+                            <p style="font-weight: bolder;">Reviewer username : <span
+                                    th:text="${review.reviewerName}"></span></p>
+                            <p style="font-weight: bolder;">review : <span th:text="${review.review}"></span></p>
+                            <p style="font-weight: bolder;">Creation At : <span th:text="${review.createdAt}"></span>
+                            </p>
+                            <form method="Get"
+                                  th:action="@{/user/{username}(username=${review.getReviewerName()})}">
+                                <button  type="submit" class="btn btn-primary" style="text-align: center;border-radius: 10px;"
+                                        th:text="${'Reviewer Profile'}"></button>
+                            </form>
+                        </div>
+                        <div class="border" style="width: 100%;"></div>
                     </div>
                 </article>
             </div>
+
         </div>
     </div>
 </section>
+
 
 <footer id="footer" class="bg-one" style="border: 10px; box-shadow: 10px white;">
     <section class="section about-2 padding-0 bg-dark" id="about">

@@ -46,7 +46,7 @@ public class PostController {
                                       @RequestParam String phone,
                                       Principal p) {
         DBUser user = DBUserRepository.findByUsername(p.getName());
-        Post post = new Post(body, field, phone, user, "PENDING");
+        Post post = new Post(body, field, phone, user, "Pending");
         postRepository.save(post);
         return new RedirectView("/myprofile");
     }
