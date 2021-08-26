@@ -36,7 +36,6 @@ public class Post {
         this.user = user;
         this.body = body;
         this.field = field;
-//        this.date = date;
         this.phone = phone;
         this.status = status;
     }

@@ -1,435 +1,302 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!DOCTYPE html>
 
+<html class="no-js" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meghna One page parallax responsive HTML Template ">
+    <meta name="author" content="Volunteerism">
+    <title>Requests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/animate-css/animate.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
-    <link rel="stylesheet" th:href="@{/css/profile.css}">
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
-        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Arima+Madurai:wght@900&display=swap');
-
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Courgette', cursive;
-        }
-
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)),
-            url("https://images.pexels.com/photos/461049/pexels-photo-461049.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-
-        }
-
-        .one-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)),
-            url("https://images.pexels.com/photos/1843717/pexels-photo-1843717.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-            height: 50%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        /*aaaa*/
-        .third-text{
-            background-image: linear-gradient(rgba(0, 0, 0, 0.0),
-            rgba(0, 0, 0, 0.0)),
-            url("https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
-            height: 80%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-
-        .sec-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)),
-            url("https://images.pexels.com/photos/5637704/pexels-photo-5637704.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-            height: 70%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        .hero-text {
-            text-align: center;
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            /* font-family: "Architects Daughter", cursive;
-        font-family: 'Architects Daughter', cursive; */
-        }
-
-        #paragrah {
-            font-size: x-large;
-            padding-right:90px;
-        }
-
-        .one-text {
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 50px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        header {
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 70px;
-
-        }
-
-        .logo {
-            cursor: pointer;
-        }
-
-        .nav-area {
-            list-style: none;
-        }
-
-        .nav-area li {
-            display: inline-block;
-            padding: 0 15px;
-            text-transform: uppercase;
-        }
-
-        .nav-area li a {
-            cursor: pointer;
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            padding: 5px 5px;
-
-            float: right;
-        }
-
-        .nav-area li a:hover {
-            cursor: pointer;
-            color: #F8B600;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            background: #fff;
-            float: right;
-        }
-
-        .btn-area {
-            cursor: pointer;
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            padding: 5px 5px;
-            background: #F8B600;
-            float: right;
-        }
-
-        .btn-area:hover {
-            cursor: pointer;
-            color: #F8B600;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 5px;
-            background: #fff;
-            float: right;
-        }
-
-        footer ul li a {
-            color: #f8b600;
-            font-size: 18px;
-        }
-
-        footer {
-            width: 100%;
-            position: relative;
-            box-sizing: border-box;
-            bottom: 0;
-            background-image: linear-gradient(rgb(73, 70, 70), black);
-            margin-bottom: 0;
-        }
-
-        .copy-rights {
-            align-items: center;
-            text-align: center;
-            position: relative;
-            color: white;
-        }
-
-        .footer-social a i {
-            width: 20px;
-            margin-top: 10px;
-            padding-left: 15px;
-            display: inline-block;
-            height: 40px;
-            text-align: center;
-            padding-bottom: 0%;
-            padding: 5px;
-            -webkit-transition: all 0.3s ease 0s;
-            -moz-transition: all 0.3s ease 0s;
-            -o-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
-        }
-
-        .footer-social i {
-            color: white;
-            -webkit-transition: all 0.3s ease 0s;
-            -moz-transition: all 0.3s ease 0s;
-            -o-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
-        }
-
-        .footer-social a :hover {
-            color: #f8b600;
-        }
-
-        .footer-area {
-            background: rgba(0, 0, 0, 0.2);
-            padding-top: 0px;
-        }
-
-        .footer-bottom {
-            margin-top: 15px;
-        }
-
-        .footer-text {
-            color: #fff;
-            font-size: 18px;
-            padding-left: 31.5%;
-        }
-
-        .cards{
-            width:1000px;
-            display: flex;
-            position: absolute;
-            left: -60px;
-
-        }
-        .cards img{
-            width: 280px;
-            height: 330px;
-            border-radius: 35px;
-            border: 1px solid #33073169;
-            margin: 47px;
-            margin-top: 50px ;
-
-        }
-        .container {
-            position: relative;
-            width: 50%;
-        }
-
-        .image {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 48px;
-            right: 0;
-            width: 280px;
-            height: 330px;
-            opacity: 0;
-            margin-top: 50px;
-            transition: .5s ease;
-            border-radius: 35px;
-            background-color: rgba( 0, 0, 0, 0.5);
-            text-align: left;
-        }
-
-        .container:hover .overlay {
-            opacity: 1;
-        }
-
-        .text {
-            color: white;
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 52%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            text-align: center;
-            text-indent: -10px;
-        }
-
-
-    </style>
-
-    <title>My Profile</title>
 </head>
 
-<body>
-
-<div th:insert="fragment :: header"></div>
-
-<div class="infoAndRequest">
-    <div class="infoUser">
-        <h2>Welcome <span th:text="${currentUser.username}"></span></h2>
-        <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
-        <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add Request
-        </button>
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="preloader">
+    <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
     </div>
-    <br>
+</div>
 
-
-    <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" >Add Request</button>-->
-
-    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form method="POST" action="/addRequest">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New Request</h5>
-                        <!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="field" class="col-form-label">Field:</label>
-                            <input type="text" class="form-control" id="field" name="field">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label for="body" class="col-form-label">Body:</label>
-                            <input type="text" class="form-control" id="body" name="body">
-                        </div>
-
-
-<!--                        <div class="mb-3">-->
-<!--                            <label for="date" class="col-form-label">Date:</label>-->
-<!--                            <input type="date" class="form-control" id="date" name="date">-->
-<!--                        </div>-->
-
-<!--                        <div class="mb-3">-->
-<!--                            <label for="time" class="col-form-label">time:</label>-->
-<!--                            <input type="text" class="form-control" id="time" name="time">-->
-<!--                        </div>-->
-
-                        <div class="mb-3">
-                            <label for="phone" class="col-form-label">Phone number :</label>
-                            <input type="text" class="form-control" id="phone" name="phone">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+<header id="navigation" class="navbar navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="#body">
+                <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC" stroke-width="3">
+                            <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                            <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                            <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse navbar-right" role="Navigation">
+            <ul id="nav" class="nav navbar-nav navigation-menu">
+                <li><a data-scroll href="/">Home</a></li>
+                <li><a data-scroll th:href="@{/requests}">Requests</a></li>
+                <li><a data-scroll href="/volunteerSkill">Services</a></li>
+                <li sec:authorize="isAuthenticated()"><a data-scroll href="/myprofile">Profile</a></li>
+                <li><a data-scroll href="/#AboutUUUUS">About Us</a></li>
+                <li sec:authorize="!isAuthenticated()"><a data-scroll href="/login">Login</a></li>
+                <li sec:authorize="isAuthenticated()"><a data-scroll href="/perform_logout"
+                >Logout</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <br>
-    <div class="cardrequest">
+<br>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-8 col-xl-16">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-xs-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img style="height: 140px; width: max-content;"
+                                                          src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
+                                                          alt="User-Profile-Image">
+                                    <h4 class="f-w-600" style="color: wheat;"
+                                        th:text="${currentUser.firstname} + ' ' + ${currentUser.lastname}"></h4>
+                                    <p style="color: wheat;">Web Designer</p> <i
+                                            class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                    <p style="color: wheat;" class="m-b-20 p-b-5 b-b-default f-w-600">Birth Date
+                                        :<span th:text="${currentUser.dateOfBirth}"></span> </p>
+                                    <br>
+                                    <p style="color: wheat; font-size: large; font-weight: 700;">To add a Servieces : <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                                                                                              data-bs-target="#addModal" data-bs-whatever="@mdo" style="color: wheat;">Add Request
+                                    </button></p>
+                                </div>
+                            </div><br><br>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                            </div>
 
-        <div th:each="i:${requests}">
-
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <div class="header-card">
-                        <h5 class="card-title">Field : <span th:text="${i.field}"></span></h5>
-                        <h5 class="card-title"><span th:text="${i.status}"></span></h5>
+                        </div>
                     </div>
-                    <p class="card-text"><span id="bodyc" name="body" th:text="${i.body}"></span></p>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> Name : <span th:text="${i.getUser().getUsername()}"></span></li>
-                    <li class="list-group-item">Phone : <span th:text="${i.phone}"></span></li>
-                    <li class="list-group-item">CreatedAt : <span th:text="${i.CreatedAt}"></span></li>
-                </ul>
-                <div class="card-body continer-buttom-card">
-                    <form action="/deleteRequest" method="post" class="form_buttom">
-                        <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
-                               th:value="${i.id}">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                    <!--           Buttom Update Model    -->
-
-                    <a th:href="@{'/getcard/'+${i.id}}" id="editCardModal">
-                        <button class="btn btn-danger"> Update</button>
-                    </a>
-
-                </div>
-
             </div>
         </div>
     </div>
 </div>
-<!--Add Request modal-->
-<!--<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">-->
-<!--    <form method="POST" action="/addRequest">-->
-<h2>volunteer's feedback</h2>
-<div th:each="review:${reviews}">
-    <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
-    <p>review : <span th:text="${review.review}"></span></p>
-    <p>Created At : <span th:text="${review.createdAt}"></span></p>
-    <form method="Get" th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">
-        <button type="submit" th:text="${'Reviewer Profile'}"></button>
+
+
+<div class="modal" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     style="color: black;">
+    <form method="POST" action="/addRequest">
+        <div class="modal-dialog" style="width: 500px;">
+            <div class="modal-content" style="background-color: white; color: black; font-size: medium;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color: black; text-align: center; font-weight: bold;" id="exampleModalLabel">Add Request</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="field" style="color: gray;">Field :</label>
+                        <input type="text" name="field"
+                               style="background-color: white; width: 100%; border-radius: 10px;" id="field">
+                    </div>
+                    <div class="mb-3">
+                        <label for="body" style="color: gray;">Description :</label>
+                        <input type="text" name="body"
+                               style="background-color: white; width: 100%; border-radius: 10px;" id="body">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" style="color: gray;">Phone Number:</label>
+                        <input type="text" name="phone"
+                               style="background-color: white; width: 100%; border-radius: 10px;" id="phone">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button style="border-radius: 10px; color: rgb(0, 0, 0); width: 100px; text-align: center; font-weight: 800;" class="btn btn-primary" type="submit">Add</button>
+                    <button type="button" style="border-radius: 10px; color: black;  width: 100px; text-align: center; font-weight: 800;" class="btn btn-danger"
+                            data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
     </form>
-    <p>-----------</p>
 </div>
 
+
+<section id="blog" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="clearfix">
+                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
+                         style="color: aliceblue;" th:each="i:${requests}">
+                    <div class="post-block content">
+                        <div style="margin: 5px; padding: 5px;">
+                            <h2 style="text-align: center; color: aliceblue;">Status: <span class="color"
+                                                  th:text="${i.status}"></span></h2>
+                            <p style="margin-top: 10px; font-weight: bolder;">Field : <span
+                                    style="color: aqua; float: right;" th:text="${i.field}"></span></p>
+                            <p style="height: 36px; font-weight: bolder;">Description : <span
+                                    style="color: aqua; float: right;" th:text="${i.body}"></span></p>
+                            <p style="font-weight: bolder;">Created Due : <span
+                                    style="color: aqua; float: right;"
+                                    th:text="${i.CreatedAt}"></span></p>
+                            <p style="font-weight: bolder;">Phone Number : <span
+                                    style="color: aqua; float: right;" th:text="${i.phone}"></span></p>
+                            <form action="/deleteRequest" method="post" class="form_buttom">
+                                <br/>
+                                <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
+                                       th:value="${i.id}">
+                                <button type="submit" class="btn btn-danger"
+                                        style="margin-left:40%;">Delete</button>
+                            </form><br/>
+                            <br>
+                            <div id="myDIV">
+                                <hr>
+                                <form action="/modifyRequest" method="post">
+                                    <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}"><br>
+                                    <label style="color: white; margin-right: 54px;" for="editedfield">Field
+                                        :</label>
+                                    <input style="width: 220px; color: black; color: black;" id="editedfield"
+                                           name="field" type="text" th:value="${i.field}"><br>
+                                    <label style="color: white; margin-right: 18px;"
+                                           for="editedDescription">Description :</label>
+                                    <input style="width: 220px; color: black;" id="editedDescription"
+                                           name="body" type="text" th:value="${i.body}"><br>
+
+                                    <label style="color: white;  margin-right: 1px;" for="editedPhone">Phone
+                                        Number :</label>
+                                    <input style="width: 220px; color: black;" id="editedPhone" name="phone"
+                                           type="text" th:value="${i.phone}"><br>
+                                    <input class="btn btn-primary" type="submit" value="update"
+                                           style="color: white; border-radius: 10px; margin-left: 35%;" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="border" style="width: 100%;"></div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="blogs" class="section">
+    <div class="title text-center wow fadeInDown">
+        <h2 style="color:white; text-align: center;">Volunteer's Feedback</h2>
+        <div class="border"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="clearfix" style="padding: 7px; margin: 7px;">
+                <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
+                         style="color: aliceblue;" th:each="review:${reviews}">
+                    <div class="content" style="margin: 7px; padding: 7px;">
+                        <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
+                        <p>review : <span th:text="${review.review}"></span></p>
+                        <p>Created At : <span th:text="${review.createdAt}"></span></p>
+                        <form method="Get"
+                              th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">
+                            <button type="submit" style="color: black; background-color: white;" th:text="${'Reviewer Profile'}"></button>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer" class="bg-one" style="border: 10px; box-shadow: 10px white;">
+    <section class="section about-2 padding-0 bg-dark" id="about">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row wow fadeInUp" data-wow-duration="500ms">
+                    <div class="col-lg-12">
+                        <div class="social-icon">
+                            <ul class="list-inline">
+                                <li><a href="https://facebook.com/themefisher"><i
+                                        class="tf-ion-social-facebook"></i></a>
+                                </li>
+                                <li><a href="https://twitter.com/themefisher"><i
+                                        class="tf-ion-social-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA"><i
+                                        class="tf-ion-social-youtube"></i></a></li>
+                                <li><a href="https://dribbble.com/themefisher"><i
+                                        class="tf-ion-social-dribbble-outline"></i></a></li>
+                                <li><a href="https://pinterest.com/themefisher"><i
+                                        class="tf-ion-social-pinterest-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="copyright text-center">
+                            <a href="index.html">
+                                <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC"
+                                           stroke-width="3">
+                                            <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                                            <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                                            <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            <br />
+
+                            <p>Design And Developed by <samp style="color:aqua ;">E-Volunteers Team.</samp>
+                                Copyright
+                                &copy;
+                                <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>. All Rights Reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+</footer>
+
+<script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script type="text/javascript" src="plugins/filterzr/jquery.filterizr.min.js"></script>
+<script type="text/javascript" src="plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script type="text/javascript" src="plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script type="text/javascript" src="plugins/Sticky/jquery.sticky.js"></script>
+<script type="text/javascript" src="plugins/count-to/jquery.countTo.js"></script>
+<script type="text/javascript" src="plugins/wow/dist/wow.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
+
 </html>
-
-<!--<h2>volunteer's feedback</h2>-->
-<!--<div th:each="review:${reviews}">-->
-<!--    <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>-->
-<!--    <p>review : <span th:text="${review.review}"></span></p>-->
-<!--    <p>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
-<!--</div>-->
-
-<!--<div th:insert="fragment :: footer"></div>-->
-
-
-<!--</body>-->
-<!--</html>-->
-
-
