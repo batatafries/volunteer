@@ -239,12 +239,12 @@
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
                          style="color: aliceblue;" th:each="i:${currentUser.adoptedRequests}">
                     <div class="post-block content">
-                        <div class="border" style="width: 100%; padding: 5px;"></div>
                         <div style="margin: 7px; padding: 7px;">
-                            <p style="padding-top: 5px; font-weight: bolder;">Status : <span
-                                    th:text="${i.body}"></span></p>
                             <p style="height: 40px; font-weight: bolder;">Field : <span th:text="${i.field}"></span>
                             </p>
+
+                            <p style="padding-top: 5px; font-weight: bolder;">Description : <span
+                                    th:text="${i.body}"></span></p>
                             <p style="font-weight: bolder;">Phone Number : <span th:text="${i.phone}"></span></p>
                             <p style="font-weight: bolder;">Creation At : <span th:text="${i.createdAt}"></span></p>
                         </div>

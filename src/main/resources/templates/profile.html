@@ -166,11 +166,12 @@
                                     style="color: aqua; " th:text="${i.field}"></span></p>
                             <p style="height: 36px; font-weight: bolder;">Description : <span
                                     style="color: aqua; " th:text="${i.body}"></span></p>
+                            <p style="font-weight: bolder;">Phone Number : <span
+                                    style="color: aqua; " th:text="${i.phone}"></span></p>
                             <p style="font-weight: bolder;">Creation At : <span
                                     style="color: aqua;"
                                     th:text="${i.CreatedAt}"></span></p>
-                            <p style="font-weight: bolder;">Phone Number : <span
-                                    style="color: aqua; " th:text="${i.phone}"></span></p>
+
                             <form action="/deleteRequest" method="post" class="form_buttom">
                                 <br/>
                                 <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
