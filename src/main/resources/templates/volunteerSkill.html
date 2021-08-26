@@ -70,7 +70,7 @@
 
 <section id="blog" class="section">
     <div class="title text-center wow fadeInDown">
-        <h2 style="color:white;">Skills</h2>
+        <h2 style="color:white;">Volunteers Services/Skills</h2>
         <div class="border"></div>
     </div>
     <div class="container">
@@ -85,7 +85,7 @@
                             <p style="margin-top: 5px; color:aqua; height: 16px;">Volunteer Name : <span style="color:white;" th:text="${i.getVolunteer().getFirstname()}"></span></p><hr>
                             <p style="margin-top: 5px; color:aqua; height: 16px;">Volunteer Phone : <span style="color:white;" th:text="${i.phone}"></span></p>
                             <hr/><p style=" color:aqua;">E-mail : <span style="text-decoration: underline;" th:text="${i.email}"></span></p>
-                            <form method="Get" th:action="@{/volunteer/{username}(username=${i.getVolunteer().getUsername()})}">
+                            <form method="Get" th:action="@{/V-{username}(username=${i.getVolunteer().getUsername()})}">
                                 <button type="submit" class="btn btn-primary" style="color: white; border-radius: 10px;" th:text="${'Volunteer Profile'}">Volunteer Profile</button>
                             </form>
 
