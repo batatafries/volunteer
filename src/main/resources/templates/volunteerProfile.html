@@ -166,6 +166,10 @@
 
 
 <section id="blog" class="section">
+    <div class="title text-center wow fadeInDown">
+        <h2 style="color: aqua">Services</h2>
+        <div class="border"></div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="clearfix">
@@ -283,7 +287,7 @@
                             <p style="font-weight: bolder;">Creation At : <span th:text="${review.createdAt}"></span>
                             </p>
                             <form method="Get"
-                                  th:action="@{/user/{username}(username=${review.getReviewerName()})}">
+                                  th:action="@{/{username}(username=${review.getReviewerName()})}">
                                 <button type="submit" class="btn btn-primary" style="text-align: center;"
                                         th:text="${'Reviewer Profile'}"></button>
                             </form>
