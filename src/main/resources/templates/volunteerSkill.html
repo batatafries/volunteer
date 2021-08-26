@@ -79,12 +79,18 @@
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
                          style="color: aliceblue;" th:each="i:${allSkillsCards}">
                     <div class="post-block content">
-                        <div style="height: 280px; padding: 10px;">
+                        <div style="height:380px; padding: 10px;">
                             <p style="margin-top: 5px; color:aqua; height: 16px;">Field : <span style="color:white;" th:text="${i.field}"></span></p><hr>
                             <p style="margin-top: 5px; color:aqua; height: 75px;">Description : <span style="color:white;" th:text="${i.description}"></span></p><hr>
-                            <p style="margin-top: 5px; color:aqua; height: 16px;">Volunteer UserName : <span style="color:white;" th:text="${i.getVolunteer().getFirstname()}"></span></p>
-                            <hr/><p style="margin-top: 5px; color:aqua;">E-mail : <span style="text-decoration: underline;" th:text="${i.email}"></span></p>
+                            <p style="margin-top: 5px; color:aqua; height: 16px;">Volunteer Name : <span style="color:white;" th:text="${i.getVolunteer().getFirstname()}"></span></p><hr>
+                            <p style="margin-top: 5px; color:aqua; height: 16px;">Volunteer Phone : <span style="color:white;" th:text="${i.phone}"></span></p>
+                            <hr/><p style=" color:aqua;">E-mail : <span style="text-decoration: underline;" th:text="${i.email}"></span></p>
+                            <form method="Get" th:action="@{/volunteer/{username}(username=${i.getVolunteer().getUsername()})}">
+                                <button type="submit" class="btn btn-primary" style="color: white; border-radius: 10px;" th:text="${'Volunteer Profile'}">Volunteer Profile</button>
+                            </form>
+
                         </div>
+
                     </div>
                 </article>
             </div>

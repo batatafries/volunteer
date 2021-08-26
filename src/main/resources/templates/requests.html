@@ -79,7 +79,7 @@
         <div class="row">
             <div class="clearfix"  >
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
-                         style="color: aliceblue;"  th:each="i:${allRequests}" th:if="${i.status} == 'PENDING'">
+                         style="color: aliceblue;"  th:each="i:${allRequests}" th:if="${i.status} == 'Pending'">
                     <div class="post-block content" style="padding: 10px; margin: 10px;">
                         <div >
                             <h3 style="color:white; text-align:center;">UserName: <span th:text="${i.getUser().getUsername()}" style="text-align: center; padding: 5px; color: aqua;">
@@ -90,14 +90,14 @@
                             <p style="color:aqua;">Phone Number : <span style="color:white;" th:text="${i.phone}"></span></p>
                         </div>
                         <div class="border" style="width: 100%;"></div>
-                        <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
+                        <form th:if="${i.status} == 'Pending' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
                             <div class="mb-3">
                                 <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id" th:value="${i.id}">
                             </div>
-                            <button type="submit" class="btn btn-outline-success"
+                            <button type="submit"  class="btn btn-outline-success"
                                     style="color: aqua; padding-top: 30px; font-size: 15px;">Adopt</button>
                         </form>
-                        <form th:if="${i.status} != 'PENDING'" method="Get"
+                        <form th:if="${i.status} != 'Pending'" method="Get"
                               th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
                             <button type="submit" class="btn btn-outline-success" style="color:white;"
                                     th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
@@ -124,7 +124,7 @@
 
             <div class="clearfix">
                 <article class="col col-md-4 mb-30 clearfix wow fadeInUp" data-wow-duration="500ms"
-                         style="color: aliceblue;" th:each="i:${allRequests}" th:if="${i.status} == 'PROCESSING'">
+                         style="color: aliceblue;" th:each="i:${allRequests}" th:if="${i.status} == 'Processing'">
                         <div class="content" style="background-color: #292F36; margin: 10px; padding: 10px;">
                             <p  style="color:aqua;">Status : <span th:text="${i.status}" style="color:white;"></span></p>
                             <p style="color:aqua;">Field : <span th:text="${i.field}" style="color:white;"></span></p>
@@ -133,7 +133,7 @@
                             <p style="color:aqua;">Phone Number : <span style=" color:white;" th:text="${i.phone}"></span></p>
                             <div class="border" style="width: 100%; background-color: #292F36;"></div>
                             <div class="card-body  adobt-request-buttom " style="color: aqua; background-color: #292F36;">
-                                <form th:if="${i.status} == 'PENDING' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
+                                <form th:if="${i.status} == 'Pending' and ${isVolunteer!=null}" action="/adoptRequest" method="post">
                                     <div class="mb-3">
                                         <input type="hidden" class="form-control" id="id1" name="id" aria-describedby="id"
                                                th:value="${i.id}">
@@ -141,7 +141,7 @@
                                     <button style="margin-left: 80px; margin-top: 45px;" type="submit" class="btn btn-warning">Adopt</button>
                                 </form>
 
-                                <form th:if="${i.status} != 'PENDING'" method="Get"
+                                <form th:if="${i.status} != 'Pending'" method="Get"
                                       th:action="@{/volunteer/{username}(username=${i.getDbVolunteer().getFirstname()})}">
 
                                     <button type="submit" class="btn btn btn-outline-warning"

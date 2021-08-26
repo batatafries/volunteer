@@ -265,7 +265,49 @@
 <script type="text/javascript" src="plugins/wow/dist/wow.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
+<!--display user info-->
+<div>
+    <p>Name : <span th:text="${currentUser.firstname} +' ' + ${currentUser.lastname}"></span></p>
+    <p>Date of birth : <span th:text="${currentUser.dateOfBirth}"></span></p>
+    <p>-----------</p>
+
+</div>
+<!--display the requests-->
+<div th:each="i:${requests}">
+    <p>Body : <span th:text="${i.body}"></span></p>
+    <p>Field : <span th:text="${i.field}"></span></p>
+<!--    <p>Date : <span th:text="${i.date}"></span></p>-->
+<!--    <p>Time : <span th:text="${i.time}"></span></p>-->
+    <p>Phone : <span th:text="${i.phone}"></span></p>
+    <p>Status : <span th:text="${i.status}"></span></p>
+    <p>Created At : <span th:text="${i.CreatedAt}"></span></p>
+
+    <p>-----------</p>
+
+</div>
+
+<!--display volunteers reviews-->
+
+<h2>volunteer's feedback</h2>
+<div th:each="review:${reviews}">
+    <p>Reviewer username : <span th:text="${review.reviewerName}"></span></p>
+    <p>review : <span th:text="${review.review}"></span></p>
+    <p>Created At : <span th:text="${review.createdAt}"></span></p>
+    <form method="Get" th:action="@{/volunteer/{username}(username=${review.getReviewerName()})}">
+        <button type="submit"  th:text="${'Reviewer Profile'}"></button>
+    </form>
+<!--    th:if="'${p}'=='${review.reviewerName}'"-->
+<!--    th:if="${review.reviewerName}==${currentUser.username}"-->
+    <form th:if="${p}==${review.reviewerName}" action="/deleteReview" method="post" class="form_buttom">
+        <input type="hidden" class="form-control" id="id" name="id" aria-describedby="id"
+               th:value="${review.getId()}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <p>-----------</p>
+</div>
 
 </body>
+<div th:include="fragment :: footer"></div>
 
 </html>

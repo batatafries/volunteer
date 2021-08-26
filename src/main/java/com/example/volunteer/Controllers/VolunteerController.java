@@ -30,7 +30,7 @@ public class VolunteerController {
         Post adoptedPost = postRepository.findById(id).get();
         volunteer.addRequest(adoptedPost);
         adoptedPost.setDbVolunteer(volunteer);
-        adoptedPost.setStatus("PROCESSING");
+        adoptedPost.setStatus("Processing");
         postRepository.save(adoptedPost);
         dbVolunteerRepository.save(volunteer);
         return new RedirectView("/requests");
