@@ -177,17 +177,17 @@
                          style="color: aliceblue;" th:each="i:${cards}">
                     <div class="post-block content">
                         <div style="margin: 5px; padding: 5px;">
-                            <p style="margin-top: 10px; font-weight: bolder;">Field : <span
-                                    style="color: aqua; " th:text="${i.field}"></span></p>
-                            <p style="height: 36px; font-weight: bolder;">description : <span
-                                    style="color: aqua; " th:text="${i.description}"></span></p>
-                            <p style="font-weight: bolder;"> Volunteer's Name : <span
-                                    style="color: aqua; "
+                            <p style="margin-top: 10px; font-weight: bolder;color: aqua;">Field : <span
+                                    style="color: white; " th:text="${i.field}"></span></p>
+                            <p style="height: 36px; font-weight: bolder;color: aqua;">Description : <span
+                                    style="color: white; " th:text="${i.description}"></span></p>
+                            <p style="font-weight: bolder;color: aqua;"> Volunteer's Name : <span
+                                    style="color: white; "
                                     th:text="${i.getVolunteer().getFirstname()}"></span></p>
-                            <p style="font-weight: bolder;">Volunteer's E-mail : <span
-                                    style="color: aqua; " th:text="${i.email}"></span></p>
-                            <p style="font-weight: bolder;">Volunteer's Phone : <span
-                                    style="color: aqua; " th:text="${i.phone}"></span></p>
+                            <p style="font-weight: bolder;color: aqua;">Volunteer's E-mail : <span
+                                    style="color: white; " th:text="${i.email}"></span></p>
+                            <p style="font-weight: bolder;color: aqua;">Volunteer's Phone : <span
+                                    style="color: white; " th:text="${i.phone}"></span></p>
                             <form action="/deleteSkillCard" method="post">
                                 <input type="hidden" id="id" name="id" cols="40" th:value="${i.id}">
                                 <input class="btn btn-danger" type="submit" value="Delete"
@@ -197,19 +197,19 @@
                             <div id="myDIV">
                                 <hr>
                                 <form action="/modifySkillCard" method="post">
-                                    <label style="color: white; margin-right: 54px;" for="editedfield">Field
-                                        :</label>
+                                    <label style="color: aqua; margin-right: 64px;" for="editedfield">Field
+                                        </label>
                                     <input style="width: 220px; color: black; color: black;" id="editedfield"
                                            name="field" type="text" th:value="${i.field}"><br>
-                                    <label style="color: white; margin-right: 27px;"
-                                           for="editedDescription">description</label>
+                                    <label style="color: aqua; margin-right: 27px;"
+                                           for="editedDescription">Description</label>
                                     <input style="width: 220px; color: black;" id="editedDescription"
                                            name="description" type="text" th:value="${i.description}"><br>
-                                    <label style="color: white;  margin-right: 53px;"
+                                    <label style="color: aqua;  margin-right: 53px;"
                                            for="editedEmail">E-mail</label>
                                     <input style="width: 220px; color: black;" id="editedEmail" name="email"
                                            type="text" th:value="${i.email}"><br>
-                                    <label style="color: white;  margin-right: 10px;" for="editedEmail">Phone
+                                    <label style="color: aqua;  margin-right: 10px;" for="editedEmail">Phone
                                         Number</label>
                                     <input style="width: 220px; color: black;" id="editedPhone" name="phone"
                                            type="text" th:value="${i.phone}"><br>
@@ -240,13 +240,13 @@
                          style="color: aliceblue;" th:each="i:${currentUser.adoptedRequests}">
                     <div class="post-block content">
                         <div style="margin: 7px; padding: 7px;">
-                            <p style="height: 40px; font-weight: bolder;">Field : <span th:text="${i.field}"></span>
+                            <p style="height: 40px; font-weight: bolder;color:aqua;">Field : <span style="color:white;" th:text="${i.field}"></span>
                             </p>
 
-                            <p style="padding-top: 5px; font-weight: bolder;">Description : <span
+                            <p style="padding-top: 5px; font-weight: bolder; color:aqua;">Description : <span style="color:white;"
                                     th:text="${i.body}"></span></p>
-                            <p style="font-weight: bolder;">Phone Number : <span th:text="${i.phone}"></span></p>
-                            <p style="font-weight: bolder;">Creation At : <span th:text="${i.createdAt}"></span></p>
+                            <p style="font-weight: bolder; color:aqua;">Phone Number : <span style="color:white;" th:text="${i.phone}"></span></p>
+                            <p style="font-weight: bolder; color:aqua;">Creation At : <span style="color:white;" th:text="${i.createdAt}"></span></p>
                         </div>
                         <div class="border" style="width: 100%;"></div>
                     </div>
@@ -281,10 +281,10 @@
                     <div class="post-block content">
                         <div class="border" style="width: 100%;"></div>
                         <div style="padding: 7px; margin: 7px;">
-                            <p style="font-weight: bolder;">Reviewer username : <span
+                            <p style=" color:aqua;font-weight: bolder;">Reviewer username : <span style="color:white;"
                                     th:text="${review.reviewerName}"></span></p>
-                            <p style="font-weight: bolder;">review : <span th:text="${review.review}"></span></p>
-                            <p style="font-weight: bolder;">Creation At : <span th:text="${review.createdAt}"></span>
+                            <p style="font-weight: bolder; color:aqua;">review : <span style="color:white;" th:text="${review.review}"></span></p>
+                            <p style="font-weight: bolder; color:aqua;">Creation At : <span style="color:white;" th:text="${review.createdAt}"></span>
                             </p>
                             <form method="Get"
                                   th:action="@{/{username}(username=${review.getReviewerName()})}">

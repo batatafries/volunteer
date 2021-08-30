@@ -98,12 +98,12 @@
                                     style="color: aqua; padding-top: 30px; font-size: 15px;">Adopt</button>
                         </form>
                         <form th:if="${i.status} != 'Pending'" method="Get"
-                              th:action="@{/V-{username}(username=${i.getDbVolunteer().getFirstname()})}">
-                            <button type="submit" class="btn btn-outline-success" style="color:white;"
+                              th:action="@{/V-{username}(username=${i.getDbVolunteer().getUsername()})}">
+                            <button type="submit" class="btn btn-outline-success" style="color:white;text-align-center;width:120px; "
                                     th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                         </form>
                         <form method="Get" th:action="@{/{username}(username=${i.getUser().getUsername()})}">
-                            <button type="submit" class="btn btn-primary" style=" color: white; border-radius: 10px;margin-top:5px;" th:text="${'Requester Profile'}">Requester Profile</button>
+                            <button type="submit" class="btn btn-primary" style="text-align-center; ;color: white;width:150px; border-radius: 10px;margin-top:5px;" th:text="${'Requester Profile'}">Requester Profile</button>
                         </form>
                     </div>
                 </article>
@@ -151,7 +151,7 @@
                                                 th:text="${'Taken By ' +i.getDbVolunteer().getFirstname()}"></button>
                                     </form>
                                     <form method="Get" th:action="@{/{username}(username=${i.getUser().getUsername()})}">
-                                        <button type="submit" class="btn btn-primary" style=" color: white; border-radius: 10px;" th:text="${'Requester Profile'}"></button>
+                                        <button type="submit" class="btn btn-primary" style="width: 150px;text-align:center ; color: white; border-radius: 10px;" th:text="${'Requester Profile'}"></button>
                                     </form>
 
                                 </div>

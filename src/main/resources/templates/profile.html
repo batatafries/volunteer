@@ -160,16 +160,16 @@
                          style="color: aliceblue;" th:each="i:${requests}">
                     <div class="post-block content">
                         <div style="margin: 5px; padding: 5px;">
-                            <h2 style="text-align: center; color: aliceblue;">Status: <span class="color"
+                            <h2 style="text-align: center; color: aqua;">Status: <span style="color:white;" class="color"
                                                   th:text="${i.status}"></span></h2>
-                            <p style="margin-top: 10px; font-weight: bolder;">Field : <span
-                                    style="color: aqua; " th:text="${i.field}"></span></p>
-                            <p style="height: 36px; font-weight: bolder;">Description : <span
-                                    style="color: aqua; " th:text="${i.body}"></span></p>
-                            <p style="font-weight: bolder;">Phone Number : <span
-                                    style="color: aqua; " th:text="${i.phone}"></span></p>
-                            <p style="font-weight: bolder;">Creation At : <span
-                                    style="color: aqua;"
+                            <p style="color:aqua; margin-top: 10px; font-weight: bolder;">Field : <span
+                                    style="color: white; " th:text="${i.field}"></span></p>
+                            <p style="height: 36px; font-weight: bolder;color:aqua;">Description : <span
+                                    style="color: white; " th:text="${i.body}"></span></p>
+                            <p style="font-weight: bolder;color:aqua;">Phone Number : <span
+                                    style="color: white; " th:text="${i.phone}"></span></p>
+                            <p style="font-weight: bolder;color:aqua;">Creation At : <span
+                                    style="color: white;"
                                     th:text="${i.CreatedAt}"></span></p>
 
                             <form action="/deleteRequest" method="post" class="form_buttom">
@@ -184,16 +184,16 @@
                                 <hr>
                                 <form action="/modifyRequest" method="post">
                                     <input type="hidden" id="id1" name="id" cols="40" th:value="${i.id}"><br>
-                                    <label style="color: white; margin-right: 54px;" for="editedfield">Field
+                                    <label style="color: aqua; margin-right: 54px;" for="editedfield">Field
                                         :</label>
                                     <input style="width: 220px; color: black; color: black;" id="editedfield"
                                            name="field" type="text" th:value="${i.field}"><br>
-                                    <label style="color: white; margin-right: 18px;"
+                                    <label style="color: aqua; margin-right: 18px;"
                                            for="editedDescription">Description :</label>
                                     <input style="width: 220px; color: black;" id="editedDescription"
                                            name="body" type="text" th:value="${i.body}"><br>
 
-                                    <label style="color: white;  margin-right: 1px;" for="editedPhone">Phone
+                                    <label style="color: aqua;  margin-right: 1px;" for="editedPhone">Phone
                                         Number :</label>
                                     <input style="width: 220px; color: black;" id="editedPhone" name="phone"
                                            type="text" th:value="${i.phone}"><br>
@@ -224,10 +224,10 @@
                     <div class="post-block content">
                         <div class="border" style="width: 100%;"></div>
                         <div style="padding: 7px; margin: 7px;">
-                            <p style="font-weight: bolder;">Reviewer username : <span
+                            <p style="font-weight: bolder; color:aqua;">Reviewer username : <span style="color:white;"
                                     th:text="${review.reviewerName}"></span></p>
-                            <p style="font-weight: bolder;">review : <span th:text="${review.review}"></span></p>
-                            <p style="font-weight: bolder;">Creation At : <span th:text="${review.createdAt}"></span>
+                            <p style=" color:aqua;font-weight: bolder;">Review : <span th:text="${review.review}" style="color:white;"></span></p>
+                            <p style=" color:aqua;font-weight: bolder;">Creation At : <span style="color:white;" th:text="${review.createdAt}"></span>
                             </p>
                             <form method="Get"
                                   th:action="@{/V-{username}(username=${review.getReviewerName()})}">
